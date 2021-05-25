@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 
 import com.daniel.appmatematicas.R;
+import com.daniel.appmatematicas.view.EncuentraNumeroActivity;
 import com.daniel.appmatematicas.view.UiProtoipoActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
@@ -40,7 +41,7 @@ public class IdentificateActivity extends AppCompatActivity {
                 prefs.edit().putString("prefs_notificacion", nombre.getText().toString()).commit();
                 showSnackBar("¡!"+prefs.getString("prefs_notificacion",""));
 
-                startActivity(new Intent(IdentificateActivity.this, UiProtoipoActivity.class));
+                startActivity(new Intent(IdentificateActivity.this, EncuentraNumeroActivity.class));
                 finish();
             }
         });
