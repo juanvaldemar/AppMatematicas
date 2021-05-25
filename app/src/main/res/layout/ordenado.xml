@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container"
-    tools:context=".BuscarNumeroActivity">
+    tools:context=".view.ColorActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -432,11 +432,15 @@
                 android:orientation="horizontal">
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_primero"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/primero"
+
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -447,11 +451,15 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/seleccion_segundo"
+
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/segundo"
+
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -463,11 +471,14 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_tercero"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/tercero"
+
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -479,11 +490,13 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_cuarto"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/cuarto"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -494,11 +507,13 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_quinto"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/quinto"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -511,11 +526,6 @@
 
             </LinearLayout>
 
-
-
-
-
-
         </LinearLayout>
 
     </LinearLayout>
@@ -525,6 +535,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
+        android:visibility="gone"
         android:layout_marginBottom="100dp"
         android:padding="5dp"
         android:orientation="horizontal">

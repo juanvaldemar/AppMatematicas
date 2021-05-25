@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,14 +14,11 @@ import android.widget.TextView;
 import com.daniel.appmatematicas.R;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class EncuentraNumeroActivity extends AppCompatActivity {
-
+public class ColorActivity extends AppCompatActivity {
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
     private boolean seleccion;
@@ -41,15 +37,12 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
     private TextView mQuinto;
     private TextView mSexto;
     private EditText contador;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.encuentra_numero);
-
+        setContentView(R.layout.ordenado);
 
         initGenerados();
-
     }
 
     private void initGenerados() {
@@ -61,11 +54,9 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
             while (!generado) {
                 int posible = rd.nextInt(100);
                 if (!generados.contains(posible)) {
-                    if(posible % 2 == 0){
-                        generados.add(posible);
-                        aleatorio = posible;
-                        generado = true;
-                    }
+                    generados.add(posible);
+                    aleatorio = posible;
+                    generado = true;
                 }
             }
             if (i == 6) {
@@ -82,18 +73,13 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
     private void initFonts(List<Integer> generados, int a) {
 
 
-        numeroAleatorioPrincipal = a;
-        TextView encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
-        int valorDividido = a/2;
-        System.out.println(valorDividido);
-        encuentra_numero_text.setText("Encuentra el número de la operación: "+ valorDividido +" + "+valorDividido);
+        numeroAleatorioPrincipal = 15;
 
         mPrimero = findViewById(R.id.primero);
         mSegundo = findViewById(R.id.segundo);
         mTercero = findViewById(R.id.tercero);
         mCuarto = findViewById(R.id.cuarto);
         mQuinto = findViewById(R.id.quinto);
-        mSexto = findViewById(R.id.sexto);
 
 
 
@@ -102,7 +88,6 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
         mTercero.setText(generados.get(2).toString());
         mCuarto.setText(generados.get(3).toString());
         mQuinto.setText(generados.get(4).toString());
-        mSexto.setText(generados.get(5).toString());
 
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
         //encuentra_numero_text.setText("Encuentra el número "+ this.numeroAleatorioPrincipal +":");
@@ -112,27 +97,23 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
     private void initSeleccionEmpty() {
 
         mPrimeroR = findViewById(R.id.seleccion_primero);
-        mPrimeroR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
+        mPrimeroR.setBackgroundColor(ContextCompat.getColor(ColorActivity.this, R.color.white));
 
         mSegundoR= findViewById(R.id.seleccion_segundo);
-        mSegundoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
-
-
+        mSegundoR.setBackgroundColor(ContextCompat.getColor(ColorActivity.this, R.color.white));
 
         mTerceroR= findViewById(R.id.seleccion_tercero);
-        mTerceroR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
+        mTerceroR.setBackgroundColor(ContextCompat.getColor(ColorActivity.this, R.color.white));
 
         mCuartoR = findViewById(R.id.seleccion_cuarto);
 
-        mCuartoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
+        mCuartoR.setBackgroundColor(ContextCompat.getColor(ColorActivity.this, R.color.white));
 
         mQuintoR = findViewById(R.id.seleccion_quinto);
 
-        mQuintoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
+        mQuintoR.setBackgroundColor(ContextCompat.getColor(ColorActivity.this, R.color.white));
 
-        mSextoR = findViewById(R.id.seleccion_sexto);
 
-        mSextoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
 
     }
 
@@ -144,7 +125,7 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
                 initSeleccionEmpty();
                 valorSeleccionado = Integer.parseInt(mPrimero.getText().toString());
                 seleccion = true;
-                mPrimeroR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.gray));
+                mPrimeroR.setBackgroundColor(ContextCompat.getColor(ColorActivity.this, R.color.gray));
 
             }
         });
@@ -154,7 +135,7 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
                 initSeleccionEmpty();
                 valorSeleccionado = Integer.parseInt(mSegundo.getText().toString());
                 seleccion = true;
-                mSegundoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.gray));
+                mSegundoR.setBackgroundColor(ContextCompat.getColor(ColorActivity.this, R.color.gray));
 
             }
         });
@@ -164,7 +145,7 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
                 initSeleccionEmpty();
                 valorSeleccionado = Integer.parseInt(mTercero.getText().toString());
                 seleccion = true;
-                mTerceroR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.gray));
+                mTerceroR.setBackgroundColor(ContextCompat.getColor(ColorActivity.this, R.color.gray));
 
             }
         });
@@ -174,7 +155,7 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
                 initSeleccionEmpty();
                 valorSeleccionado = Integer.parseInt(mCuarto.getText().toString());
                 seleccion = true;
-                mCuartoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.gray));
+                mCuartoR.setBackgroundColor(ContextCompat.getColor(ColorActivity.this, R.color.gray));
 
             }
         });
@@ -184,7 +165,7 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
                 initSeleccionEmpty();
                 valorSeleccionado = Integer.parseInt(mQuinto.getText().toString());
                 seleccion = true;
-                mQuintoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.gray));
+                mQuintoR.setBackgroundColor(ContextCompat.getColor(ColorActivity.this, R.color.gray));
 
             }
         });
@@ -200,8 +181,8 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Muy bien!");
-                        startActivity(new Intent(EncuentraNumeroActivity.this,ColorActivity.class));
-                       // listaCalificacion.add(true);
+                        startActivity(new Intent(ColorActivity.this,ColorActivity.class));
+                        // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Oh no fallaste!");
@@ -234,5 +215,6 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
                 .make(findViewById(R.id.container), msg, Snackbar.LENGTH_LONG)
                 .show();
     }
+
 
 }
