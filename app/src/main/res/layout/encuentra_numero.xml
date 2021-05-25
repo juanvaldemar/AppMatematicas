@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
-                android:text="Encuentra el número de la operación 50 + 15"
+                android:text=""
                 />
 
 
@@ -92,11 +92,13 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_primero"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/primero"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -175,11 +177,13 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/seleccion_segundo"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/segundo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -196,6 +200,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -205,16 +210,17 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_tercero"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/tercero"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
-
                         android:text="29"
                         android:textSize="25dp"/>
 
@@ -273,11 +279,13 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/seleccion_cuarto"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/cuarto"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -303,11 +311,14 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+
+                    android:id="@+id/seleccion_quinto"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/quinto"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -383,11 +394,13 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_sexto"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/sexto"
                         android:background="@drawable/circle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -562,6 +575,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
+        android:visibility="gone"
         android:layout_marginBottom="80dp"
         android:padding="5dp"
         android:orientation="horizontal">
