@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/container"
-    tools:context=".BuscarNumeroActivity">
+    android:layout_height="wrap_content"
+    android:id="@+id/container">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -70,8 +69,8 @@
                     android:layout_weight="1"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -84,23 +83,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:textColor="@color/black"
-                        android:background="@drawable/polo"
-                        android:text=""
-                        android:textSize="30dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -114,8 +98,23 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/polo"
+                        android:text=""
+                        android:textSize="30dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -128,8 +127,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -166,8 +165,8 @@
                     android:layout_weight="1"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -180,8 +179,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -195,8 +194,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo_rojo"
                         android:text=""
@@ -210,8 +209,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -224,8 +223,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -261,8 +260,8 @@
                     android:layout_weight="1"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -275,23 +274,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:textColor="@color/black"
-                        android:background="@drawable/polo"
-                        android:text=""
-                        android:textSize="30dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -305,8 +289,23 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/polo"
+                        android:text=""
+                        android:textSize="30dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -319,8 +318,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:background="@drawable/polo"
                         android:text=""
@@ -355,12 +354,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="¿?"
                         android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -437,7 +437,7 @@
                     android:gravity="center">
                     <TextView
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:text="33"
                         android:padding="10dp"
@@ -452,7 +452,7 @@
                     android:gravity="center">
                     <TextView
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:text="16"
                         android:padding="10dp"
@@ -468,7 +468,7 @@
                     android:gravity="center">
                     <TextView
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:text="06"
                         android:padding="10dp"
@@ -484,7 +484,7 @@
                     android:gravity="center">
                     <TextView
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:text="12"
                         android:padding="10dp"
@@ -499,7 +499,7 @@
                     android:gravity="center">
                     <TextView
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:text="04"
                         android:padding="10dp"
@@ -536,7 +536,7 @@
                     android:gravity="center">
                     <TextView
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:text="02"
                         android:padding="10dp"
@@ -551,7 +551,7 @@
                     android:gravity="center">
                     <TextView
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:text="01"
                         android:padding="10dp"
@@ -567,7 +567,7 @@
                     android:gravity="center">
                     <TextView
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:text="03"
                         android:padding="10dp"
@@ -583,7 +583,7 @@
                     android:gravity="center">
                     <TextView
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:text="04"
                         android:padding="10dp"
@@ -598,7 +598,7 @@
                     android:gravity="center">
                     <TextView
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:text="05"
                         android:padding="10dp"
@@ -616,6 +616,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -640,6 +641,7 @@
             android:justificationMode="inter_word"
             android:text="/10"
             android:textSize="30dp"
+            android:visibility="gone"
             android:layout_gravity="center"
             android:textColor="#849095"
             />

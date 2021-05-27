@@ -19,7 +19,19 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.daniel.appmatematicas.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.daniel.appmatematicas.view.fragmentos.SumarFragment"
+        android:label="Sumar"
+        tools:layout="@layout/suma" />
+
+    <fragment
+        android:id="@+id/nav_resta"
+        android:name="com.daniel.appmatematicas.view.fragmentos.RestarFragment"
+        android:label="Resta"
+        tools:layout="Restar" />
+
+    <fragment
+        android:id="@+id/nav_contar_color"
+        android:name="com.daniel.appmatematicas.view.fragmentos.ColorFragment"
+        android:label="Contar con Colores"
+        tools:layout="@layout/numeros_colores" />
 </navigation>
