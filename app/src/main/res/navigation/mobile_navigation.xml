@@ -7,15 +7,15 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.daniel.appmatematicas.ui.home.HomeFragment"
+        android:name="com.daniel.appmatematicas.view.fragmentos.EncontrarFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_encontrar" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.daniel.appmatematicas.ui.gallery.GalleryFragment"
+        android:name="com.daniel.appmatematicas.view.fragmentos.ContarFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/contar" />
 
     <fragment
         android:id="@+id/nav_slideshow"

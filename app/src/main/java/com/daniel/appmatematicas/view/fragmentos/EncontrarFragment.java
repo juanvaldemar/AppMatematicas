@@ -1,24 +1,30 @@
-package com.daniel.appmatematicas.view;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+package com.daniel.appmatematicas.view.fragmentos;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daniel.appmatematicas.R;
+import com.daniel.appmatematicas.view.ColorActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class EncuentraNumeroActivity extends AppCompatActivity {
+
+public class EncontrarFragment extends Fragment {
 
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
@@ -39,17 +45,30 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
     private TextView mSexto;
     private EditText contador;
 
+
+
+    public EncontrarFragment() {
+        // Required empty public constructor
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.encontrar_numero);
-
-
-        initGenerados();
 
     }
 
-    private void initGenerados() {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View root = inflater.inflate(R.layout.fragment_encontrar, container, false);
+        initGenerados(root);
+
+        return root;
+    }
+
+    private void initGenerados(View root) {
         Random rd = new Random();
         List<Integer> generados = new ArrayList<>();
         for (int i = 1; i <= 6; i++) {
@@ -66,31 +85,31 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
                 }
             }
             if (i == 6) {
-                initFonts(generados, generados.get(2));
+                initFonts(generados, generados.get(2),root);
             }
             System.out.println("Aleatorio: " + aleatorio);
         }
-        initSeleccionEmpty();
+        initSeleccionEmpty(root);
 
-        initClicks();
+        initClicks(root);
 
 
     }
-    private void initFonts(List<Integer> generados, int a) {
+    private void initFonts(List<Integer> generados, int a, View root) {
 
 
         numeroAleatorioPrincipal = a;
-        TextView encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
+        TextView encuentra_numero_text = root.findViewById(R.id.encuentra_numero_text);
         int valorDividido = a/2;
         System.out.println(valorDividido);
         encuentra_numero_text.setText("Encuentra el número de la operación: "+ valorDividido +" + "+valorDividido);
 
-        mPrimero = findViewById(R.id.primero);
-        mSegundo = findViewById(R.id.segundo);
-        mTercero = findViewById(R.id.tercero);
-        mCuarto = findViewById(R.id.cuarto);
-        mQuinto = findViewById(R.id.quinto);
-        mSexto = findViewById(R.id.sexto);
+        mPrimero = root.findViewById(R.id.primero);
+        mSegundo = root.findViewById(R.id.segundo);
+        mTercero = root.findViewById(R.id.tercero);
+        mCuarto = root.findViewById(R.id.cuarto);
+        mQuinto = root.findViewById(R.id.quinto);
+        mSexto = root.findViewById(R.id.sexto);
 
 
 
@@ -104,86 +123,86 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
         //encuentra_numero_text.setText("Encuentra el número "+ this.numeroAleatorioPrincipal +":");
     }
-    private void initSeleccionEmpty() {
+    private void initSeleccionEmpty(View root) {
 
-        mPrimeroR = findViewById(R.id.seleccion_primero);
-        mPrimeroR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
+        mPrimeroR = root.findViewById(R.id.seleccion_primero);
+        mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
-        mSegundoR= findViewById(R.id.seleccion_segundo);
-        mSegundoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
+        mSegundoR= root.findViewById(R.id.seleccion_segundo);
+        mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
 
 
-        mTerceroR= findViewById(R.id.seleccion_tercero);
-        mTerceroR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
+        mTerceroR= root.findViewById(R.id.seleccion_tercero);
+        mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
-        mCuartoR = findViewById(R.id.seleccion_cuarto);
+        mCuartoR = root.findViewById(R.id.seleccion_cuarto);
 
-        mCuartoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
+        mCuartoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
-        mQuintoR = findViewById(R.id.seleccion_quinto);
+        mQuintoR = root.findViewById(R.id.seleccion_quinto);
 
-        mQuintoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
+        mQuintoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
-        mSextoR = findViewById(R.id.seleccion_sexto);
+        mSextoR = root.findViewById(R.id.seleccion_sexto);
 
-        mSextoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.white));
+        mSextoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
     }
-    private void initClicks() {
+    private void initClicks(View root) {
 
         mPrimeroR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initSeleccionEmpty();
+                initSeleccionEmpty(root);
                 valorSeleccionado = Integer.parseInt(mPrimero.getText().toString());
                 seleccion = true;
-                mPrimeroR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.gray));
+                mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
             }
         });
         mSegundoR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initSeleccionEmpty();
+                initSeleccionEmpty(root);
                 valorSeleccionado = Integer.parseInt(mSegundo.getText().toString());
                 seleccion = true;
-                mSegundoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.gray));
+                mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
             }
         });
         mTerceroR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initSeleccionEmpty();
+                initSeleccionEmpty(root);
                 valorSeleccionado = Integer.parseInt(mTercero.getText().toString());
                 seleccion = true;
-                mTerceroR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.gray));
+                mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
             }
         });
         mCuartoR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initSeleccionEmpty();
+                initSeleccionEmpty(root);
                 valorSeleccionado = Integer.parseInt(mCuarto.getText().toString());
                 seleccion = true;
-                mCuartoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.gray));
+                mCuartoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
             }
         });
         mQuintoR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initSeleccionEmpty();
+                initSeleccionEmpty(root);
                 valorSeleccionado = Integer.parseInt(mQuinto.getText().toString());
                 seleccion = true;
-                mQuintoR.setBackgroundColor(ContextCompat.getColor(EncuentraNumeroActivity.this, R.color.gray));
+                mQuintoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
             }
         });
 
-        Button validar = findViewById(R.id.validar);
+        Button validar = root.findViewById(R.id.validar);
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -194,8 +213,8 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Muy bien!");
-                        startActivity(new Intent(EncuentraNumeroActivity.this,ColorActivity.class));
-                       // listaCalificacion.add(true);
+                        startActivity(new Intent(getActivity(), ColorActivity.class));
+                        // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Oh no fallaste!");
@@ -223,9 +242,7 @@ public class EncuentraNumeroActivity extends AppCompatActivity {
 
     }
     public void showSnackBar(String msg) {
-        Snackbar
-                .make(findViewById(R.id.container), msg, Snackbar.LENGTH_LONG)
-                .show();
+      Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }
 
 }
