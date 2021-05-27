@@ -11,11 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMatematicas">
-        <activity android:name=".view.ColorActivity"></activity>
-        <activity android:name=".view.EncuentraNumeroActivity"></activity>
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/Theme.AppMatematicas.NoActionBar"></activity>
+        <activity android:name=".view.PerfilActivity" />
+        <activity android:name=".view.ColorActivity" />
+        <activity android:name=".view.EncuentraNumeroActivity" />
         <activity android:name=".ResultadoFinalActivity" />
         <activity android:name=".view.UiProtoipoActivity" />
-        <activity android:name=".autenticación.IdentificateActivity"></activity>
+        <activity android:name=".autenticación.IdentificateActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".autenticación.auth.AccessRelato">
             <intent-filter>

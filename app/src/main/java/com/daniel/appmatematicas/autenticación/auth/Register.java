@@ -149,12 +149,12 @@ public class Register extends AppCompatActivity {
                             FirebaseUser user =  mAuth.getCurrentUser();
                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                     .setDisplayName(display_name)
-                                    .setPhotoUri(Uri.parse("https://firebasestorage.googleapis.com/v0/b/spookapp-d9304.appspot.com/o/ic_launcher.png?alt=media&token=052d23e4-c05b-4b66-82ac-27f509d4b54a"))
+                                    .setPhotoUri(Uri.parse("https://i.blogs.es/66b2a4/photo-1511367461989-f85a21fda167/450_1000.jpeg"))
                                     .build();
 
                             DatabaseReference cureent_user_db = mDatabaseUser.child(user_id);
                             cureent_user_db.child("name").setValue(display_name);
-                            cureent_user_db.child("image").setValue("https://firebasestorage.googleapis.com/v0/b/spookapp-d9304.appspot.com/o/ic_launcher.png?alt=media&token=052d23e4-c05b-4b66-82ac-27f509d4b54a");
+                            cureent_user_db.child("image").setValue("https://i.blogs.es/66b2a4/photo-1511367461989-f85a21fda167/450_1000.jpeg");
                             user.updateProfile(profileUpdates)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

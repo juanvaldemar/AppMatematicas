@@ -40,7 +40,7 @@ public class ColorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ordenado);
+        setContentView(R.layout.contar);
 
         initGenerados();
     }
@@ -181,12 +181,13 @@ public class ColorActivity extends AppCompatActivity {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Muy bien!");
-                        startActivity(new Intent(ColorActivity.this,ColorActivity.class));
+                        startActivity(new Intent(ColorActivity.this, PerfilActivity.class));
                         // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Oh no fallaste!");
                         //listaCalificacion.add(false);
+                        startActivity(new Intent(ColorActivity.this, PerfilActivity.class));
 
                     }
 

@@ -21,13 +21,13 @@ public class UiProtoipoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //  startActivity(new Intent(Menusss.this, MainActivity.class));
-                setContentView(R.layout.ordenado);
+                setContentView(R.layout.contar);
                 validar = findViewById(R.id.validar);
                 validar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         //  startActivity(new Intent(Menusss.this, MainActivity.class));
-                        setContentView(R.layout.ordenado_colores);
+                        setContentView(R.layout.numeros_colores);
                         validar = findViewById(R.id.validar);
                         validar.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -39,7 +39,7 @@ public class UiProtoipoActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View view) {
                                         //  startActivity(new Intent(Menusss.this, MainActivity.class));
-                                        setContentView(R.layout.encuentra_numero);
+                                        setContentView(R.layout.encontrar_numero);
                                         validar = findViewById(R.id.validar);
                                         validar.setOnClickListener(new View.OnClickListener() {
                                             @Override
