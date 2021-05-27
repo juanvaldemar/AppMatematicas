@@ -75,7 +75,7 @@ public class ContarFragment extends Fragment {
                 }
             }
             if (i == 6) {
-                initFonts(generados, generados.get(2),root);
+                initFonts(generados, 15,root);
             }
             System.out.println("Aleatorio: " + aleatorio);
         }
@@ -85,10 +85,10 @@ public class ContarFragment extends Fragment {
 
 
     }
-    private void initFonts(List<Integer> generados, int a, View root) {
+    private void initFonts(List<Integer> generados, int principal, View root) {
 
 
-        numeroAleatorioPrincipal = 15;
+        numeroAleatorioPrincipal = principal;
 
         mPrimero = root.findViewById(R.id.primero);
         mSegundo = root.findViewById(R.id.segundo);
@@ -99,7 +99,7 @@ public class ContarFragment extends Fragment {
 
 
         mPrimero.setText(generados.get(0).toString());
-        mSegundo.setText(generados.get(1).toString());
+        mSegundo.setText("15");
         mTercero.setText(generados.get(2).toString());
         mCuarto.setText(generados.get(3).toString());
         mQuinto.setText(generados.get(4).toString());
@@ -196,13 +196,13 @@ public class ContarFragment extends Fragment {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Muy bien!");
-                        startActivity(new Intent(getActivity(), PerfilActivity.class));
+                        //startActivity(new Intent(getActivity(), PerfilActivity.class));
                         // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Oh no fallaste!");
                         //listaCalificacion.add(false);
-                        startActivity(new Intent(getActivity(), PerfilActivity.class));
+                       // startActivity(new Intent(getActivity(), PerfilActivity.class));
 
                     }
 
