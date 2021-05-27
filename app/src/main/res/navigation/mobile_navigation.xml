@@ -34,4 +34,17 @@
         android:name="com.daniel.appmatematicas.view.fragmentos.ColorFragment"
         android:label="Contar con Colores"
         tools:layout="@layout/numeros_colores" />
+
+    <fragment
+        android:id="@+id/nav_enlatados_colores"
+        android:name="com.daniel.appmatematicas.view.fragmentos.ContarAlimentosFragment"
+        android:label="Contar comida enlatada"
+        tools:layout="@layout/fragment_contar_alimentos" />
+
+
+    <fragment
+        android:id="@+id/LongitudLapizFragment"
+        android:name="com.daniel.appmatematicas.view.fragmentos.LongitudLapizFragment"
+        android:label="Longitud Lápiz"
+        tools:layout="@layout/fragment_longitud_lapiz" />
 </navigation>

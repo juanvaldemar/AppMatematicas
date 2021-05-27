@@ -21,6 +21,14 @@
         <item
             android:id="@+id/nav_contar_color"
             android:title="Contar colores" />
+
+        <item
+            android:id="@+id/nav_enlatados_colores"
+            android:title="Contar comida enlatada" />
+
+        <item
+            android:id="@+id/LongitudLapizFragment"
+            android:title="Logitud lápiz" />
     </group>
 
 
