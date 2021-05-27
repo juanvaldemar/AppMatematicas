@@ -12,7 +12,6 @@
         android:orientation="vertical">
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -352,15 +351,14 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="center">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="¿?"
+                        android:text="¿Cuantos polos hay?"
                         android:textColor="@color/black"
-                        android:textSize="25dp" />
+                        android:textSize="17dp" />
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -431,11 +429,14 @@
                 android:orientation="horizontal">
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_primero"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/primero"
+
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:textColor="@color/black"
@@ -446,11 +447,13 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/seleccion_segundo"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/segundo"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:textColor="@color/black"
@@ -462,11 +465,13 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_tercero"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/tercero"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:textColor="@color/black"
@@ -478,11 +483,13 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_cuarto"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/cuarto"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:textColor="@color/black"
@@ -493,11 +500,13 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/seleccion_quinto"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
+                        android:id="@+id/quinto"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:textColor="@color/black"
