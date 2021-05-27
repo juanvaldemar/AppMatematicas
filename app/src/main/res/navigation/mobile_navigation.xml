@@ -53,4 +53,11 @@
         android:name="com.daniel.appmatematicas.view.fragmentos.AnimalMedidaFragment"
         android:label="Medida Animal"
         tools:layout="@layout/fragment_animal_medida" />
+
+
+    <fragment
+        android:id="@+id/nav_estimacion"
+        android:name="com.daniel.appmatematicas.view.fragmentos.EstimacionFragment"
+        android:label="Medida Animal"
+        tools:layout="@layout/fragment_estimacion" />
 </navigation>

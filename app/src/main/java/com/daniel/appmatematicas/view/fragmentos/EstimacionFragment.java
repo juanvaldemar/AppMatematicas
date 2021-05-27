@@ -21,8 +21,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class AnimalMedidaFragment extends Fragment {
-
+public class EstimacionFragment extends Fragment {
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
     private boolean seleccion;
@@ -30,25 +29,27 @@ public class AnimalMedidaFragment extends Fragment {
     private RelativeLayout mPrimeroR;
     private RelativeLayout mSegundoR;
     private RelativeLayout mTerceroR;
-
+    private RelativeLayout mCuartoR;
+    private RelativeLayout mQuintoR;
+    private RelativeLayout mSextoR;
 
     private TextView mPrimero;
     private TextView mSegundo;
     private TextView mTercero;
-
-
-    public AnimalMedidaFragment() {
+    private TextView mCuarto;
+    private TextView mQuinto;
+    private TextView mSexto;
+    private EditText contador;
+    public EstimacionFragment() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_animal_medida, container, false);
-          initGenerados(root);
+        View root = inflater.inflate(R.layout.fragment_estimacion, container, false);
+            initGenerados(root);
         return root;
     }
 
@@ -85,19 +86,11 @@ public class AnimalMedidaFragment extends Fragment {
 
         mPrimero = root.findViewById(R.id.primero);
         mSegundo = root.findViewById(R.id.segundo);
-        mTercero = root.findViewById(R.id.tercero);
 
-
-
-        mPrimero.setText("A");
-        mSegundo.setText("B");
-        mTercero.setText("C");
 
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
         //encuentra_numero_text.setText("Encuentra el número "+ this.numeroAleatorioPrincipal +":");
     }
-
-
     private void initSeleccionEmpty(View root) {
 
         mPrimeroR = root.findViewById(R.id.seleccion_primero);
@@ -106,21 +99,16 @@ public class AnimalMedidaFragment extends Fragment {
         mSegundoR= root.findViewById(R.id.seleccion_segundo);
         mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
-        mTerceroR= root.findViewById(R.id.seleccion_tercero);
-        mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
-
-
 
 
     }
-
     private void initClicks(View root) {
 
         mPrimeroR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("1");
+                valorSeleccionado = Integer.parseInt("80");
                 seleccion = true;
                 mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
@@ -130,23 +118,12 @@ public class AnimalMedidaFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("2");
+                valorSeleccionado = Integer.parseInt("40");
                 seleccion = true;
                 mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
             }
         });
-        mTerceroR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("5");
-                seleccion = true;
-                mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
-
-            }
-        });
-
 
         Button validar = root.findViewById(R.id.validar);
         validar.setOnClickListener(new View.OnClickListener() {
@@ -188,7 +165,6 @@ public class AnimalMedidaFragment extends Fragment {
         });
 
     }
-
     public void showSnackBar(String msg) {
         Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }

@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
-            android:text="Aprendiendo longitudes"
+            android:text="Aprendiendo tamaños"
             android:textSize="17dp"
             android:layout_gravity="center"
             android:textColor="#849095"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:textSize="17dp"
             android:layout_marginTop="15dp"
-            android:text="¿Qué lápiz es más largo?"
+            android:text="¿Qué Animal es más grande?"
             />
 
 
