@@ -96,8 +96,8 @@ public class LongitudLapizFragment extends Fragment {
 
 
         mPrimero.setText("A");
-        mSegundo.setText("C");
-        mTercero.setText("D");
+        mSegundo.setText("B");
+        mTercero.setText("C");
 
 
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
@@ -146,7 +146,7 @@ public class LongitudLapizFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("2");
+                valorSeleccionado = Integer.parseInt("4");
                 seleccion = true;
                 mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 

@@ -47,4 +47,10 @@
         android:name="com.daniel.appmatematicas.view.fragmentos.LongitudLapizFragment"
         android:label="Longitud Lápiz"
         tools:layout="@layout/fragment_longitud_lapiz" />
+
+    <fragment
+        android:id="@+id/nav_animales"
+        android:name="com.daniel.appmatematicas.view.fragmentos.AnimalMedidaFragment"
+        android:label="Medida Animal"
+        tools:layout="@layout/fragment_animal_medida" />
 </navigation>

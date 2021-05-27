@@ -59,7 +59,7 @@ public class MenuActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_resta, R.id.nav_contar_color,
-                R.id.nav_contar_color, R.id.nav_enlatados_colores, R.id.LongitudLapizFragment)
+                R.id.nav_contar_color, R.id.nav_enlatados_colores, R.id.LongitudLapizFragment, R.id.nav_animales)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
