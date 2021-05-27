@@ -64,7 +64,7 @@ public class MenuActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        initUIMenu();
+
     }
 
     private void initUIMenu() {
@@ -82,7 +82,12 @@ public class MenuActivity extends AppCompatActivity {
             String name = user.getDisplayName();
             String email = user.getEmail();
 
-            mMenu_profile_name.setText(name);
+            if(user.getDisplayName() != null){
+                mMenu_profile_name.setText(name) ;
+            }else{
+                mMenu_profile_name.setText("Hola") ;
+            }
+
             if(user.getEmail() != null){
                 mMenu_profile_email.setText(email);
             }
@@ -101,7 +106,7 @@ public class MenuActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
-
+        initUIMenu();
         return true;
     }
 
