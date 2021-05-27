@@ -60,4 +60,11 @@
         android:name="com.daniel.appmatematicas.view.fragmentos.EstimacionFragment"
         android:label="Medida Animal"
         tools:layout="@layout/fragment_estimacion" />
+
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.daniel.appmatematicas.LogoutFragment"
+        android:label="Cerrar Sesión"
+        tools:layout="@layout/fragment_logout" />
 </navigation>
