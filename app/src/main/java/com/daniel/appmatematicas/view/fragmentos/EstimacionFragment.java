@@ -111,7 +111,7 @@ public class EstimacionFragment extends Fragment {
                 valorSeleccionado = Integer.parseInt("80");
                 seleccion = true;
                 mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
-
+                System.out.println("80");
             }
         });
         mSegundoR.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +121,7 @@ public class EstimacionFragment extends Fragment {
                 valorSeleccionado = Integer.parseInt("40");
                 seleccion = true;
                 mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
+                System.out.println("40");
 
             }
         });
@@ -132,10 +133,14 @@ public class EstimacionFragment extends Fragment {
                 if(!seleccion){
                     //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
                     showSnackBar("¡Por favor seleccione una opcción valida!");
+                    System.out.println("seleccion");
+
                 }else{
-                    if(valorSeleccionado == numeroAleatorioPrincipal){
+                    if(valorSeleccionado > 40){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Muy bien!");
+                        System.out.println("valorSeleccionado" +valorSeleccionado);
+
                         //startActivity(new Intent(getActivity(), PerfilActivity.class));
                         // listaCalificacion.add(true);
                     }else{
@@ -143,6 +148,8 @@ public class EstimacionFragment extends Fragment {
                         showSnackBar("¡Oh no fallaste!");
                         //listaCalificacion.add(false);
                         // startActivity(new Intent(getActivity(), PerfilActivity.class));
+                        System.out.println("valorSeleccionado" +valorSeleccionado);
+
 
                     }
 

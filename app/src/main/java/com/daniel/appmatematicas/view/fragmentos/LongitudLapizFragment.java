@@ -136,7 +136,7 @@ public class LongitudLapizFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("3");
+                valorSeleccionado = Integer.parseInt("2");
                 seleccion = true;
                 mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
@@ -146,7 +146,7 @@ public class LongitudLapizFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("4");
+                valorSeleccionado = Integer.parseInt("3");
                 seleccion = true;
                 mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
