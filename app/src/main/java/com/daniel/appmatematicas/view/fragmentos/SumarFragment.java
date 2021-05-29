@@ -15,13 +15,10 @@ import com.daniel.appmatematicas.R;
 
 public class SumarFragment extends Fragment {
 
-
         private EditText mPrimero;
         private EditText mSegundo;
         private int valorUno;
         private int valorDos;
-
-
 
         public SumarFragment() {
         // Required empty public constructor
