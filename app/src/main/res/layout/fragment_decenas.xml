@@ -71,7 +71,7 @@
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
                 android:textColor="#C51D1D"
-                android:text="¿Cuantas decenas y cuantas unidades hay?"
+                android:text="¿Cuántas decenas y cuántas unidades hay?"
                 />
 
             <LinearLayout

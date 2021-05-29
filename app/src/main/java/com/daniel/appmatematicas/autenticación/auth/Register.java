@@ -18,6 +18,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.daniel.appmatematicas.MenuActivity;
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.ValidarEmail;
 import com.daniel.appmatematicas.view.EncuentraNumeroActivity;
@@ -180,7 +181,7 @@ public class Register extends AppCompatActivity {
     }
 
     public void createRegister(){
-        Intent i = new Intent(Register.this, EncuentraNumeroActivity.class);
+        Intent i = new Intent(Register.this, MenuActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         finish();
         startActivity(i);

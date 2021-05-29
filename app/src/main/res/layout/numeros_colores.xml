@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
-                android:text="¿Cuantos polos tiene Nicolas?"
+                android:text="¿Cuántos polos tiene Nicolas?"
                 />
 
 

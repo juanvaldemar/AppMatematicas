@@ -113,7 +113,7 @@
             android:textSize="17dp"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
-            android:text="¿Cuantos polos rojo tiene Nicolas?"
+            android:text="Marca la respuesta correcta."
             />
 
         <LinearLayout

@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:textSize="17dp"
             android:layout_marginTop="15dp"
-            android:text="¿Qué Animal es más grande?"
+            android:text="¿Qué animal es más grande?"
             />
 
 
@@ -113,7 +113,7 @@
             android:textSize="17dp"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
-            android:text="¿Cuantos polos rojo tiene Nicolas?"
+            android:text="Marca la respuesta correcta"
             />
 
         <LinearLayout

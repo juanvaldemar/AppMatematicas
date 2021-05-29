@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
-                android:text="¿Cuanto crees que mida una paleta de chocolate?"
+                android:text="¿Cuánto crees que mida una paleta de chocolate?"
                 />
 
 
