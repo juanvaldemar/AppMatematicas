@@ -67,6 +67,12 @@
         android:label="Medida Animal"
         tools:layout="@layout/fragment_paleta_medida" />
 
+    <fragment
+        android:id="@+id/nav_peso"
+        android:name="com.daniel.appmatematicas.view.fragmentos.PesoFragment"
+        android:label="Medida Animal"
+        tools:layout="@layout/fragment_peso" />
+
 
     <fragment
         android:id="@+id/nav_logout"

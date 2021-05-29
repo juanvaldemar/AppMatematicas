@@ -37,6 +37,10 @@
             android:title="Medida Paleta" />
 
         <item
+            android:id="@+id/nav_peso"
+            android:title="Peso" />
+
+        <item
             android:id="@+id/nav_slideshow"
             android:title="Sumar" />
 
