@@ -61,6 +61,12 @@
         android:label="Medida Animal"
         tools:layout="@layout/fragment_estimacion" />
 
+    <fragment
+        android:id="@+id/nav_paleta"
+        android:name="com.daniel.appmatematicas.view.fragmentos.PaletaMedidaFragment"
+        android:label="Medida Animal"
+        tools:layout="@layout/fragment_paleta_medida" />
+
 
     <fragment
         android:id="@+id/nav_logout"

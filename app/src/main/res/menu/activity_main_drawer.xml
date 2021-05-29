@@ -33,6 +33,10 @@
             android:title="Estimación" />
 
         <item
+            android:id="@+id/nav_paleta"
+            android:title="Medida Paleta" />
+
+        <item
             android:id="@+id/nav_slideshow"
             android:title="Sumar" />
 
