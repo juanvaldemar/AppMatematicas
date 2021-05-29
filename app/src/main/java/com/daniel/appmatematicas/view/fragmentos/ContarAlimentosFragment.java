@@ -95,7 +95,7 @@ public class ContarAlimentosFragment extends Fragment {
 
 
         mPrimero.setText(generados.get(0).toString());
-        mSegundo.setText("15");
+        mSegundo.setText(principal + "");
         mTercero.setText(generados.get(2).toString());
         mCuarto.setText(generados.get(3).toString());
         mQuinto.setText(generados.get(4).toString());

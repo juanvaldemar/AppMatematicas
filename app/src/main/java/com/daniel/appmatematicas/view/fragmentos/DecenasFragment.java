@@ -39,18 +39,18 @@ public class DecenasFragment extends Fragment {
         valorDos = 0;
         valorDos = 0;
 
-        valorUno = Integer.parseInt(mPrimero.getText().toString());
-        valorDos = Integer.parseInt(mSegundo.getText().toString());
+
 
         Button validar = root.findViewById(R.id.validar);
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                valorUno = Integer.parseInt(mPrimero.getText().toString());
+                valorDos = Integer.parseInt(mSegundo.getText().toString());
                 if(valorUno != 0){
 
                     if(valorUno != 0){
-                        if(valorUno == 2 && valorDos == 9){
+                        if(valorUno == 6 && valorDos == 2){
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar("¡Muy bien!");
                             //startActivity(new Intent(getActivity(), PerfilActivity.class));

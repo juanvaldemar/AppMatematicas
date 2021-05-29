@@ -35,14 +35,14 @@ public class DecenasHardFragment extends Fragment {
         valorDos = 0;
         valorDos = 0;
 
-        valorUno = Integer.parseInt(mPrimero.getText().toString());
-        valorDos = Integer.parseInt(mSegundo.getText().toString());
+
 
         Button validar = root.findViewById(R.id.validar);
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                valorUno = Integer.parseInt(mPrimero.getText().toString());
+                valorDos = Integer.parseInt(mSegundo.getText().toString());
                 if(valorUno != 0){
 
                     if(valorUno != 0){
