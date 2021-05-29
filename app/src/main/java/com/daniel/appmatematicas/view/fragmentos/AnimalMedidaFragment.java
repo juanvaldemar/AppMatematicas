@@ -120,7 +120,7 @@ public class AnimalMedidaFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("1");
+                valorSeleccionado = Integer.parseInt("10");
                 seleccion = true;
                 mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
@@ -156,7 +156,7 @@ public class AnimalMedidaFragment extends Fragment {
                     //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
-                    if(valorSeleccionado == numeroAleatorioPrincipal){
+                    if(valorSeleccionado == 10){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Muy bien!");
                         //startActivity(new Intent(getActivity(), PerfilActivity.class));

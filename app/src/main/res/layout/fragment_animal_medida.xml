@@ -130,7 +130,6 @@
                 android:gravity="center">
                 <TextView
                     android:id="@+id/primero"
-
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:textColor="@color/black"

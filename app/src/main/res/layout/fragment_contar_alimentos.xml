@@ -527,11 +527,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
+                android:visibility="gone"
                 android:text="¿Cuantas botellas de aceite hay?"
                 />
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="5"

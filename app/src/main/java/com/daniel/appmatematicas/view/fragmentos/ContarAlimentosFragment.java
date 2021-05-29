@@ -71,7 +71,7 @@ public class ContarAlimentosFragment extends Fragment {
                 }
             }
             if (i == 6) {
-                initFonts(generados, 15,root);
+                initFonts(generados, 5,root);
             }
             System.out.println("Aleatorio: " + aleatorio);
         }
