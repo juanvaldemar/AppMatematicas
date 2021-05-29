@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/container"
-    tools:context=".BuscarNumeroActivity">
+    android:id="@+id/container">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -219,12 +218,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <EditText
+                        android:id="@+id/primero"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
                         android:textColor="@color/black"
-                        android:text="1"
-                        android:textSize="25dp"/>
+                        android:padding="10dp"
+                        android:text="0"
+                        android:gravity="center"
+                        android:textSize="18dp"/>
 
                 </RelativeLayout>
 
@@ -233,12 +235,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <EditText
+                        android:id="@+id/segundo"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
                         android:textColor="@color/black"
+                        android:padding="10dp"
+                        android:gravity="center"
                         android:text="0"
-                        android:textSize="25dp"/>
+
+                        android:textSize="18dp"/>
 
                 </RelativeLayout>
 
@@ -259,341 +265,50 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="5"
-                android:layout_marginTop="55dp"
+                android:weightSum="2"
+                android:visibility="gone"
+                android:layout_marginTop="70dp"
                 android:orientation="horizontal">
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/seleccion_primero"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
+                    android:padding="10dp"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:gravity="center"
                         android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
+                        />
+
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/seleccion_segundo"
                     android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:padding="10dp"
                     android:gravity="center">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="7"
-                        android:padding="10dp"
-                        android:background="@color/black"
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:padding="10dp"
-                        android:background="@color/black"
-                        android:text="8"
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:padding="10dp"
-                        android:background="@color/black"
-                        android:text="9"
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:gravity="center"
                         android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
+                        />
+
 
                 </RelativeLayout>
 
             </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="5"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="4"
-                        android:padding="10dp"
-                        android:background="@color/black"
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:padding="10dp"
-                        android:background="@color/black"
-                        android:text="5"
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="6"
-                        android:padding="10dp"
-                        android:background="@color/black"
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="5"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="1"
-                        android:padding="10dp"
-                        android:background="@color/black"
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:padding="10dp"
-                        android:background="@color/black"
-                        android:text="2"
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="3"
-                        android:padding="10dp"
-                        android:background="@color/black"
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="5"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="0"
-                        android:padding="10dp"
-                        android:background="@color/black"
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text=""
-                        android:textSize="25dp"/>
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
 
 
         </LinearLayout>
@@ -614,6 +329,7 @@
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
             android:text="2"
+            android:visibility="gone"
             android:editable="false"
             android:textSize="30dp"
             android:layout_gravity="center"
@@ -624,6 +340,7 @@
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
             android:text="/10"
+            android:visibility="gone"
             android:textSize="30dp"
             android:layout_gravity="center"
             android:textColor="#849095"
