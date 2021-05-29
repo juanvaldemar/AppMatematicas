@@ -40,6 +40,18 @@
             android:id="@+id/nav_peso"
             android:title="Peso" />
 
+
+        <item
+            android:id="@+id/nav_decenas"
+            android:title="Decenas" />
+
+
+        <item
+            android:id="@+id/nav_decenas_hard"
+            android:title="Decenas segundo nivel" />
+
+
+
         <item
             android:id="@+id/nav_slideshow"
             android:title="Sumar" />

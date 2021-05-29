@@ -75,6 +75,19 @@
 
 
     <fragment
+        android:id="@+id/nav_decenas"
+        android:name="com.daniel.appmatematicas.view.fragmentos.DecenasFragment"
+        android:label="Medida Animal"
+        tools:layout="@layout/fragment_decenas" />
+
+    <fragment
+        android:id="@+id/nav_decenas_hard"
+        android:name="com.daniel.appmatematicas.view.fragmentos.DecenasHardFragment"
+        android:label="Medida Animal"
+        tools:layout="@layout/fragment_decenas_hard" />
+
+
+    <fragment
         android:id="@+id/nav_logout"
         android:name="com.daniel.appmatematicas.LogoutFragment"
         android:label="Cerrar Sesión"
