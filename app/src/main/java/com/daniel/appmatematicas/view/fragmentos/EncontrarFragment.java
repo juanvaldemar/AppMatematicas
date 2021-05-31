@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +17,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daniel.appmatematicas.R;
+import com.daniel.appmatematicas.rest.Reporte;
+import com.daniel.appmatematicas.rest.ReporteApiService;
 import com.daniel.appmatematicas.view.ColorActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class EncontrarFragment extends Fragment {
@@ -46,6 +55,11 @@ public class EncontrarFragment extends Fragment {
     private EditText contador;
 
 
+    static final String BASE_URL = "http://192.168.2.101:8080/";
+    static Retrofit retrofit = null;
+
+    static final String TAG = EncontrarFragment.class.getSimpleName();
+
 
     public EncontrarFragment() {
         // Required empty public constructor
@@ -64,8 +78,42 @@ public class EncontrarFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_encontrar, container, false);
         initGenerados(root);
-
+        initConnect(root);
         return root;
+    }
+
+    private void initConnect(View root) {
+
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+        ReporteApiService reporteApiService = retrofit.create(ReporteApiService.class);
+        Call<List<Reporte>> call = reporteApiService.getMovie();
+        call.enqueue(new Callback<List<Reporte>>() {
+            @Override
+            public void onResponse(Call<List<Reporte>> call, Response<List<Reporte>> response) {
+                List<Reporte> reporteList = new ArrayList<>();
+                for(Reporte i: response.body()){
+                    reporteList.add(i);
+                    System.out.println("--------------------" );
+                    System.out.println("ResponseValdemar: " + i.getNombre() );
+                    System.out.println("ResponseValdemar: " + i.getNota() );
+                    System.out.println("ResponseValdemar: " + i.getFecha() );
+                    System.out.println("ResponseValdemar: " + i.getId_reporte() );
+                    System.out.println("--------------------" );
+
+
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Reporte>> call, Throwable throwable) {
+                Log.e(TAG, throwable.toString());
+                System.out.println("errorValdemar: " + throwable.toString());
+
+            }
+        });
     }
 
     private void initGenerados(View root) {
