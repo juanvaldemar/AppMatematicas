@@ -1,6 +1,5 @@
 package com.daniel.appmatematicas.view.fragmentos;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -17,10 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daniel.appmatematicas.R;
-import com.daniel.appmatematicas.rest.Reporte;
+import com.daniel.appmatematicas.rest.ReporteRequest;
+import com.daniel.appmatematicas.rest.ReporteResponse;
 import com.daniel.appmatematicas.rest.ReporteApiService;
-import com.daniel.appmatematicas.view.ColorActivity;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +58,7 @@ public class EncontrarFragment extends Fragment {
 
     static final String TAG = EncontrarFragment.class.getSimpleName();
 
+    private ReporteApiService reporteApiService;
 
     public EncontrarFragment() {
         // Required empty public constructor
@@ -77,8 +76,9 @@ public class EncontrarFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_encontrar, container, false);
-        initGenerados(root);
         initConnect(root);
+        initGenerados(root);
+
         return root;
     }
 
@@ -89,13 +89,13 @@ public class EncontrarFragment extends Fragment {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
-        ReporteApiService reporteApiService = retrofit.create(ReporteApiService.class);
-        Call<List<Reporte>> call = reporteApiService.getMovie();
-        call.enqueue(new Callback<List<Reporte>>() {
+          reporteApiService = retrofit.create(ReporteApiService.class);
+        Call<List<ReporteResponse>> call = reporteApiService.getMovie();
+        call.enqueue(new Callback<List<ReporteResponse>>() {
             @Override
-            public void onResponse(Call<List<Reporte>> call, Response<List<Reporte>> response) {
-                List<Reporte> reporteList = new ArrayList<>();
-                for(Reporte i: response.body()){
+            public void onResponse(Call<List<ReporteResponse>> call, Response<List<ReporteResponse>> response) {
+                List<ReporteResponse> reporteList = new ArrayList<>();
+                for(ReporteResponse i: response.body()){
                     reporteList.add(i);
                     System.out.println("--------------------" );
                     System.out.println("ResponseValdemar: " + i.getNombre() );
@@ -108,7 +108,7 @@ public class EncontrarFragment extends Fragment {
                 }
             }
             @Override
-            public void onFailure(Call<List<Reporte>> call, Throwable throwable) {
+            public void onFailure(Call<List<ReporteResponse>> call, Throwable throwable) {
                 Log.e(TAG, throwable.toString());
                 System.out.println("errorValdemar: " + throwable.toString());
 
@@ -261,6 +261,7 @@ public class EncontrarFragment extends Fragment {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Muy bien!");
+                        subirNota(valorSeleccionado);
                        // startActivity(new Intent(getActivity(), ColorActivity.class));
                         // listaCalificacion.add(true);
                     }else{
@@ -285,6 +286,35 @@ public class EncontrarFragment extends Fragment {
 
                     */
                 }
+            }
+
+            private void subirNota(int valorSeleccionado) {
+                ReporteRequest obj = new ReporteRequest("daniel",valorSeleccionado+"");
+                 reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
+                    @Override
+                    public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
+
+                        if(response.isSuccessful()) {
+                            showSnackBar(response.body().toString());
+                            Log.i(TAG, "ResponseValdemar" + response.body().toString());
+
+
+                                System.out.println("--------------------" );
+                                System.out.println("ResponseValdemar: " +  response.body().getNombre() );
+                                System.out.println("ResponseValdemar: " +  response.body().getNota() );
+                                System.out.println("--------------------" );
+
+
+
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ReporteRequest> call, Throwable t) {
+                        Log.e(TAG, "ResponseValdemar");
+                    }
+                });
             }
         });
 
