@@ -19,6 +19,8 @@ import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteRequest;
 import com.daniel.appmatematicas.rest.ReporteResponse;
 import com.daniel.appmatematicas.rest.ReporteApiService;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,10 +100,10 @@ public class EncontrarFragment extends Fragment {
                 for(ReporteResponse i: response.body()){
                     reporteList.add(i);
                     System.out.println("--------------------" );
-                    System.out.println("ResponseValdemar: " + i.getNombre() );
-                    System.out.println("ResponseValdemar: " + i.getNota() );
-                    System.out.println("ResponseValdemar: " + i.getFecha() );
-                    System.out.println("ResponseValdemar: " + i.getId_reporte() );
+                    System.out.println("---: " + i.getNombre() );
+                    System.out.println("---: " + i.getNota() );
+                    System.out.println("----: " + i.getFecha() );
+                    System.out.println("---: " + i.getId_reporte() );
                     System.out.println("--------------------" );
 
 
@@ -110,7 +112,7 @@ public class EncontrarFragment extends Fragment {
             @Override
             public void onFailure(Call<List<ReporteResponse>> call, Throwable throwable) {
                 Log.e(TAG, throwable.toString());
-                System.out.println("errorValdemar: " + throwable.toString());
+                System.out.println("---: " + throwable.toString());
 
             }
         });
@@ -261,11 +263,13 @@ public class EncontrarFragment extends Fragment {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Muy bien!");
-                        subirNota(valorSeleccionado);
+                        subirNota(valorSeleccionado, true);
                        // startActivity(new Intent(getActivity(), ColorActivity.class));
                         // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                        subirNota(valorSeleccionado, false);
+
                         showSnackBar("¡Oh no fallaste!");
                         //listaCalificacion.add(false);
 
@@ -288,33 +292,39 @@ public class EncontrarFragment extends Fragment {
                 }
             }
 
-            private void subirNota(int valorSeleccionado) {
-                ReporteRequest obj = new ReporteRequest("daniel",valorSeleccionado+"");
-                 reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
-                    @Override
-                    public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
+            private void subirNota(int valorSeleccionado, Boolean status) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                ReporteRequest obj;
 
-                        if(response.isSuccessful()) {
-                            showSnackBar(response.body().toString());
-                            Log.i(TAG, "ResponseValdemar" + response.body().toString());
+                if(status){
+                    obj = new ReporteRequest(user.getEmail(),"Muy bien, nota 20, respuesta: "+valorSeleccionado);
+                }else{
+                    obj = new ReporteRequest(user.getEmail(),"Que pena, nota 10, respuesta: "+valorSeleccionado);
 
+                }
+                    reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
+                        @Override
+                        public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
+
+                            if(response.isSuccessful()) {
+                                showSnackBar(response.body().toString());
+                                Log.i(TAG, "---" + response.body().toString());
 
                                 System.out.println("--------------------" );
-                                System.out.println("ResponseValdemar: " +  response.body().getNombre() );
-                                System.out.println("ResponseValdemar: " +  response.body().getNota() );
+                                System.out.println("---: " +  response.body().getNombre() );
+                                System.out.println("---: " +  response.body().getNota() );
                                 System.out.println("--------------------" );
 
-
-
-
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<ReporteRequest> call, Throwable t) {
-                        Log.e(TAG, "ResponseValdemar");
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<ReporteRequest> call, Throwable t) {
+                            Log.e(TAG, "------");
+                        }
+                    });
+
+
             }
         });
 
