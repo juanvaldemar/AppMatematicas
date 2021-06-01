@@ -21,7 +21,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.daniel.appmatematicas.MenuActivity;
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.ValidarEmail;
+import com.daniel.appmatematicas.rest.ReporteApiService;
+import com.daniel.appmatematicas.rest.ReporteRequest;
+import com.daniel.appmatematicas.rest.UsuarioRequest;
 import com.daniel.appmatematicas.view.EncuentraNumeroActivity;
+import com.daniel.appmatematicas.view.fragmentos.EncontrarFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -32,10 +36,17 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 //import com.google.android.material.snackbar.Snackbar;
 //import com.google.android.material.textfield.TextInputEditText;
 
 public class Register extends AppCompatActivity {
+
 
 
     private TextView mTitleRegister;
@@ -54,12 +65,28 @@ public class Register extends AppCompatActivity {
     private LinearLayout mRelato_regis_body;
 
 
+    private String BASE_URL = "http://192.168.2.101:8080/";
+    private Retrofit retrofit = null;
+    static final String TAG = EncontrarFragment.class.getSimpleName();
+    private ReporteApiService reporteApiService;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_relato);
         initView();
+        initRetrofit();
 
+    }
+
+    private void initRetrofit() {
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        reporteApiService = retrofit.create(ReporteApiService.class);
     }
 
     private void initView() {
@@ -167,8 +194,8 @@ public class Register extends AppCompatActivity {
                             });
 
                             mProgress.dismiss();
-
-                            createRegister();
+                            UsuarioRequest obj = new UsuarioRequest(display_name,"Masculino",display_email, display_password);
+                            createRegister(obj);
                             showSnackBar("Creando Cuenta");
 
                         } else {
@@ -180,12 +207,37 @@ public class Register extends AppCompatActivity {
                 });
     }
 
-    public void createRegister(){
+    public void createRegister(UsuarioRequest obj){
+        registrarUsuario(obj);
         Intent i = new Intent(Register.this, MenuActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         finish();
         startActivity(i);
 
+    }
+
+    private void registrarUsuario(UsuarioRequest obj) {
+        reporteApiService.saveNota(obj).enqueue(new Callback<UsuarioRequest>() {
+            @Override
+            public void onResponse(Call<UsuarioRequest> call, Response<UsuarioRequest> response) {
+
+                if(response.isSuccessful()) {
+                    showSnackBar(response.body().toString());
+                 //   Log.i(TAG, "ResponseValdemar" + response.body().toString());
+
+                    System.out.println("--------------------" );
+                    System.out.println("--------------------" );
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UsuarioRequest> call, Throwable t) {
+                Log.e(TAG, "Error");
+
+            }
+
+        });
     }
 
     public void showSnackBar(String msg) {

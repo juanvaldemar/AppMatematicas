@@ -53,8 +53,8 @@ public class EncontrarFragment extends Fragment {
     private EditText contador;
 
 
-    static final String BASE_URL = "http://192.168.2.101:8080/";
-    static Retrofit retrofit = null;
+    private String BASE_URL = "http://192.168.2.101:8080/";
+    private Retrofit retrofit = null;
 
     static final String TAG = EncontrarFragment.class.getSimpleName();
 

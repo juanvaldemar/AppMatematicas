@@ -18,4 +18,8 @@ public interface ReporteApiService {
     @POST("/api/v1/reporte/")
     Call<ReporteRequest> saveNota(@Body ReporteRequest request);
 
+
+    @POST("/api/v1/usuario/")
+    Call<UsuarioRequest> saveNota(@Body UsuarioRequest request);
+
 }
