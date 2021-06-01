@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +17,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daniel.appmatematicas.R;
+import com.daniel.appmatematicas.rest.ReporteApiService;
+import com.daniel.appmatematicas.rest.ReporteRequest;
 import com.daniel.appmatematicas.view.ColorActivity;
 import com.daniel.appmatematicas.view.PerfilActivity;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class ContarFragment extends Fragment {
@@ -46,6 +57,8 @@ public class ContarFragment extends Fragment {
     private TextView mSexto;
     private EditText contador;
 
+    ReporteApiService reporteApiService;
+
     public ContarFragment() {
         // Required empty public constructor
     }
@@ -56,8 +69,21 @@ public class ContarFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.contar, container, false);
         initGenerados(root);
+        initConnect(root);
 
         return root;
+    }
+
+    private void initConnect(View root) {
+
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.2.101:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        reporteApiService = retrofit.create(ReporteApiService.class);
+
     }
 
     private void initGenerados(View root) {
@@ -107,7 +133,6 @@ public class ContarFragment extends Fragment {
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
         //encuentra_numero_text.setText("Encuentra el número "+ this.numeroAleatorioPrincipal +":");
     }
-
 
     private void initSeleccionEmpty(View root) {
 
@@ -196,11 +221,15 @@ public class ContarFragment extends Fragment {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Muy bien!");
+                        subirNota(valorSeleccionado, true);
+
                         //startActivity(new Intent(getActivity(), PerfilActivity.class));
                         // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Oh no fallaste!");
+                        subirNota(valorSeleccionado, false);
+
                         //listaCalificacion.add(false);
                        // startActivity(new Intent(getActivity(), PerfilActivity.class));
 
@@ -225,6 +254,40 @@ public class ContarFragment extends Fragment {
         });
 
     }
+
+    private void subirNota(int valorSeleccionado, Boolean status) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ReporteRequest obj;
+
+        if(status){
+            obj = new ReporteRequest(user.getEmail(),"Muy bien, nota 20, respuesta: "+valorSeleccionado);
+        }else{
+            obj = new ReporteRequest(user.getEmail(),"Que pena, nota 10, respuesta: "+valorSeleccionado);
+
+        }
+        reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
+            @Override
+            public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
+
+                if(response.isSuccessful()) {
+                    showSnackBar(response.body().toString());
+
+                    System.out.println("--------------------" );
+                    System.out.println("---: " +  response.body().getNombre() );
+                    System.out.println("---: " +  response.body().getNota() );
+                    System.out.println("--------------------" );
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReporteRequest> call, Throwable t) {
+            }
+        });
+
+
+    }
+
 
     public void showSnackBar(String msg) {
         Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();

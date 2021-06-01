@@ -55,12 +55,11 @@ public class EncontrarFragment extends Fragment {
     private EditText contador;
 
 
-    private String BASE_URL = "http://192.168.2.101:8080/";
-    private Retrofit retrofit = null;
+    ReporteApiService reporteApiService;
+
 
     static final String TAG = EncontrarFragment.class.getSimpleName();
 
-    private ReporteApiService reporteApiService;
 
     public EncontrarFragment() {
         // Required empty public constructor
@@ -86,36 +85,13 @@ public class EncontrarFragment extends Fragment {
 
     private void initConnect(View root) {
 
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+        Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://192.168.2.101:8080/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
           reporteApiService = retrofit.create(ReporteApiService.class);
-        Call<List<ReporteResponse>> call = reporteApiService.getMovie();
-        call.enqueue(new Callback<List<ReporteResponse>>() {
-            @Override
-            public void onResponse(Call<List<ReporteResponse>> call, Response<List<ReporteResponse>> response) {
-                List<ReporteResponse> reporteList = new ArrayList<>();
-                for(ReporteResponse i: response.body()){
-                    reporteList.add(i);
-                    System.out.println("--------------------" );
-                    System.out.println("---: " + i.getNombre() );
-                    System.out.println("---: " + i.getNota() );
-                    System.out.println("----: " + i.getFecha() );
-                    System.out.println("---: " + i.getId_reporte() );
-                    System.out.println("--------------------" );
 
-
-                }
-            }
-            @Override
-            public void onFailure(Call<List<ReporteResponse>> call, Throwable throwable) {
-                Log.e(TAG, throwable.toString());
-                System.out.println("---: " + throwable.toString());
-
-            }
-        });
     }
 
     private void initGenerados(View root) {
