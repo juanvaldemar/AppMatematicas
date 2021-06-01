@@ -46,7 +46,7 @@ public class AnimalMedidaFragment extends Fragment {
     private TextView mSegundo;
     private TextView mTercero;
 
-    ReporteApiService reporteApiService;
+        ReporteApiService reporteApiService;
 
     public AnimalMedidaFragment() {
         // Required empty public constructor
@@ -119,7 +119,6 @@ public class AnimalMedidaFragment extends Fragment {
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
         //encuentra_numero_text.setText("Encuentra el número "+ this.numeroAleatorioPrincipal +":");
     }
-
 
     private void initSeleccionEmpty(View root) {
 

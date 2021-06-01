@@ -13,6 +13,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daniel.appmatematicas.R;
+import com.daniel.appmatematicas.rest.ReporteApiService;
+import com.daniel.appmatematicas.rest.ReporteRequest;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DecenasFragment extends Fragment {
 
@@ -21,6 +31,7 @@ public class DecenasFragment extends Fragment {
     private int valorUno;
     private int valorDos;
 
+    ReporteApiService reporteApiService;
 
 
     public DecenasFragment() {
@@ -33,12 +44,12 @@ public class DecenasFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_decenas, container, false);
 
+        initConnect(root);
 
         mPrimero = root.findViewById(R.id.primero);
         mSegundo = root.findViewById(R.id.segundo);
         valorDos = 0;
         valorDos = 0;
-
 
 
         Button validar = root.findViewById(R.id.validar);
@@ -51,15 +62,11 @@ public class DecenasFragment extends Fragment {
 
                     if(valorUno != 0){
                         if(valorUno == 6 && valorDos == 2){
-                            //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar("¡Muy bien!");
-                            //startActivity(new Intent(getActivity(), PerfilActivity.class));
-                            // listaCalificacion.add(true);
+                            subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
                         }else{
-                            //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar("¡Oh no fallaste!");
-                            //listaCalificacion.add(false);
-                            // startActivity(new Intent(getActivity(), PerfilActivity.class));
+                            subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", false);
                         }
                     }else{
                         showSnackBar("Escriba una respuesta válida");
@@ -75,6 +82,52 @@ public class DecenasFragment extends Fragment {
 
         return root;
     }
+
+    private void initConnect(View root) {
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.2.101:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        reporteApiService = retrofit.create(ReporteApiService.class);
+
+    }
+
+    private void subirNota(String valorSeleccionado, Boolean status) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ReporteRequest obj;
+
+        if(status){
+            obj = new ReporteRequest(user.getEmail(),"Muy bien, nota 20, respuesta: "+valorSeleccionado);
+        }else{
+            obj = new ReporteRequest(user.getEmail(),"Que pena, nota 10, respuesta: "+valorSeleccionado);
+
+        }
+        reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
+            @Override
+            public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
+
+                if(response.isSuccessful()) {
+                    showSnackBar(response.body().toString());
+
+                    System.out.println("--------------------" );
+                    System.out.println("---: " +  response.body().getNombre() );
+                    System.out.println("---: " +  response.body().getNota() );
+                    System.out.println("--------------------" );
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReporteRequest> call, Throwable t) {
+            }
+        });
+
+
+    }
+
+
     public void showSnackBar(String msg) {
         Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }

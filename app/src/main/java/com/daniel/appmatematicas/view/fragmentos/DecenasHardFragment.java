@@ -12,6 +12,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.daniel.appmatematicas.R;
+import com.daniel.appmatematicas.rest.ReporteApiService;
+import com.daniel.appmatematicas.rest.ReporteRequest;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DecenasHardFragment extends Fragment {
 
@@ -19,6 +29,7 @@ public class DecenasHardFragment extends Fragment {
     private EditText mSegundo;
     private int valorUno;
     private int valorDos;
+    ReporteApiService reporteApiService;
 
     public DecenasHardFragment() {
     }
@@ -29,7 +40,7 @@ public class DecenasHardFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_decenas_hard, container, false);
 
-
+        initConnect();
         mPrimero = root.findViewById(R.id.primero);
         mSegundo = root.findViewById(R.id.segundo);
         valorDos = 0;
@@ -49,11 +60,13 @@ public class DecenasHardFragment extends Fragment {
                         if(valorUno == 2 && valorDos == 9){
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar("¡Muy bien!");
+                            subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
                             //startActivity(new Intent(getActivity(), PerfilActivity.class));
                             // listaCalificacion.add(true);
                         }else{
                             //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar("¡Oh no fallaste!");
+                            subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
                             //listaCalificacion.add(false);
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));
                         }
@@ -72,7 +85,49 @@ public class DecenasHardFragment extends Fragment {
         return root;
     }
 
+    private void subirNota(String valorSeleccionado, Boolean status) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ReporteRequest obj;
 
+        if(status){
+            obj = new ReporteRequest(user.getEmail(),"Muy bien, nota 20, respuesta: "+valorSeleccionado);
+        }else{
+            obj = new ReporteRequest(user.getEmail(),"Que pena, nota 10, respuesta: "+valorSeleccionado);
+
+        }
+        reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
+            @Override
+            public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
+
+                if(response.isSuccessful()) {
+                    showSnackBar(response.body().toString());
+
+                    System.out.println("--------------------" );
+                    System.out.println("---: " +  response.body().getNombre() );
+                    System.out.println("---: " +  response.body().getNota() );
+                    System.out.println("--------------------" );
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReporteRequest> call, Throwable t) {
+            }
+        });
+
+
+    }
+
+    private void initConnect() {
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.2.101:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        reporteApiService = retrofit.create(ReporteApiService.class);
+
+    }
     public void showSnackBar(String msg) {
         Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }
