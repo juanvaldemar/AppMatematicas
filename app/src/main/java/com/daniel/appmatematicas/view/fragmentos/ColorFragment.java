@@ -81,6 +81,7 @@ public class ColorFragment extends Fragment {
         reporteApiService = retrofit.create(ReporteApiService.class);
 
     }
+
     private void initGenerados(View root) {
         Random rd = new Random();
         List<Integer> generados = new ArrayList<>();
@@ -128,8 +129,6 @@ public class ColorFragment extends Fragment {
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
         //encuentra_numero_text.setText("Encuentra el número "+ this.numeroAleatorioPrincipal +":");
     }
-
-
     private void initSeleccionEmpty(View root) {
 
         mPrimeroR = root.findViewById(R.id.seleccion_primero);
