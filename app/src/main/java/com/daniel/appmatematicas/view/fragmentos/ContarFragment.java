@@ -223,32 +223,13 @@ public class ContarFragment extends Fragment {
                         showSnackBar("¡Muy bien!");
                         subirNota(valorSeleccionado, true);
 
-                        //startActivity(new Intent(getActivity(), PerfilActivity.class));
-                        // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar("¡Oh no fallaste!");
                         subirNota(valorSeleccionado, false);
 
-                        //listaCalificacion.add(false);
-                       // startActivity(new Intent(getActivity(), PerfilActivity.class));
-
                     }
 
-                   /* contador = findViewById(R.id.contador);
-                    int contador_ = Integer.parseInt(contador.getText().toString());
-
-                    iniciarNuevamente();
-                    int contador2 = contador_+1;
-                    if(contador2 > 9){
-                        prefs.edit().putString("prefs_puntaje", listaCalificacion.toString()).commit();
-                        showSnackBar(listaCalificacion.toString());
-                        startActivity(new Intent(BuscarNumeroActivity.this, ResultadoFinal.class));
-                        finish();
-                    }
-                    contador.setText(contador2+ "");
-
-                    */
                 }
             }
         });
