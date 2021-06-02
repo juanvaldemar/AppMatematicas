@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
 import com.daniel.appmatematicas.rest.ReporteRequest;
+import com.daniel.appmatematicas.rest.TemaResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -53,6 +54,9 @@ public class PaletaMedidaFragment extends Fragment {
 
     ReporteApiService reporteApiService;
 
+    private List<TemaResponse> temaList = new ArrayList<>();
+    private String calificacionOk;
+    private String calificacionNoOk;
 
 
     public PaletaMedidaFragment() {
@@ -66,12 +70,41 @@ public class PaletaMedidaFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_paleta_medida, container, false);
 
-        initGenerados(root);
         initConnect(root);
-
+        initTemas(root);
 
         return root;
     }
+
+    private void initTemas(View root) {
+        Call<List<TemaResponse>> call = reporteApiService.listTema();
+        call.enqueue(new Callback<List<TemaResponse>>() {
+            @Override
+            public void onResponse(Call<List<TemaResponse>> call, Response<List<TemaResponse>> response) {
+                if(response.body() != null){
+                    for(TemaResponse i: response.body()){
+                        if(i.getPosicion().equalsIgnoreCase("2")){
+                            calificacionOk = i.getPreguntas_tema();
+                        }
+                        if(i.getPosicion().equalsIgnoreCase("3")){
+                            calificacionNoOk = i.getPreguntas_tema();
+                        }
+                        temaList.add(i);
+                    }
+
+                    initGenerados(root);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<TemaResponse>> call, Throwable throwable) {
+
+                System.out.println("ErrorPreguntaTema: " + throwable.toString());
+
+            }
+        });
+    }
+
+
 
     private void initConnect(View root) {
 
@@ -198,7 +231,7 @@ public class PaletaMedidaFragment extends Fragment {
                 }else{
                     if(valorSeleccionado == 1){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        showSnackBar("¡Muy bien!");
+                        showSnackBar(calificacionOk);
                         System.out.println("valorSeleccionado" +valorSeleccionado);
                         subirNota(valorSeleccionado, true);
 
@@ -206,7 +239,7 @@ public class PaletaMedidaFragment extends Fragment {
                         // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        showSnackBar("¡Oh no fallaste!");
+                        showSnackBar(calificacionNoOk);
                         //listaCalificacion.add(false);
                         // startActivity(new Intent(getActivity(), PerfilActivity.class));
                         subirNota(valorSeleccionado, true);

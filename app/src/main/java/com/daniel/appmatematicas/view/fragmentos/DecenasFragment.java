@@ -15,8 +15,12 @@ import android.widget.Toast;
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
 import com.daniel.appmatematicas.rest.ReporteRequest;
+import com.daniel.appmatematicas.rest.TemaResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,6 +37,9 @@ public class DecenasFragment extends Fragment {
 
     ReporteApiService reporteApiService;
 
+    private List<TemaResponse> temaList = new ArrayList<>();
+    private String calificacionOk;
+    private String calificacionNoOk;
 
     public DecenasFragment() {
         // Required empty public constructor
@@ -46,41 +53,69 @@ public class DecenasFragment extends Fragment {
 
         initConnect(root);
 
+        initTemas(root);
         mPrimero = root.findViewById(R.id.primero);
         mSegundo = root.findViewById(R.id.segundo);
         valorDos = 0;
         valorDos = 0;
 
 
-        Button validar = root.findViewById(R.id.validar);
-        validar.setOnClickListener(new View.OnClickListener() {
+
+        return root;
+    }
+
+
+    private void initTemas(View root) {
+
+
+        Call<List<TemaResponse>> call = reporteApiService.listTema();
+        call.enqueue(new Callback<List<TemaResponse>>() {
             @Override
-            public void onClick(View view) {
-                valorUno = Integer.parseInt(mPrimero.getText().toString());
-                valorDos = Integer.parseInt(mSegundo.getText().toString());
-                if(valorUno != 0){
-
-                    if(valorUno != 0){
-                        if(valorUno == 6 && valorDos == 2){
-                            showSnackBar("¡Muy bien!");
-                            subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
-                        }else{
-                            showSnackBar("¡Oh no fallaste!");
-                            subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", false);
+            public void onResponse(Call<List<TemaResponse>> call, Response<List<TemaResponse>> response) {
+                if(response.body() != null){
+                    for(TemaResponse i: response.body()){
+                        if(i.getPosicion().equalsIgnoreCase("2")){
+                            calificacionOk = i.getPreguntas_tema();
                         }
-                    }else{
-                        showSnackBar("Escriba una respuesta válida");
+                        if(i.getPosicion().equalsIgnoreCase("3")){
+                            calificacionNoOk = i.getPreguntas_tema();
+                        }
+                        temaList.add(i);
                     }
-                }else {
-                    showSnackBar("Escriba una respuesta válida");
-                }
 
+                    Button validar = root.findViewById(R.id.validar);
+                    validar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            valorUno = Integer.parseInt(mPrimero.getText().toString());
+                            valorDos = Integer.parseInt(mSegundo.getText().toString());
+                            if(valorUno != 0){
+                                if(valorUno != 0){
+                                    if(valorUno == 6 && valorDos == 2){
+
+                                        showSnackBar(calificacionOk);
+                                        subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                                    }else{
+                                        showSnackBar(calificacionNoOk);
+                                        subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", false);
+                                    }
+                                }else{
+                                    showSnackBar("Escriba una respuesta válida");
+                                }
+                            }else {
+                                showSnackBar("Escriba una respuesta válida");
+                            }
+                        }
+                    });
+                }
+            }
+            @Override
+            public void onFailure(Call<List<TemaResponse>> call, Throwable throwable) {
+
+                System.out.println("ErrorPreguntaTema: " + throwable.toString());
 
             }
         });
-
-
-        return root;
     }
 
     private void initConnect(View root) {

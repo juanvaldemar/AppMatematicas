@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-public class UsuarioRequest implements Serializable {
+public class UsuarioResponse implements Serializable {
 
     @SerializedName("nombre_usuario")
     private String nombre_usuario;
@@ -20,10 +20,10 @@ public class UsuarioRequest implements Serializable {
     @SerializedName("password")
     private String password;
 
-    public UsuarioRequest() {
+    public UsuarioResponse() {
     }
 
-    public UsuarioRequest(String nombre_usuario, String sexo_usuario, String email, String password) {
+    public UsuarioResponse(String nombre_usuario, String sexo_usuario, String email, String password) {
         this.nombre_usuario = nombre_usuario;
         this.sexo_usuario = sexo_usuario;
         this.email = email;

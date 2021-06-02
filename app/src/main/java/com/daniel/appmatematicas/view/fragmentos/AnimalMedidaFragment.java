@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
 import com.daniel.appmatematicas.rest.ReporteRequest;
+import com.daniel.appmatematicas.rest.TemaResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -46,7 +48,12 @@ public class AnimalMedidaFragment extends Fragment {
     private TextView mSegundo;
     private TextView mTercero;
 
-        ReporteApiService reporteApiService;
+    ReporteApiService reporteApiService;
+
+    private List<TemaResponse> temaList = new ArrayList<>();
+    private String calificacionOk;
+    private String calificacionNoOk;
+
 
     public AnimalMedidaFragment() {
         // Required empty public constructor
@@ -59,11 +66,40 @@ public class AnimalMedidaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_animal_medida, container, false);
-          initGenerados(root);
+
         initConnect(root);
+        initTemas(root);
 
         return root;
     }
+
+    private void initTemas(View root) {
+        Call<List<TemaResponse>> call = reporteApiService.listTema();
+        call.enqueue(new Callback<List<TemaResponse>>() {
+            @Override
+            public void onResponse(Call<List<TemaResponse>> call, Response<List<TemaResponse>> response) {
+                if(response.body() != null){
+                    for(TemaResponse i: response.body()){
+                        if(i.getPosicion().equalsIgnoreCase("2")){
+                            calificacionOk = i.getPreguntas_tema();
+                        }
+                        if(i.getPosicion().equalsIgnoreCase("3")){
+                            calificacionNoOk = i.getPreguntas_tema();
+                        }
+                        temaList.add(i);
+                    }
+
+                    initGenerados(root);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<TemaResponse>> call, Throwable throwable) {
+                System.out.println("ErrorPreguntaTema: " + throwable.toString());
+
+            }
+        });
+    }
+
 
     private void initConnect(View root) {
 
@@ -180,14 +216,14 @@ public class AnimalMedidaFragment extends Fragment {
                 }else{
                     if(valorSeleccionado == 10){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        showSnackBar("¡Muy bien!");
+                        showSnackBar(calificacionOk);
                         subirNota(valorSeleccionado, true);
 
                         //startActivity(new Intent(getActivity(), PerfilActivity.class));
                         // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        showSnackBar("¡Oh no fallaste!");
+                        showSnackBar(calificacionNoOk);
                         subirNota(valorSeleccionado, false);
 
                     }

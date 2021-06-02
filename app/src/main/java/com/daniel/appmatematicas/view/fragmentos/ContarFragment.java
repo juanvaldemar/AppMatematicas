@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
 import com.daniel.appmatematicas.rest.ReporteRequest;
+import com.daniel.appmatematicas.rest.TemaResponse;
 import com.daniel.appmatematicas.view.ColorActivity;
 import com.daniel.appmatematicas.view.PerfilActivity;
 import com.google.android.material.snackbar.Snackbar;
@@ -59,6 +60,10 @@ public class ContarFragment extends Fragment {
 
     ReporteApiService reporteApiService;
 
+    private List<TemaResponse> temaList = new ArrayList<>();
+    private String calificacionOk;
+    private String calificacionNoOk;
+
     public ContarFragment() {
         // Required empty public constructor
     }
@@ -68,9 +73,9 @@ public class ContarFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.contar, container, false);
-        initGenerados(root);
-        initConnect(root);
 
+        initConnect(root);
+        initTemas(root);
         return root;
     }
 
@@ -85,6 +90,36 @@ public class ContarFragment extends Fragment {
         reporteApiService = retrofit.create(ReporteApiService.class);
 
     }
+
+    private void initTemas(View root) {
+        Call<List<TemaResponse>> call = reporteApiService.listTema();
+        call.enqueue(new Callback<List<TemaResponse>>() {
+            @Override
+            public void onResponse(Call<List<TemaResponse>> call, Response<List<TemaResponse>> response) {
+                if(response.body() != null){
+                    for(TemaResponse i: response.body()){
+                        if(i.getPosicion().equalsIgnoreCase("2")){
+                            calificacionOk = i.getPreguntas_tema();
+                        }
+                        if(i.getPosicion().equalsIgnoreCase("3")){
+                            calificacionNoOk = i.getPreguntas_tema();
+                        }
+                        temaList.add(i);
+                    }
+
+                    initGenerados(root);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<TemaResponse>> call, Throwable throwable) {
+
+                System.out.println("ErrorPreguntaTema: " + throwable.toString());
+
+            }
+        });
+    }
+
+
 
     private void initGenerados(View root) {
         Random rd = new Random();
@@ -220,12 +255,13 @@ public class ContarFragment extends Fragment {
                 }else{
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        showSnackBar("¡Muy bien!");
+                        showSnackBar(calificacionOk);
                         subirNota(valorSeleccionado, true);
 
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        showSnackBar("¡Oh no fallaste!");
+
+                        showSnackBar(calificacionNoOk);
                         subirNota(valorSeleccionado, false);
 
                     }

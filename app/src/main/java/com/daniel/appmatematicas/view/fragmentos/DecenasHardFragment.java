@@ -14,8 +14,12 @@ import android.widget.Toast;
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
 import com.daniel.appmatematicas.rest.ReporteRequest;
+import com.daniel.appmatematicas.rest.TemaResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +34,12 @@ public class DecenasHardFragment extends Fragment {
     private int valorUno;
     private int valorDos;
     ReporteApiService reporteApiService;
+
+
+    private List<TemaResponse> temaList = new ArrayList<>();
+    private String calificacionOk;
+    private String calificacionNoOk;
+
 
     public DecenasHardFragment() {
     }
@@ -47,43 +57,69 @@ public class DecenasHardFragment extends Fragment {
         valorDos = 0;
 
 
-
-        Button validar = root.findViewById(R.id.validar);
-        validar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                valorUno = Integer.parseInt(mPrimero.getText().toString());
-                valorDos = Integer.parseInt(mSegundo.getText().toString());
-                if(valorUno != 0){
-
-                    if(valorUno != 0){
-                        if(valorUno == 2 && valorDos == 9){
-                            //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                            showSnackBar("¡Muy bien!");
-                            subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
-                            //startActivity(new Intent(getActivity(), PerfilActivity.class));
-                            // listaCalificacion.add(true);
-                        }else{
-                            //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                            showSnackBar("¡Oh no fallaste!");
-                            subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
-                            //listaCalificacion.add(false);
-                            // startActivity(new Intent(getActivity(), PerfilActivity.class));
-                        }
-                    }else{
-                        showSnackBar("Escriba una respuesta válida");
-                    }
-                }else {
-                    showSnackBar("Escriba una respuesta válida");
-                }
+        initTemas(root);
 
 
-            }
-        });
 
 
         return root;
     }
+
+
+    private void initTemas(View root) {
+
+
+        Call<List<TemaResponse>> call = reporteApiService.listTema();
+        call.enqueue(new Callback<List<TemaResponse>>() {
+            @Override
+            public void onResponse(Call<List<TemaResponse>> call, Response<List<TemaResponse>> response) {
+                if(response.body() != null){
+                    for(TemaResponse i: response.body()){
+                        if(i.getPosicion().equalsIgnoreCase("2")){
+                            calificacionOk = i.getPreguntas_tema();
+                        }
+                        if(i.getPosicion().equalsIgnoreCase("3")){
+                            calificacionNoOk = i.getPreguntas_tema();
+                        }
+                        temaList.add(i);
+                    }
+
+                    Button validar = root.findViewById(R.id.validar);
+                    validar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            valorUno = Integer.parseInt(mPrimero.getText().toString());
+                            valorDos = Integer.parseInt(mSegundo.getText().toString());
+                            if(valorUno != 0){
+                                if(valorUno != 0){
+                                    if(valorUno == 6 && valorDos == 2){
+
+                                        showSnackBar(calificacionOk);
+                                        subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+
+                                    }else{
+                                        showSnackBar(calificacionNoOk);
+                                        subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                                    }
+                                }else{
+                                    showSnackBar("Escriba una respuesta válida");
+                                }
+                            }else {
+                                showSnackBar("Escriba una respuesta válida");
+                            }
+                        }
+                    });
+                }
+            }
+            @Override
+            public void onFailure(Call<List<TemaResponse>> call, Throwable throwable) {
+
+                System.out.println("ErrorPreguntaTema: " + throwable.toString());
+
+            }
+        });
+    }
+
 
     private void subirNota(String valorSeleccionado, Boolean status) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

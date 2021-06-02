@@ -2,7 +2,6 @@ package com.daniel.appmatematicas.autenticación.auth;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
@@ -22,9 +21,7 @@ import com.daniel.appmatematicas.MenuActivity;
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.ValidarEmail;
 import com.daniel.appmatematicas.rest.ReporteApiService;
-import com.daniel.appmatematicas.rest.ReporteRequest;
-import com.daniel.appmatematicas.rest.UsuarioRequest;
-import com.daniel.appmatematicas.view.EncuentraNumeroActivity;
+import com.daniel.appmatematicas.rest.UsuarioResponse;
 import com.daniel.appmatematicas.view.fragmentos.EncontrarFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -194,7 +191,7 @@ public class Register extends AppCompatActivity {
                             });
 
                             mProgress.dismiss();
-                            UsuarioRequest obj = new UsuarioRequest(display_name,"Masculino",display_email, display_password);
+                            UsuarioResponse obj = new UsuarioResponse(display_name,"Masculino",display_email, display_password);
                             createRegister(obj);
                             showSnackBar("Creando Cuenta");
 
@@ -207,7 +204,7 @@ public class Register extends AppCompatActivity {
                 });
     }
 
-    public void createRegister(UsuarioRequest obj){
+    public void createRegister(UsuarioResponse obj){
         registrarUsuario(obj);
         Intent i = new Intent(Register.this, MenuActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -216,10 +213,10 @@ public class Register extends AppCompatActivity {
 
     }
 
-    private void registrarUsuario(UsuarioRequest obj) {
-        reporteApiService.saveNota(obj).enqueue(new Callback<UsuarioRequest>() {
+    private void registrarUsuario(UsuarioResponse obj) {
+        reporteApiService.saveNota(obj).enqueue(new Callback<UsuarioResponse>() {
             @Override
-            public void onResponse(Call<UsuarioRequest> call, Response<UsuarioRequest> response) {
+            public void onResponse(Call<UsuarioResponse> call, Response<UsuarioResponse> response) {
 
                 if(response.isSuccessful()) {
                     showSnackBar(response.body().toString());
@@ -232,7 +229,7 @@ public class Register extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<UsuarioRequest> call, Throwable t) {
+            public void onFailure(Call<UsuarioResponse> call, Throwable t) {
                 Log.e(TAG, "Error");
 
             }
