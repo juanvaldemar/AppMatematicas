@@ -35,6 +35,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AnimalMedidaFragment extends Fragment {
 
+    //reclaración de variables
+
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
     private boolean seleccion;
@@ -66,13 +68,14 @@ public class AnimalMedidaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_animal_medida, container, false);
-
+        //llamada de métodos principales
         initConnect(root);
         initTemas(root);
 
         return root;
     }
 
+    //lista temas del backend
     private void initTemas(View root) {
         Call<List<TemaResponse>> call = reporteApiService.listTema();
         call.enqueue(new Callback<List<TemaResponse>>() {
@@ -100,7 +103,7 @@ public class AnimalMedidaFragment extends Fragment {
         });
     }
 
-
+    //inicia conexión
     private void initConnect(View root) {
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -112,6 +115,7 @@ public class AnimalMedidaFragment extends Fragment {
 
     }
 
+    //realiza los generados
     private void initGenerados(View root) {
         Random rd = new Random();
         List<Integer> generados = new ArrayList<>();
@@ -137,6 +141,7 @@ public class AnimalMedidaFragment extends Fragment {
 
 
     }
+    //setea las conexiones de xml a class java
     private void initFonts(List<Integer> generados, int principal, View root) {
 
 
@@ -156,6 +161,7 @@ public class AnimalMedidaFragment extends Fragment {
         //encuentra_numero_text.setText("Encuentra el número "+ this.numeroAleatorioPrincipal +":");
     }
 
+    //realiza una limpieza de selección
     private void initSeleccionEmpty(View root) {
 
         mPrimeroR = root.findViewById(R.id.seleccion_primero);
@@ -172,6 +178,7 @@ public class AnimalMedidaFragment extends Fragment {
 
     }
 
+    //Método que se activa para realizar acciones
     private void initClicks(View root) {
 
         mPrimeroR.setOnClickListener(new View.OnClickListener() {
@@ -207,6 +214,7 @@ public class AnimalMedidaFragment extends Fragment {
 
 
         Button validar = root.findViewById(R.id.validar);
+        //validamos los datos ingresados
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -235,7 +243,7 @@ public class AnimalMedidaFragment extends Fragment {
 
     }
 
-
+    //sube la nota al servidor
     private void subirNota(int valorSeleccionado, Boolean status) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         ReporteRequest obj;
@@ -268,7 +276,7 @@ public class AnimalMedidaFragment extends Fragment {
 
 
     }
-
+    //mensaje de texto
     public void showSnackBar(String msg) {
         Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }
