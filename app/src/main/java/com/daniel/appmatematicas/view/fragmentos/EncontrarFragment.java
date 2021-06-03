@@ -64,6 +64,8 @@ public class EncontrarFragment extends Fragment {
     private String calificacionOk;
     private String calificacionNoOk;
 
+    private String preguntaPrincipal;
+
     public EncontrarFragment() {
         // Required empty public constructor
     }
@@ -88,14 +90,18 @@ public class EncontrarFragment extends Fragment {
             public void onResponse(Call<List<TemaResponse>> call, Response<List<TemaResponse>> response) {
                 if(response.body() != null){
                     for(TemaResponse i: response.body()){
-                        if(i.getPosicion().equalsIgnoreCase("2")){
-                           calificacionOk = i.getPreguntas_tema();
-                        }
-                        if(i.getPosicion().equalsIgnoreCase("3")){
-                            calificacionNoOk = i.getPreguntas_tema();
-                        }
-                        temaList.add(i);
+                            if(i.getPosicion().equalsIgnoreCase("2")){
+                               calificacionOk = i.getPreguntas_tema();
+                            }
+                            if(i.getPosicion().equalsIgnoreCase("3")){
+                                calificacionNoOk = i.getPreguntas_tema();
+                            }
+                            if(i.getPosicion().equalsIgnoreCase("10")){
+                                preguntaPrincipal = i.getPreguntas_tema();
+                            }
+                            temaList.add(i);
                     }
+
 
                     initGenerados(root);
                 }
@@ -154,7 +160,7 @@ public class EncontrarFragment extends Fragment {
         TextView encuentra_numero_text = root.findViewById(R.id.encuentra_numero_text);
         int valorDividido = a/2;
         System.out.println(valorDividido);
-        encuentra_numero_text.setText("Encuentra el número de la operación: "+ valorDividido +" + "+valorDividido);
+        encuentra_numero_text.setText(preguntaPrincipal+ valorDividido +" + "+valorDividido);
 
         mPrimero = root.findViewById(R.id.primero);
         mSegundo = root.findViewById(R.id.segundo);

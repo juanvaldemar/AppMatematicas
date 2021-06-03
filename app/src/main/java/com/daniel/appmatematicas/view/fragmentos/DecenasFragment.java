@@ -41,6 +41,9 @@ public class DecenasFragment extends Fragment {
     private String calificacionOk;
     private String calificacionNoOk;
 
+    private String preguntaPrincipal;
+    private TextView txtPregunta;
+
     public DecenasFragment() {
         // Required empty public constructor
     }
@@ -79,6 +82,12 @@ public class DecenasFragment extends Fragment {
                         }
                         if(i.getPosicion().equalsIgnoreCase("3")){
                             calificacionNoOk = i.getPreguntas_tema();
+                        }
+
+                        if(i.getPosicion().equalsIgnoreCase("11")){
+                            txtPregunta = root.findViewById(R.id.pregunta);
+                            preguntaPrincipal = i.getPreguntas_tema();
+                            txtPregunta.setText(preguntaPrincipal);
                         }
                         temaList.add(i);
                     }
