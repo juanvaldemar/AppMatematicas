@@ -116,7 +116,7 @@ public class PaletaMedidaFragment extends Fragment {
     private void initConnect(View root) {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.2.101:8080/")
+                .baseUrl("http://192.168.2.100:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
