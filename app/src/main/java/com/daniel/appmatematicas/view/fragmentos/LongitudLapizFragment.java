@@ -54,9 +54,16 @@ public class LongitudLapizFragment extends Fragment {
 
     ReporteApiService reporteApiService;
 
+
     private List<TemaResponse> temaList = new ArrayList<>();
     private String calificacionOk;
     private String calificacionNoOk;
+
+
+    private String preguntaPrincipal;
+    private TextView txtPregunta;
+
+
 
     public LongitudLapizFragment() {
         // Required empty public constructor
@@ -87,6 +94,11 @@ public class LongitudLapizFragment extends Fragment {
                         }
                         if(i.getPosicion().equalsIgnoreCase("3")){
                             calificacionNoOk = i.getPreguntas_tema();
+                        }
+                        if(i.getPosicion().equalsIgnoreCase("18")){
+                            txtPregunta = root.findViewById(R.id.pregunta);
+                            preguntaPrincipal = i.getPreguntas_tema();
+                            txtPregunta.setText(preguntaPrincipal);
                         }
                         temaList.add(i);
                     }
