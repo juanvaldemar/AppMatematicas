@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daniel.appmatematicas.R;
@@ -40,7 +41,11 @@ public class SumarFragment extends Fragment {
     private String calificacionOk;
     private String calificacionNoOk;
 
-        public SumarFragment() {
+    private String preguntaPrincipal;
+    private TextView txtPregunta;
+
+
+    public SumarFragment() {
         // Required empty public constructor
     }
 
@@ -63,6 +68,11 @@ public class SumarFragment extends Fragment {
                         }
                         if(i.getPosicion().equalsIgnoreCase("3")){
                             calificacionNoOk = i.getPreguntas_tema();
+                        }
+                        if(i.getPosicion().equalsIgnoreCase("16")){
+                            txtPregunta = root.findViewById(R.id.pregunta);
+                            preguntaPrincipal = i.getPreguntas_tema();
+                            txtPregunta.setText(preguntaPrincipal);
                         }
                         temaList.add(i);
                     }

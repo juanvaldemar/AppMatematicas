@@ -55,6 +55,11 @@ public class ContarAlimentosFragment extends Fragment {
     private String calificacionOk;
     private String calificacionNoOk;
 
+    private String preguntaPrincipal;
+    private TextView txtPregunta;
+
+
+
     public ContarAlimentosFragment() {
         // Required empty public constructor
     }
@@ -86,6 +91,12 @@ public class ContarAlimentosFragment extends Fragment {
                         if(i.getPosicion().equalsIgnoreCase("3")){
                             calificacionNoOk = i.getPreguntas_tema();
                         }
+                        if(i.getPosicion().equalsIgnoreCase("14")){
+                            txtPregunta = root.findViewById(R.id.pregunta);
+                            preguntaPrincipal = i.getPreguntas_tema();
+                            txtPregunta.setText(preguntaPrincipal);
+                        }
+
                         temaList.add(i);
                     }
 
