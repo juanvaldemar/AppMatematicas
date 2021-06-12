@@ -18,6 +18,7 @@ import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
 import com.daniel.appmatematicas.rest.ReporteRequest;
 import com.daniel.appmatematicas.rest.TemaResponse;
+import com.daniel.appmatematicas.util.Constante;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -116,8 +117,10 @@ public class EstimacionFragment extends Fragment {
 
     private void initConnect(View root) {
 
+        String ipConfig = Constante.ip_config_;
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.2.100:8080/")
+                .baseUrl(ipConfig+":8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
