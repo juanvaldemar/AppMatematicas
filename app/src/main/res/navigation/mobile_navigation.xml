@@ -61,6 +61,13 @@
         android:label="Medida Animal"
         tools:layout="@layout/fragment_estimacion" />
 
+
+    <fragment
+        android:id="@+id/nav_estimacion_libros"
+        android:name="com.daniel.appmatematicas.view.fragmentos.EstimacionLibrosFragment"
+        android:label="Medida Animal"
+        tools:layout="@layout/fragment_estimacion_libros" />
+
     <fragment
         android:id="@+id/nav_paleta"
         android:name="com.daniel.appmatematicas.view.fragmentos.PaletaMedidaFragment"
@@ -151,6 +158,12 @@
         android:name="com.daniel.appmatematicas.view.fragmentos.ContarFragment"
         android:label="App Matematicas"
         tools:layout="@layout/contar" />
+
+    <fragment
+        android:id="@+id/nav_estimacion_estrategia"
+        android:name="com.daniel.appmatematicas.view.fragmentos.EstrategiaFragment"
+        android:label="App Matematicas"
+        tools:layout="@layout/fragment_estrategia" />
 
 
 

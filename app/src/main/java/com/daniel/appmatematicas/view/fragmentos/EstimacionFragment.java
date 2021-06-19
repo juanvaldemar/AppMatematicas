@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -215,8 +216,6 @@ public class EstimacionFragment extends Fragment {
                         showSnackBar(calificacionOk);
                         System.out.println("valorSeleccionado" +valorSeleccionado);
                         subirNota(valorSeleccionado, true);
-
-
                         //startActivity(new Intent(getActivity(), PerfilActivity.class));
                         // listaCalificacion.add(true);
                     }else{
@@ -226,12 +225,8 @@ public class EstimacionFragment extends Fragment {
                         // startActivity(new Intent(getActivity(), PerfilActivity.class));
                         System.out.println("valorSeleccionado" +valorSeleccionado);
                         subirNota(valorSeleccionado, false);
-
-
-
                     }
-
-
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_libros);
                 }
             }
         });

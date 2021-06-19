@@ -476,7 +476,6 @@
                     android:gravity="center">
                     <TextView
                         android:id="@+id/tercero"
-
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
