@@ -183,5 +183,10 @@
         android:label="App Matematicas"
         tools:layout="@layout/fragment_calculadora_i_i" />
 
+    <fragment
+        android:id="@+id/nav_resultado"
+        android:name="com.daniel.appmatematicas.view.resultado.ResultadoFragment"
+        android:label="App Matematicas"
+        tools:layout="@layout/fragment_resultado" />
 
 </navigation>
