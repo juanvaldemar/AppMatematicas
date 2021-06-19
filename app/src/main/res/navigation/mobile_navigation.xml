@@ -133,5 +133,26 @@
         android:label="Mayor a menor"
         tools:layout="@layout/fragment_menor_mayor" />
 
+    <fragment
+        android:id="@+id/nav_encontrar"
+        android:name="com.daniel.appmatematicas.view.fragmentos.EncontrarFragment"
+        android:label="Encontrar número"
+        tools:layout="@layout/fragment_encontrar" />
+
+
+    <fragment
+        android:id="@+id/nav_color_polos"
+        android:name="com.daniel.appmatematicas.view.fragmentos.ColorFragment"
+        android:label="App Matematicas"
+        tools:layout="@layout/numeros_colores" />
+
+    <fragment
+        android:id="@+id/nav_contar"
+        android:name="com.daniel.appmatematicas.view.fragmentos.ContarFragment"
+        android:label="App Matematicas"
+        tools:layout="@layout/contar" />
+
+
+
 
 </navigation>

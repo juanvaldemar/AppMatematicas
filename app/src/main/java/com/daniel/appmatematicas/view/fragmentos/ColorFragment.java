@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -266,6 +267,7 @@ public class ColorFragment extends Fragment {
                         subirNota(valorSeleccionado, false);
                     }
 
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_contar);
 
                 }
             }

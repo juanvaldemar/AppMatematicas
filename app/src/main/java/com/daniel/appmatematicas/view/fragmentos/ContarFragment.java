@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -278,6 +279,9 @@ public class ContarFragment extends Fragment {
                         subirNota(valorSeleccionado, false);
 
                     }
+
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_decenas);
+
 
                 }
             }
