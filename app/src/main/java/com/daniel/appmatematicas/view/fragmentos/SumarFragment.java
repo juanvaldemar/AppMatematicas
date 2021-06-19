@@ -3,6 +3,7 @@ package com.daniel.appmatematicas.view.fragmentos;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -114,6 +115,8 @@ public class SumarFragment extends Fragment {
 
                             //listaCalificacion.add(false);
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));
+                            Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resta);
+
                         }
                     }else{
                         showSnackBar("Escriba una respuesta válida");
