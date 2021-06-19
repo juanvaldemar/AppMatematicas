@@ -1,4 +1,4 @@
-package com.daniel.appmatematicas.view.resultado;
+package com.daniel.appmatematicas.view.fragmentos;
 
 import android.os.Bundle;
 
@@ -8,15 +8,14 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Button;
 
 import com.daniel.appmatematicas.R;
 
-public class ModuloIVFragment extends Fragment {
+public class ComparacionesFragment extends Fragment {
 
-    private TextView iniciar;
-    public ModuloIVFragment() {
+    private Button validar;
+    public ComparacionesFragment() {
         // Required empty public constructor
     }
 
@@ -25,20 +24,20 @@ public class ModuloIVFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_modulo_i_v, container, false);
+        View root = inflater.inflate(R.layout.fragment_comparaciones, container, false);
+
         initView(root);
+
 
         return root;
     }
 
     private void initView(View root) {
-        iniciar = root.findViewById(R.id.iniciar);
-        iniciar.setOnClickListener(new View.OnClickListener() {
+        validar = root.findViewById(R.id.validar);
+        validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"jasodjoasd", Toast.LENGTH_LONG).show();
-                System.out.println("heyyy");
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_comparacion);
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_calculadoraI);
             }
         });
     }
