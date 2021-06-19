@@ -29,6 +29,7 @@
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
+            android:id="@+id/modulo1"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -38,6 +39,7 @@
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
+            android:id="@+id/modulo2"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -49,6 +51,7 @@
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
+            android:id="@+id/modulo3"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -59,6 +62,7 @@
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
+            android:id="@+id/modulo4"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

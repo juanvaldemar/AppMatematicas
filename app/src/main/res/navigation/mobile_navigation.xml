@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.daniel.appmatematicas.view.fragmentos.EncontrarFragment"
+        android:name="com.daniel.appmatematicas.view.resultado.MenuFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_encontrar" />
+        tools:layout="@layout/fragment_menu" />
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -92,4 +92,36 @@
         android:name="com.daniel.appmatematicas.LogoutFragment"
         android:label="Cerrar Sesión"
         tools:layout="@layout/fragment_logout" />
+
+
+    <fragment
+        android:id="@+id/nav_modulo_i"
+        android:name="com.daniel.appmatematicas.view.resultado.ModuloIFragment"
+        android:label="Módulo I"
+        tools:layout="@layout/fragment_modulo_i" />
+
+
+    <fragment
+        android:id="@+id/nav_modulo_i_i"
+        android:name="com.daniel.appmatematicas.view.resultado.ModuloIIFragment"
+        android:label="Módulo II"
+        tools:layout="@layout/fragment_modulo_i_i" />
+
+
+    <fragment
+        android:id="@+id/nav_modulo_i_i_i"
+        android:name="com.daniel.appmatematicas.view.resultado.ModuloIIIFragment"
+        android:label="Módulo III"
+        tools:layout="@layout/fragment_modulo_i_i_i" />
+
+
+    <fragment
+        android:id="@+id/nav_modulo_i_v"
+        android:name="com.daniel.appmatematicas.view.resultado.ModuloIVFragment"
+        android:label="Módulo IV"
+        tools:layout="@layout/fragment_modulo_i_v" />
+
+
+
+
 </navigation>

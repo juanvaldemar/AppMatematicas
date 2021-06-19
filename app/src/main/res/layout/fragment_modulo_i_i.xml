@@ -16,7 +16,6 @@
         >
 
 
-
         <TextView
             android:layout_width="wrap_content"
             android:gravity="center"
@@ -77,14 +76,16 @@
             android:textColor="#255CE6"
             android:textSize="20dp"
             />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Comparamos >,< o ="
+            android:text="Comparamos"
             android:textColor="#255CE6"
             android:textSize="20dp"
             />
+
         <TextView
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
