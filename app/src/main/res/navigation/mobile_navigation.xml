@@ -121,7 +121,17 @@
         android:label="Módulo IV"
         tools:layout="@layout/fragment_modulo_i_v" />
 
+    <fragment
+        android:id="@+id/nav_mayor_menu"
+        android:name="com.daniel.appmatematicas.view.fragmentos.MayorMenosFragment"
+        android:label="Mayor a menor"
+        tools:layout="@layout/fragment_mayor_menos" />
 
+    <fragment
+        android:id="@+id/nav_menor_mayor"
+        android:name="com.daniel.appmatematicas.view.fragmentos.MenorMayorFragment"
+        android:label="Mayor a menor"
+        tools:layout="@layout/fragment_menor_mayor" />
 
 
 </navigation>
