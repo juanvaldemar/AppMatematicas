@@ -27,6 +27,15 @@ public class ModuloIIFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_modulo_i_i, container, false);
 
         initView(root);
+        TextView salir;
+        salir = root.findViewById(R.id.salir);
+        salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_mayor_menu);
+
+            }
+        });
 
         return root;
     }
