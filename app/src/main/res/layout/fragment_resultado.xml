@@ -5,7 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.resultado.ResultadoFragment">
-
+    <ImageView
+        android:id="@+id/cerrar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/com_facebook_close"/>
     <TextView
         android:layout_marginTop="140dp"
         android:layout_width="match_parent"
