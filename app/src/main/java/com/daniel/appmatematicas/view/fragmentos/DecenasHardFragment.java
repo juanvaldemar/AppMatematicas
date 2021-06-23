@@ -60,7 +60,14 @@ public class DecenasHardFragment extends Fragment {
         mSegundo = root.findViewById(R.id.segundo);
         valorDos = 0;
         valorDos = 0;
-
+        Button btnCerrar;
+        btnCerrar = root.findViewById(R.id.cerrar);
+        btnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
+            }
+        });
 
         initTemas(root);
 

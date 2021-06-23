@@ -27,7 +27,14 @@ public class ComparacionesFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_comparaciones, container, false);
 
         initView(root);
-
+        Button btnCerrar;
+        btnCerrar = root.findViewById(R.id.cerrar);
+        btnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
+            }
+        });
 
         return root;
     }

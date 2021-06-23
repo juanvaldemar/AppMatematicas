@@ -8,185 +8,185 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.daniel.appmatematicas.view.resultado.MenuFragment"
-        android:label="@string/menu_home"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_menu" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.daniel.appmatematicas.view.fragmentos.ContarFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/app_name"
         tools:layout="@layout/contar" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.daniel.appmatematicas.view.fragmentos.SumarFragment"
-        android:label="Sumar"
+        android:label="@string/app_name"
         tools:layout="@layout/suma" />
 
     <fragment
         android:id="@+id/nav_resta"
         android:name="com.daniel.appmatematicas.view.fragmentos.RestarFragment"
-        android:label="Resta"
+        android:label="@string/app_name"
         tools:layout="Restar" />
 
     <fragment
         android:id="@+id/nav_contar_color"
         android:name="com.daniel.appmatematicas.view.fragmentos.ColorFragment"
-        android:label="Contar con Colores"
+        android:label="@string/app_name"
         tools:layout="@layout/numeros_colores" />
 
     <fragment
         android:id="@+id/nav_enlatados_colores"
         android:name="com.daniel.appmatematicas.view.fragmentos.ContarAlimentosFragment"
-        android:label="Contar comida enlatada"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_contar_alimentos" />
 
 
     <fragment
         android:id="@+id/LongitudLapizFragment"
         android:name="com.daniel.appmatematicas.view.fragmentos.LongitudLapizFragment"
-        android:label="Longitud Lápiz"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_longitud_lapiz" />
 
     <fragment
         android:id="@+id/nav_animales"
         android:name="com.daniel.appmatematicas.view.fragmentos.AnimalMedidaFragment"
-        android:label="Medida Animal"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_animal_medida" />
 
 
     <fragment
         android:id="@+id/nav_estimacion"
         android:name="com.daniel.appmatematicas.view.fragmentos.EstimacionFragment"
-        android:label="Medida Animal"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_estimacion" />
 
 
     <fragment
         android:id="@+id/nav_estimacion_libros"
         android:name="com.daniel.appmatematicas.view.fragmentos.EstimacionLibrosFragment"
-        android:label="Medida Animal"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_estimacion_libros" />
 
     <fragment
         android:id="@+id/nav_paleta"
         android:name="com.daniel.appmatematicas.view.fragmentos.PaletaMedidaFragment"
-        android:label="Medida Animal"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_paleta_medida" />
 
     <fragment
         android:id="@+id/nav_peso"
         android:name="com.daniel.appmatematicas.view.fragmentos.PesoFragment"
-        android:label="Medida Animal"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_peso" />
 
 
     <fragment
         android:id="@+id/nav_decenas"
         android:name="com.daniel.appmatematicas.view.fragmentos.DecenasFragment"
-        android:label="Medida Animal"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_decenas" />
 
     <fragment
         android:id="@+id/nav_decenas_hard"
         android:name="com.daniel.appmatematicas.view.fragmentos.DecenasHardFragment"
-        android:label="Medida Animal"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_decenas_hard" />
 
 
     <fragment
         android:id="@+id/nav_logout"
         android:name="com.daniel.appmatematicas.LogoutFragment"
-        android:label="Cerrar Sesión"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_logout" />
 
 
     <fragment
         android:id="@+id/nav_modulo_i"
         android:name="com.daniel.appmatematicas.view.resultado.ModuloIFragment"
-        android:label="Módulo I"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_modulo_i" />
 
 
     <fragment
         android:id="@+id/nav_modulo_i_i"
         android:name="com.daniel.appmatematicas.view.resultado.ModuloIIFragment"
-        android:label="Módulo II"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_modulo_i_i" />
 
 
     <fragment
         android:id="@+id/nav_modulo_i_i_i"
         android:name="com.daniel.appmatematicas.view.resultado.ModuloIIIFragment"
-        android:label="Módulo III"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_modulo_i_i_i" />
 
 
     <fragment
         android:id="@+id/nav_modulo_i_v"
         android:name="com.daniel.appmatematicas.view.resultado.ModuloIVFragment"
-        android:label="Módulo IV"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_modulo_i_v" />
 
     <fragment
         android:id="@+id/nav_mayor_menu"
         android:name="com.daniel.appmatematicas.view.fragmentos.MayorMenosFragment"
-        android:label="Mayor a menor"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_mayor_menos" />
 
     <fragment
         android:id="@+id/nav_menor_mayor"
         android:name="com.daniel.appmatematicas.view.fragmentos.MenorMayorFragment"
-        android:label="Mayor a menor"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_menor_mayor" />
 
     <fragment
         android:id="@+id/nav_encontrar"
         android:name="com.daniel.appmatematicas.view.fragmentos.EncontrarFragment"
-        android:label="Encontrar número"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_encontrar" />
 
 
     <fragment
         android:id="@+id/nav_color_polos"
         android:name="com.daniel.appmatematicas.view.fragmentos.ColorFragment"
-        android:label="App Matematicas"
+        android:label="@string/app_name"
         tools:layout="@layout/numeros_colores" />
 
     <fragment
         android:id="@+id/nav_contar"
         android:name="com.daniel.appmatematicas.view.fragmentos.ContarFragment"
-        android:label="App Matematicas"
+        android:label="@string/app_name"
         tools:layout="@layout/contar" />
 
     <fragment
         android:id="@+id/nav_estimacion_estrategia"
         android:name="com.daniel.appmatematicas.view.fragmentos.EstrategiaFragment"
-        android:label="App Matematicas"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_estrategia" />
 
     <fragment
         android:id="@+id/nav_comparacion"
         android:name="com.daniel.appmatematicas.view.fragmentos.ComparacionesFragment"
-        android:label="App Matematicas"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_comparaciones" />
 
     <fragment
         android:id="@+id/nav_calculadoraI"
         android:name="com.daniel.appmatematicas.view.fragmentos.CalcularIFragment"
-        android:label="App Matematicas"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_calcular_i" />
 
     <fragment
         android:id="@+id/nav_calculadorII"
         android:name="com.daniel.appmatematicas.view.fragmentos.CalculadoraIIFragment"
-        android:label="App Matematicas"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_calculadora_i_i" />
 
     <fragment
         android:id="@+id/nav_resultado"
         android:name="com.daniel.appmatematicas.view.resultado.ResultadoFragment"
-        android:label="App Matematicas"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_resultado" />
 
 </navigation>

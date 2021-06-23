@@ -59,7 +59,14 @@ public class RestarFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.resta, container, false);
         initConnect();
-
+        Button btnCerrar;
+        btnCerrar = root.findViewById(R.id.cerrar);
+        btnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
+            }
+        });
         Call<List<TemaResponse>> call = reporteApiService.listTema();
         call.enqueue(new Callback<List<TemaResponse>>() {
             @Override

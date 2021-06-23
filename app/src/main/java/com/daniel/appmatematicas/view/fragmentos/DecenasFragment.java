@@ -57,7 +57,14 @@ public class DecenasFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_decenas, container, false);
 
         initConnect(root);
-
+        Button btnCerrar;
+        btnCerrar = root.findViewById(R.id.cerrar);
+        btnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
+            }
+        });
         initTemas(root);
         mPrimero = root.findViewById(R.id.primero);
         mSegundo = root.findViewById(R.id.segundo);

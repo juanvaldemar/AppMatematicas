@@ -3,7 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/container">
-
+    <ImageView
+        android:id="@+id/cerrar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/com_facebook_close"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
