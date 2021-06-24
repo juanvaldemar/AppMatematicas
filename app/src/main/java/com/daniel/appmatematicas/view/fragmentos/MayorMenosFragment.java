@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.daniel.appmatematicas.R;
 
@@ -34,7 +35,7 @@ public class MayorMenosFragment extends Fragment {
         View root =  inflater.inflate(R.layout.fragment_mayor_menos, container, false);
 
         initView(root);
-        Button btnCerrar;
+        ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override

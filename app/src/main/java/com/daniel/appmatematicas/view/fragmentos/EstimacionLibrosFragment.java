@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.daniel.appmatematicas.R;
 
@@ -28,7 +29,7 @@ public class EstimacionLibrosFragment extends Fragment {
 
         initView(root);
 
-        Button btnCerrar;
+        ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override

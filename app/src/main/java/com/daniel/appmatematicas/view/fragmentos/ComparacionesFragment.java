@@ -9,12 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.daniel.appmatematicas.R;
 
 public class ComparacionesFragment extends Fragment {
 
-    private Button validar;
+    private ImageView validar;
     public ComparacionesFragment() {
         // Required empty public constructor
     }

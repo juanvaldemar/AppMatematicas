@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,7 +60,7 @@ public class RestarFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.resta, container, false);
         initConnect();
-        Button btnCerrar;
+        ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override

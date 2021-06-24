@@ -34,7 +34,7 @@ public class ModuloIFragment extends Fragment {
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_mayor_menu);
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
 
             }
         });

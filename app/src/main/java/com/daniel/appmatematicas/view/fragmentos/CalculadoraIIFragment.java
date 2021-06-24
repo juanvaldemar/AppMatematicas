@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.daniel.appmatematicas.R;
 
@@ -19,7 +20,7 @@ import com.daniel.appmatematicas.R;
  */
 public class CalculadoraIIFragment extends Fragment {
 
-    private Button validar;
+    private ImageView validar;
     public CalculadoraIIFragment() {
         // Required empty public constructor
     }
