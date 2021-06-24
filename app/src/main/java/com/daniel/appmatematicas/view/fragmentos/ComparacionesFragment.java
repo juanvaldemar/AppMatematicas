@@ -15,7 +15,7 @@ import com.daniel.appmatematicas.R;
 
 public class ComparacionesFragment extends Fragment {
 
-    private ImageView validar;
+    private Button validar;
     public ComparacionesFragment() {
         // Required empty public constructor
     }
@@ -28,7 +28,7 @@ public class ComparacionesFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_comparaciones, container, false);
 
         initView(root);
-        Button btnCerrar;
+        ImageView  btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override

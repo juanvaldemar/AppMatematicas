@@ -16,7 +16,7 @@ import com.daniel.appmatematicas.R;
 
 public class CalcularIFragment extends Fragment {
 
-    private ImageView validar;
+    private Button validar;
     public CalcularIFragment() {
         // Required empty public constructor
     }
@@ -29,7 +29,7 @@ public class CalcularIFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_calcular_i, container, false);
 
         initView(root);
-        Button btnCerrar;
+        ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override

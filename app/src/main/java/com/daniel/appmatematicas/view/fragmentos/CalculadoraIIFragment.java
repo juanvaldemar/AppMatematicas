@@ -13,14 +13,10 @@ import android.widget.ImageView;
 
 import com.daniel.appmatematicas.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CalculadoraIIFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class CalculadoraIIFragment extends Fragment {
 
-    private ImageView validar;
+    private Button validar;
     public CalculadoraIIFragment() {
         // Required empty public constructor
     }
@@ -42,7 +38,7 @@ public class CalculadoraIIFragment extends Fragment {
         });
 
 
-        Button btnCerrar;
+        ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
