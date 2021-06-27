@@ -24,6 +24,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class MenorMayorFragment extends Fragment {
 
     private SharedPreferences prefs = null;
+    private String resultadoList;
 
     private Button validar;
 
@@ -51,7 +52,6 @@ public class MenorMayorFragment extends Fragment {
     private EditText cuarto_;
     private EditText quinto_;
     private EditText sexto_;
-    private String resultadoList;
 
     public MenorMayorFragment() {
         // Required empty public constructor

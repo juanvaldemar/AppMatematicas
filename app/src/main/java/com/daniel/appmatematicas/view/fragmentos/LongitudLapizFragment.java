@@ -1,5 +1,6 @@
 package com.daniel.appmatematicas.view.fragmentos;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -34,8 +35,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LongitudLapizFragment extends Fragment {
+import static android.content.Context.MODE_PRIVATE;
 
+public class LongitudLapizFragment extends Fragment {
+    private SharedPreferences prefs = null;
+    private String resultadoList;
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
     private boolean seleccion;
@@ -79,6 +83,10 @@ public class LongitudLapizFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_longitud_lapiz, container, false);
         ImageView btnCerrar;
+
+        prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+        resultadoList = prefs.getString("modulo_2","");
+
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -243,12 +251,16 @@ public class LongitudLapizFragment extends Fragment {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);
-                        subirNota(valorSeleccionado, true);
+                      //  subirNota(valorSeleccionado, true);
+                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+
 
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionNoOk);
-                        subirNota(valorSeleccionado, false);
+                      //  subirNota(valorSeleccionado, false);
+                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+
 
 
                     }

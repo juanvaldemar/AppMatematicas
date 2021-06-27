@@ -23,6 +23,7 @@ public class MenuFragment extends Fragment {
     private TextView modulo2;
     private TextView modulo3;
     private TextView modulo4;
+    private TextView modulo5;
 
     public MenuFragment() {
         // Required empty public constructor
@@ -45,6 +46,7 @@ public class MenuFragment extends Fragment {
         modulo2 = root.findViewById(R.id.modulo2);
         modulo3 = root.findViewById(R.id.modulo3);
         modulo4 = root.findViewById(R.id.modulo4);
+        modulo5 = root.findViewById(R.id.modulo4);
 
         modulo1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +73,13 @@ public class MenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_modulo_i_v);
+            }
+        });
+
+        modulo5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultadoV);
             }
         });
 

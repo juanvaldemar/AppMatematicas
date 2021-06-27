@@ -1,5 +1,6 @@
 package com.daniel.appmatematicas.view.fragmentos;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -31,7 +32,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class RestarFragment extends Fragment {
+
+    private SharedPreferences prefs = null;
+    private String resultadoList;
 
     private EditText mPrimero;
     private EditText mSegundo;
@@ -60,6 +66,10 @@ public class RestarFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.resta, container, false);
         initConnect();
+
+        prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+        resultadoList = prefs.getString("modulo_2","");
+
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -111,19 +121,23 @@ public class RestarFragment extends Fragment {
             public void onClick(View view) {
                 valorUno = Integer.parseInt(mPrimero.getText().toString());
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
-                if(valorUno == 0){
+
 
                         if(valorUno == 0 && valorDos == 5){
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionOk);
-                            subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
+                          //  subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
+                            prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+                            Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.LongitudLapizFragment);
 
                             //startActivity(new Intent(getActivity(), PerfilActivity.class));
                             // listaCalificacion.add(true);
                         }else{
                             //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionNoOk);
-                            subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
+                           // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
+
+                            prefs.edit().putString("modulo_1", resultadoList+",0").commit();
 
                             //listaCalificacion.add(false);
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));
@@ -131,10 +145,7 @@ public class RestarFragment extends Fragment {
 
                         }
 
-                }else {
-                    showSnackBar("Escriba una respuesta válida");
-                }
-
+           
 
             }
         });
