@@ -34,8 +34,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class SumarFragment extends Fragment {
+
+public class SumarConLlevadasFragment extends Fragment {
     private SharedPreferences prefs = null;
+    private String resultadoList;
 
     private EditText mPrimero;
     private EditText mSegundo;
@@ -50,9 +52,7 @@ public class SumarFragment extends Fragment {
 
     private String preguntaPrincipal;
     private TextView txtPregunta;
-
-
-    public SumarFragment() {
+    public SumarConLlevadasFragment() {
         // Required empty public constructor
     }
 
@@ -60,10 +60,10 @@ public class SumarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        View root = inflater.inflate(R.layout.suma, container, false);
+        View root = inflater.inflate(R.layout.fragment_sumar_con_llevadas, container, false);
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+        resultadoList = prefs.getString("modulo_2","");
 
 
         initConnect();
@@ -117,25 +117,22 @@ public class SumarFragment extends Fragment {
                 if(valorUno != 0){
 
                     if(valorUno != 0){
-                        if(valorUno == 5 && valorDos == 5){
+                        if(valorUno == 4 && valorDos == 6){
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionOk);
-                         //   subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
-                            prefs.edit().putString("modulo_2", "1").commit();
-
+                            //   subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
+                            prefs.edit().putString("modulo_2", resultadoList+",1").commit();
                             //startActivity(new Intent(getActivity(), PerfilActivity.class));
                             // listaCalificacion.add(true);
                         }else{
                             //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionNoOk);
-                           // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
-                            prefs.edit().putString("modulo_2", "0").commit();
-
+                            // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
+                            prefs.edit().putString("modulo_2", resultadoList+",0").commit();
                             //listaCalificacion.add(false);
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));
-
                         }
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_suma_conllevadas);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resta);
 
                     }else{
                         showSnackBar("Escriba una respuesta válida");
