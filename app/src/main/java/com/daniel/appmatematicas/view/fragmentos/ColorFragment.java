@@ -1,5 +1,6 @@
 package com.daniel.appmatematicas.view.fragmentos;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -34,9 +35,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class ColorFragment extends Fragment {
-
+    private SharedPreferences prefs = null;
+    private String resultadoList;
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
     private boolean seleccion;
@@ -78,6 +82,9 @@ public class ColorFragment extends Fragment {
         initConnect(root);
         initTemas(root);
         ImageView btnCerrar;
+        prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+        resultadoList = prefs.getString("modulo_1","");
+
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +125,9 @@ public class ColorFragment extends Fragment {
 
             }
         });
+
+        initGenerados(root);
+
     }
 
 
@@ -267,16 +277,15 @@ public class ColorFragment extends Fragment {
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
                     if(valorSeleccionado == numeroAleatorioPrincipal){
-
                         showSnackBar(calificacionOk);
                         subirNota(valorSeleccionado, true);
+                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
                     }else{
                         showSnackBar(calificacionNoOk);
                         subirNota(valorSeleccionado, false);
+                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
                     }
-
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_contar);
-
                 }
             }
         });

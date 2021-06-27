@@ -1,5 +1,6 @@
 package com.daniel.appmatematicas.view.fragmentos;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -31,8 +32,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class DecenasHardFragment extends Fragment {
+import static android.content.Context.MODE_PRIVATE;
 
+public class DecenasHardFragment extends Fragment {
+    private SharedPreferences prefs = null;
+    private String resultadoList;
     private EditText mPrimero;
     private EditText mSegundo;
     private int valorUno;
@@ -55,6 +59,10 @@ public class DecenasHardFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_decenas_hard, container, false);
+
+        prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+
+        resultadoList = prefs.getString("modulo_1","");
 
         initConnect();
         mPrimero = root.findViewById(R.id.primero);
@@ -113,11 +121,14 @@ public class DecenasHardFragment extends Fragment {
                                     if(valorUno == 6 && valorDos == 2){
 
                                         showSnackBar(calificacionOk);
-                                        subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                                       // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
 
                                     }else{
                                         showSnackBar(calificacionNoOk);
-                                        subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                                       // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+
                                     }
 
 
@@ -138,6 +149,40 @@ public class DecenasHardFragment extends Fragment {
 
                 System.out.println("ErrorPreguntaTema: " + throwable.toString());
 
+            }
+        });
+
+
+        Button validar = root.findViewById(R.id.validar);
+        validar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valorUno = Integer.parseInt(mPrimero.getText().toString());
+                valorDos = Integer.parseInt(mSegundo.getText().toString());
+                if(valorUno != 0){
+                    if(valorUno != 0){
+                        if(valorUno == 6 && valorDos == 2){
+
+                            showSnackBar(calificacionOk);
+                            // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                            prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+
+                        }else{
+                            showSnackBar(calificacionNoOk);
+                            // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                            prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+
+                        }
+
+
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado1);
+
+                    }else{
+                        showSnackBar("Escriba una respuesta válida");
+                    }
+                }else {
+                    showSnackBar("Escriba una respuesta válida");
+                }
             }
         });
     }

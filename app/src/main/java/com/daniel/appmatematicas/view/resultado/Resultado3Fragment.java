@@ -2,17 +2,15 @@ package com.daniel.appmatematicas.view.resultado;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.daniel.appmatematicas.R;
 
@@ -22,11 +20,11 @@ import java.util.List;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class ResultadoFragment extends Fragment {
+public class Resultado3Fragment extends Fragment {
     private SharedPreferences prefs = null;
     private String resultadoList;
     private TextView resultado;
-    public ResultadoFragment() {
+    public Resultado3Fragment() {
         // Required empty public constructor
     }
 
@@ -36,7 +34,7 @@ public class ResultadoFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_resultado, container, false);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_4","");
+        resultadoList = prefs.getString("modulo_3","");
         String[] notas = resultadoList.split(",");
         System.out.println(resultadoList);
 
@@ -44,7 +42,7 @@ public class ResultadoFragment extends Fragment {
 
         Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
-        initNota(notas,3);
+        initNota(notas,2);
         btnCerrar = root.findViewById(R.id.cerrar);
 
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +64,8 @@ public class ResultadoFragment extends Fragment {
         }
         resultado.setText(buenas.size()+"/"+cantidad);
 
-        SharedPreferences.Editor editor = getActivity().getSharedPreferences("modulo_4", MODE_PRIVATE).edit();
+        SharedPreferences.Editor editor = getActivity().getSharedPreferences("modulo_3", MODE_PRIVATE).edit();
+        editor.clear().apply();
 
 
         return "";

@@ -1,5 +1,6 @@
 package com.daniel.appmatematicas.view.fragmentos;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -35,6 +36,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class EncontrarFragment extends Fragment {
 
@@ -57,6 +60,8 @@ public class EncontrarFragment extends Fragment {
     private TextView mSexto;
     private EditText contador;
 
+    private SharedPreferences prefs = null;
+    private String resultadoList;
 
     ReporteApiService reporteApiService;
 
@@ -81,7 +86,8 @@ public class EncontrarFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_encontrar, container, false);
         initConnect(root);
         initTemas(root);
-
+        prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+        resultadoList = prefs.getString("modulo_1","");
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +119,7 @@ public class EncontrarFragment extends Fragment {
                     }
 
 
-                    initGenerados(root);
+
                 }
             }
             @Override
@@ -123,6 +129,7 @@ public class EncontrarFragment extends Fragment {
 
             }
         });
+        initGenerados(root);
     }
 
     private void initConnect(View root) {
@@ -283,20 +290,20 @@ public class EncontrarFragment extends Fragment {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);
-                        subirNota(valorSeleccionado, true);
+                        //subirNota(valorSeleccionado, true);
+                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
                        // startActivity(new Intent(getActivity(), ColorActivity.class));
                         // listaCalificacion.add(true);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_color_polos);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        subirNota(valorSeleccionado, false);
+                        //subirNota(valorSeleccionado, false);
+                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
 
                         showSnackBar(calificacionNoOk);
                         //listaCalificacion.add(false);
-
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_color_polos);
                     }
-
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_color_polos);
-
 
                    /* contador = findViewById(R.id.contador);
                     int contador_ = Integer.parseInt(contador.getText().toString());

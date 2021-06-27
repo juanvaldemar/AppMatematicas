@@ -1,6 +1,7 @@
 package com.daniel.appmatematicas.view.fragmentos;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -39,8 +40,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class ContarFragment extends Fragment {
+    private SharedPreferences prefs = null;
+    private String resultadoList;
 
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
@@ -81,6 +86,12 @@ public class ContarFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.contar, container, false);
         ImageView btnCerrar;
+
+        prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+
+        resultadoList = prefs.getString("modulo_1","");
+
+
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +99,7 @@ public class ContarFragment extends Fragment {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
             }
         });
+
         initConnect(root);
         initTemas(root);
         return root;
@@ -129,7 +141,6 @@ public class ContarFragment extends Fragment {
                         temaList.add(i);
                     }
 
-                    initGenerados(root);
                 }
             }
             @Override
@@ -139,6 +150,8 @@ public class ContarFragment extends Fragment {
 
             }
         });
+        initGenerados(root);
+
     }
 
 
@@ -278,13 +291,16 @@ public class ContarFragment extends Fragment {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);
-                        subirNota(valorSeleccionado, true);
+                        //subirNota(valorSeleccionado, true);
+                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+
 
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
 
                         showSnackBar(calificacionNoOk);
-                        subirNota(valorSeleccionado, false);
+                       // subirNota(valorSeleccionado, false);
 
                     }
 

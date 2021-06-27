@@ -116,16 +116,18 @@ public class EstimacionLibrosFragment extends Fragment {
                     System.out.println("seleccion");
 
                 }else{
-                    if(valorSeleccionado > 40){
+                    if(valorSeleccionado < 40){
                         prefs.edit().putString("modulo_3", resultadoList+",1").commit();
                         showSnackBar("resultadoList: "+resultadoList+valorSeleccionado);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado3);
 
-                    }else{
-                        prefs.edit().putString("modulo_3", resultadoList+",0").commit();
-                        showSnackBar("resultadoList: "+resultadoList+valorSeleccionado);
+
+                    }else {
+                        prefs.edit().putString("modulo_3", resultadoList + ",0").commit();
+                        showSnackBar("resultadoList: " + resultadoList + valorSeleccionado);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado3);
                     }
-                 //   Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_libros);
-                }
+                    }
             }
         });
 
