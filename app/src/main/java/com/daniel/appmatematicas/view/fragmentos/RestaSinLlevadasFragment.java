@@ -34,7 +34,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class RestarFragment extends Fragment {
+
+public class RestaSinLlevadasFragment extends Fragment {
 
     private SharedPreferences prefs = null;
     private String resultadoList;
@@ -54,9 +55,7 @@ public class RestarFragment extends Fragment {
     private String preguntaPrincipal;
     private TextView txtPregunta;
 
-
-
-    public RestarFragment() {
+    public RestaSinLlevadasFragment() {
         // Required empty public constructor
     }
 
@@ -64,7 +63,7 @@ public class RestarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.resta, container, false);
+        View root = inflater.inflate(R.layout.fragment_resta_sin_llevadas, container, false);
         initConnect();
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
@@ -121,26 +120,26 @@ public class RestarFragment extends Fragment {
             public void onClick(View view) {
                 valorUno = Integer.parseInt(mPrimero.getText().toString());
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
-                        if(valorUno == 0 && valorDos == 5){
-                            //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                            showSnackBar(calificacionOk);
-                          //  subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
-                            prefs.edit().putString("modulo_1", resultadoList+",1").commit();
-                            Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resta_sin_llevadas);
+                if(valorUno == 3 && valorDos == 0){
+                    //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                    showSnackBar(calificacionOk);
+                    //  subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
+                    prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.LongitudLapizFragment);
 
-                            //startActivity(new Intent(getActivity(), PerfilActivity.class));
-                            // listaCalificacion.add(true);
-                        }else{
-                            //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                            showSnackBar(calificacionNoOk);
-                           // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
+                    //startActivity(new Intent(getActivity(), PerfilActivity.class));
+                    // listaCalificacion.add(true);
+                }else{
+                    //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                    showSnackBar(calificacionNoOk);
+                    // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
 
-                            prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+                    prefs.edit().putString("modulo_1", resultadoList+",0").commit();
 
-                            //listaCalificacion.add(false);
-                            // startActivity(new Intent(getActivity(), PerfilActivity.class));
-                            Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resta_sin_llevadas);
-                        }
+                    //listaCalificacion.add(false);
+                    // startActivity(new Intent(getActivity(), PerfilActivity.class));
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.LongitudLapizFragment);
+                }
             }
         });
 
