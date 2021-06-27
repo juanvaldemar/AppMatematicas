@@ -4,92 +4,16 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item android:title="Módulo 1 : Aprendiendo números">
-            <menu >
-                <item
-                    android:id="@+id/nav_enlatados_colores"
-                    android:title="Contar comida enlatada" />
-                <item
-                    android:id="@+id/nav_contar_color"
-                    android:title="Contar colores" />
-                <item
-                    android:id="@+id/nav_home"
-                    android:title="Encontrando Números" />
-                <item
-                    android:id="@+id/nav_decenas"
-                    android:title="Decenas y unidades I" />
-                <item
-                    android:id="@+id/nav_decenas_hard"
-                    android:title="Decenas y unidades I" />
-            </menu>
-        </item>
 
-        <item android:title="Módulo 2 : Sumar">
+        <item android:title="Ranking">
             <menu>
                 <item
-                    android:id="@+id/nav_slideshow"
-                    android:title="Sumar con llevadas" />
+                    android:title="Ranking" />
 
             </menu>
         </item>
-
-        <item android:title="Módulo 2 : Restas">
-            <menu>
-                <item
-                    android:id="@+id/nav_resta"
-                    android:title="Restas con llevadas" />
-
-            </menu>
-        </item>
-
-        <item android:title="Módulo 2 : Longitud">
-            <menu>
-                <item
-                    android:id="@+id/LongitudLapizFragment"
-                    android:title="Test de Longitud I" />
-
-                <item
-                    android:id="@+id/nav_paleta"
-                    android:title="Test de Longitud II" />
-            </menu>
-        </item>
-
-        <item android:title="Módulo 2 : Peso">
-            <menu>
-                <item
-                    android:id="@+id/nav_peso"
-                    android:title="Test de peso" />
-
-                <item
-                    android:id="@+id/nav_animales"
-                    android:title="Medida animal" />
-                <item
-                    android:id="@+id/nav_estimacion"
-                    android:title="Test de estimación" />
-            </menu>
-        </item>
-
-        <item android:title="Módulo 3 : Comparadores">
-            <menu>
-                <item
-                    android:id="@+id/nav_gallery"
-                    android:title="@string/menu_gallery" />
-            </menu>
-        </item>
-
-
-
-
 
     </group>
 
 
-    <item android:title="Configuración">
-        <menu>
-            <item
-                android:id="@+id/nav_logout"
-                android:title="@string/logout" />
-
-        </menu>
-    </item>
 </menu>
