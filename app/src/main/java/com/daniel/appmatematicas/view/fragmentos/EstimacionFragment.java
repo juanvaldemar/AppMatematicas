@@ -1,5 +1,6 @@
 package com.daniel.appmatematicas.view.fragmentos;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -34,8 +35,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class EstimacionFragment extends Fragment {
+    private SharedPreferences prefs = null;
+
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
     private boolean seleccion;
@@ -87,6 +92,9 @@ public class EstimacionFragment extends Fragment {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
             }
         });
+
+        prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+
         return root;
     }
 
@@ -227,13 +235,18 @@ public class EstimacionFragment extends Fragment {
                         subirNota(valorSeleccionado, true);
                         //startActivity(new Intent(getActivity(), PerfilActivity.class));
                         // listaCalificacion.add(true);
+                        prefs.edit().putString("modulo_3", ",1").commit();
+
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionNoOk);
                         //listaCalificacion.add(false);
                         // startActivity(new Intent(getActivity(), PerfilActivity.class));
                         System.out.println("valorSeleccionado" +valorSeleccionado);
+                        prefs.edit().putString("modulo_3", ",0").commit();
+
                         subirNota(valorSeleccionado, false);
+
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_libros);
                 }
