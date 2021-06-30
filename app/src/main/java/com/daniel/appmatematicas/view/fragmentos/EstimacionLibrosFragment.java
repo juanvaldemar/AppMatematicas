@@ -42,7 +42,6 @@ public class EstimacionLibrosFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_estimacion_libros, container, false);
 
-        initView(root);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
         resultadoList = prefs.getString("modulo_3","");
         ImageView btnCerrar;
@@ -71,16 +70,7 @@ public class EstimacionLibrosFragment extends Fragment {
 
     }
 
-    private void initView(View root) {
-        validar = root.findViewById(R.id.validar);
 
-        validar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_estrategia);
-            }
-        });
-    }
 
     private void initClicks(View root) {
 
@@ -112,27 +102,22 @@ public class EstimacionLibrosFragment extends Fragment {
                 if(!seleccion){
                     //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
                     showSnackBar("¡Por favor seleccione una opcción valida!");
-                    System.out.println("seleccion");
-
                 }else{
                     if(valorSeleccionado < 40){
                         prefs.edit().putString("modulo_3", resultadoList+",1").commit();
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estrategia);
-
-
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_estrategia);
                     }else {
                         prefs.edit().putString("modulo_3", resultadoList + ",0").commit();
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estrategia);
+                       Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_estrategia);
+
                     }
                     }
             }
         });
-
     }
 
-
     public void showSnackBar(String msg) {
-        Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }
 
 }

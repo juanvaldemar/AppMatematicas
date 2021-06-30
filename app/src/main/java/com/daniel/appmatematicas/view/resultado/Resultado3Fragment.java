@@ -37,13 +37,12 @@ public class Resultado3Fragment extends Fragment {
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
         resultadoList = prefs.getString("modulo_3","");
         String[] notas = resultadoList.split(",");
-        System.out.println(resultadoList);
 
         ImageView btnCerrar;
 
-        Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
+      //  Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
-        initNota(notas,2);
+        initNota(notas,3);
         btnCerrar = root.findViewById(R.id.cerrar);
 
         btnCerrar.setOnClickListener(new View.OnClickListener() {

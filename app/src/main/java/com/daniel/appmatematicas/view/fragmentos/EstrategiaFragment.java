@@ -49,11 +49,11 @@ public class EstrategiaFragment extends Fragment {
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado3);
+                init();
             }
         });
         resultado = root.findViewById(R.id.resultado);
-        init();
+
         return root;
     }
 

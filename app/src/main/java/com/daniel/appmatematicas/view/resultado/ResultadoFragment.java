@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ public class ResultadoFragment extends Fragment {
 
         resultado = root.findViewById(R.id.resultado);
         initNota(notas,3);
-        Toast.makeText(getActivity(),resultadoList,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(),resultadoList,Toast.LENGTH_LONG).show();
 
 
 
@@ -57,6 +58,24 @@ public class ResultadoFragment extends Fragment {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
             }
         });
+
+        //Back pressed Logic for fragment
+        root.setFocusableInTouchMode(true);
+        root.requestFocus();
+        root.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+
         return root;
     }
 
@@ -69,6 +88,7 @@ public class ResultadoFragment extends Fragment {
                 }
         }
         resultado.setText(buenas.size()+"/"+cantidad);
+        prefs.edit().remove("modulo_4").commit();
 
 
 
