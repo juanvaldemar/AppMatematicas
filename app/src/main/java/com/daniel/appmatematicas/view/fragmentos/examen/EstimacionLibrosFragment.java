@@ -1,19 +1,17 @@
-package com.daniel.appmatematicas.view.fragmentos;
+package com.daniel.appmatematicas.view.fragmentos.examen;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.daniel.appmatematicas.R;
 
@@ -43,7 +41,7 @@ public class EstimacionLibrosFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_estimacion_libros, container, false);
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_5","");
+        resultadoList = prefs.getString("modulo_3","");
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -104,11 +102,11 @@ public class EstimacionLibrosFragment extends Fragment {
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
                     if(valorSeleccionado < 40){
-                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_k);
+                        prefs.edit().putString("modulo_3", resultadoList+",1").commit();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_estrategia);
                     }else {
-                        prefs.edit().putString("modulo_5", resultadoList + ",0").commit();
-                       Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_k);
+                        prefs.edit().putString("modulo_3", resultadoList + ",0").commit();
+                       Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_estrategia);
 
                     }
                     }

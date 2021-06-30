@@ -1,21 +1,18 @@
-package com.daniel.appmatematicas.view.fragmentos;
+package com.daniel.appmatematicas.view.fragmentos.examen;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
@@ -35,12 +32,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static android.content.Context.MODE_PRIVATE;
 
+public class AnimalMedidaFragment extends Fragment {
 
-public class ColorFragment extends Fragment {
-    private SharedPreferences prefs = null;
-    private String resultadoList;
+    //reclaración de variables
+
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
     private boolean seleccion;
@@ -48,17 +44,11 @@ public class ColorFragment extends Fragment {
     private RelativeLayout mPrimeroR;
     private RelativeLayout mSegundoR;
     private RelativeLayout mTerceroR;
-    private RelativeLayout mCuartoR;
-    private RelativeLayout mQuintoR;
-    private RelativeLayout mSextoR;
+
 
     private TextView mPrimero;
     private TextView mSegundo;
     private TextView mTercero;
-    private TextView mCuarto;
-    private TextView mQuinto;
-    private TextView mSexto;
-    private EditText contador;
 
     ReporteApiService reporteApiService;
 
@@ -66,25 +56,23 @@ public class ColorFragment extends Fragment {
     private String calificacionOk;
     private String calificacionNoOk;
 
-    private String preguntaPrincipal;
-    private TextView txtPregunta;
 
-
-    public ColorFragment() {
+    public AnimalMedidaFragment() {
         // Required empty public constructor
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.numeros_colores, container, false);
+        View root = inflater.inflate(R.layout.fragment_animal_medida, container, false);
+        //llamada de métodos principales
         initConnect(root);
         initTemas(root);
-        ImageView btnCerrar;
-        prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_5","");
 
+        ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,9 +80,11 @@ public class ColorFragment extends Fragment {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
             }
         });
+
         return root;
     }
 
+    //lista temas del backend
     private void initTemas(View root) {
         Call<List<TemaResponse>> call = reporteApiService.listTema();
         call.enqueue(new Callback<List<TemaResponse>>() {
@@ -108,11 +98,6 @@ public class ColorFragment extends Fragment {
                         if(i.getPosicion().equalsIgnoreCase("3")){
                             calificacionNoOk = i.getPreguntas_tema();
                         }
-                        if(i.getPosicion().equalsIgnoreCase("15")){
-                            txtPregunta = root.findViewById(R.id.pregunta);
-                            preguntaPrincipal = i.getPreguntas_tema();
-                            txtPregunta.setText(preguntaPrincipal);
-                        }
                         temaList.add(i);
                     }
 
@@ -125,26 +110,22 @@ public class ColorFragment extends Fragment {
 
             }
         });
-
-        initGenerados(root);
-
     }
 
-
-
+    //inicia conexión
     private void initConnect(View root) {
-
-
         String ipConfig = Constante.ip_config_;
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ipConfig)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
         reporteApiService = retrofit.create(ReporteApiService.class);
 
     }
 
+    //realiza los generados
     private void initGenerados(View root) {
         Random rd = new Random();
         List<Integer> generados = new ArrayList<>();
@@ -170,6 +151,7 @@ public class ColorFragment extends Fragment {
 
 
     }
+    //setea las conexiones de xml a class java
     private void initFonts(List<Integer> generados, int principal, View root) {
 
 
@@ -178,20 +160,18 @@ public class ColorFragment extends Fragment {
         mPrimero = root.findViewById(R.id.primero);
         mSegundo = root.findViewById(R.id.segundo);
         mTercero = root.findViewById(R.id.tercero);
-        mCuarto = root.findViewById(R.id.cuarto);
-        mQuinto = root.findViewById(R.id.quinto);
 
 
 
-        mPrimero.setText(generados.get(0).toString());
-        mSegundo.setText("15");
-        mTercero.setText(generados.get(2).toString());
-        mCuarto.setText(generados.get(3).toString());
-        mQuinto.setText(generados.get(4).toString());
+        mPrimero.setText("A");
+        mSegundo.setText("B");
+        mTercero.setText("C");
 
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
         //encuentra_numero_text.setText("Encuentra el número "+ this.numeroAleatorioPrincipal +":");
     }
+
+    //realiza una limpieza de selección
     private void initSeleccionEmpty(View root) {
 
         mPrimeroR = root.findViewById(R.id.seleccion_primero);
@@ -203,25 +183,19 @@ public class ColorFragment extends Fragment {
         mTerceroR= root.findViewById(R.id.seleccion_tercero);
         mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
-        mCuartoR = root.findViewById(R.id.seleccion_cuarto);
-
-        mCuartoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
-
-        mQuintoR = root.findViewById(R.id.seleccion_quinto);
-
-        mQuintoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
 
 
     }
 
+    //Método que se activa para realizar acciones
     private void initClicks(View root) {
 
         mPrimeroR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt(mPrimero.getText().toString());
+                valorSeleccionado = Integer.parseInt("10");
                 seleccion = true;
                 mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
@@ -231,7 +205,7 @@ public class ColorFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt(mSegundo.getText().toString());
+                valorSeleccionado = Integer.parseInt("2");
                 seleccion = true;
                 mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
@@ -241,34 +215,16 @@ public class ColorFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt(mTercero.getText().toString());
+                valorSeleccionado = Integer.parseInt("5");
                 seleccion = true;
                 mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
             }
         });
-        mCuartoR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt(mCuarto.getText().toString());
-                seleccion = true;
-                mCuartoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
-            }
-        });
-        mQuintoR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt(mQuinto.getText().toString());
-                seleccion = true;
-                mQuintoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
-
-            }
-        });
 
         Button validar = root.findViewById(R.id.validar);
+        //validamos los datos ingresados
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -276,20 +232,28 @@ public class ColorFragment extends Fragment {
                     //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
-                    if(valorSeleccionado == numeroAleatorioPrincipal){
+                    if(valorSeleccionado == 10){
+                        //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                        showSnackBar(calificacionOk);
                         subirNota(valorSeleccionado, true);
-                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+
+                        //startActivity(new Intent(getActivity(), PerfilActivity.class));
+                        // listaCalificacion.add(true);
                     }else{
+                        //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                        showSnackBar(calificacionNoOk);
                         subirNota(valorSeleccionado, false);
-                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+
                     }
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_d);
+
+
                 }
             }
         });
 
     }
 
+    //sube la nota al servidor
     private void subirNota(int valorSeleccionado, Boolean status) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         ReporteRequest obj;
@@ -322,9 +286,8 @@ public class ColorFragment extends Fragment {
 
 
     }
-
+    //mensaje de texto
     public void showSnackBar(String msg) {
         Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }
-
 }

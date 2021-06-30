@@ -63,7 +63,7 @@ public class DecenasFragment extends Fragment {
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
 
-        resultadoList = prefs.getString("modulo_1","");
+        resultadoList = prefs.getString("modulo_5","");
         initConnect(root);
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
@@ -118,11 +118,11 @@ public class DecenasFragment extends Fragment {
                             if(valorUno != 0){
                                 if(valorUno != 0){
                                     if(valorUno == 6 && valorDos == 2){
-                                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+                                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                                     }else{
-                                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+                                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                                     }
-                                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_decenas_hard);
+                                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_f);
 
                                 }else{
                                     showSnackBar("Escriba una respuesta válida");
@@ -162,7 +162,7 @@ public class DecenasFragment extends Fragment {
                             prefs.edit().putString("modulo_1", resultadoList+",0").commit();
                         }
 
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_decenas_hard);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_g);
 
                     }else{
                         showSnackBar("Escriba una respuesta válida");

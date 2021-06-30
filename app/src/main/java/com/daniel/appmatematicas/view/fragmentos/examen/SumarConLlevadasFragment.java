@@ -1,11 +1,7 @@
-package com.daniel.appmatematicas.view.fragmentos;
+package com.daniel.appmatematicas.view.fragmentos.examen;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
@@ -63,7 +62,7 @@ public class SumarConLlevadasFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_sumar_con_llevadas, container, false);
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_5","");
+        resultadoList = prefs.getString("modulo_2","");
 
 
         initConnect();
@@ -121,18 +120,18 @@ public class SumarConLlevadasFragment extends Fragment {
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionOk);
                             //   subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
-                            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+                            prefs.edit().putString("modulo_2", resultadoList+",1").commit();
                             //startActivity(new Intent(getActivity(), PerfilActivity.class));
                             // listaCalificacion.add(true);
                         }else{
                             //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionNoOk);
                             // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
-                            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+                            prefs.edit().putString("modulo_2", resultadoList+",0").commit();
                             //listaCalificacion.add(false);
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));
                         }
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultadoV);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resta);
 
                     }else{
                         showSnackBar("Escriba una respuesta válida");

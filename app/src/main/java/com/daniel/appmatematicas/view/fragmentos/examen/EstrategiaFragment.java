@@ -1,17 +1,16 @@
-package com.daniel.appmatematicas.view.fragmentos;
+package com.daniel.appmatematicas.view.fragmentos.examen;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.daniel.appmatematicas.R;
 
@@ -35,7 +34,7 @@ public class EstrategiaFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_estrategia, container, false);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_5","");
+        resultadoList = prefs.getString("modulo_3","");
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -61,11 +60,11 @@ public class EstrategiaFragment extends Fragment {
         String resultado_= resultado.getText().toString();
 
         if(resultado_.equalsIgnoreCase("96")){
-            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+            prefs.edit().putString("modulo_3", resultadoList+",1").commit();
         }else{
-            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+            prefs.edit().putString("modulo_3", resultadoList+",0").commit();
         }
-        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_l);
+        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado3);
 
 
 

@@ -76,7 +76,7 @@ public class PesoFragment extends Fragment {
         ImageView btnCerrar;
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_2","");
+        resultadoList = prefs.getString("modulo_5","");
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -242,21 +242,21 @@ public class PesoFragment extends Fragment {
                     if(valorSeleccionado == 1){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                        // subirNota(valorSeleccionado, true);
-                        prefs.edit().putString("modulo_2", resultadoList+",1").commit();
+                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
 
                         //startActivity(new Intent(getActivity(), PerfilActivity.class));
                         // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         //subirNota(valorSeleccionado, false);
-                        prefs.edit().putString("modulo_2", resultadoList+",0").commit();
+                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
 
                         //listaCalificacion.add(false);
                         // startActivity(new Intent(getActivity(), PerfilActivity.class));
 
 
                     }
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado2);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_q);
 
                 }
             }

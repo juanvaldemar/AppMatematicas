@@ -71,7 +71,7 @@ public class MenorMayorFragment extends Fragment {
         quinto_ = root.findViewById(R.id.quinto_);
         sexto_ = root.findViewById(R.id.sexto_);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_1","");
+        resultadoList = prefs.getString("modulo_5","");
 
 
         initTemas(root);
@@ -81,7 +81,7 @@ public class MenorMayorFragment extends Fragment {
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_p);
             }
         });
         return root;

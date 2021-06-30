@@ -1,12 +1,7 @@
-package com.daniel.appmatematicas.view.fragmentos;
+package com.daniel.appmatematicas.view.fragmentos.examen;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
@@ -38,9 +37,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class ColorFragment extends Fragment {
+public class ContarFragment extends Fragment {
     private SharedPreferences prefs = null;
     private String resultadoList;
+
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
     private boolean seleccion;
@@ -66,11 +66,11 @@ public class ColorFragment extends Fragment {
     private String calificacionOk;
     private String calificacionNoOk;
 
+
     private String preguntaPrincipal;
     private TextView txtPregunta;
 
-
-    public ColorFragment() {
+    public ContarFragment() {
         // Required empty public constructor
     }
 
@@ -78,12 +78,13 @@ public class ColorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.numeros_colores, container, false);
-        initConnect(root);
-        initTemas(root);
+        View root = inflater.inflate(R.layout.contar, container, false);
         ImageView btnCerrar;
+
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_5","");
+
+        resultadoList = prefs.getString("modulo_1","");
+
 
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +93,23 @@ public class ColorFragment extends Fragment {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
             }
         });
+
+        initConnect(root);
+        initTemas(root);
         return root;
+    }
+
+    private void initConnect(View root) {
+
+        String ipConfig = Constante.ip_config_;
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ipConfig+":8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        reporteApiService = retrofit.create(ReporteApiService.class);
+
     }
 
     private void initTemas(View root) {
@@ -108,42 +125,30 @@ public class ColorFragment extends Fragment {
                         if(i.getPosicion().equalsIgnoreCase("3")){
                             calificacionNoOk = i.getPreguntas_tema();
                         }
-                        if(i.getPosicion().equalsIgnoreCase("15")){
-                            txtPregunta = root.findViewById(R.id.pregunta);
-                            preguntaPrincipal = i.getPreguntas_tema();
-                            txtPregunta.setText(preguntaPrincipal);
-                        }
+                    if(i.getPosicion().equalsIgnoreCase("13")){
+                        txtPregunta = root.findViewById(R.id.pregunta);
+                        preguntaPrincipal = i.getPreguntas_tema();
+                        txtPregunta.setText(preguntaPrincipal);
+                    }
+
+
                         temaList.add(i);
                     }
 
-                    initGenerados(root);
                 }
             }
             @Override
             public void onFailure(Call<List<TemaResponse>> call, Throwable throwable) {
+
                 System.out.println("ErrorPreguntaTema: " + throwable.toString());
 
             }
         });
-
         initGenerados(root);
 
     }
 
 
-
-    private void initConnect(View root) {
-
-
-        String ipConfig = Constante.ip_config_;
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        reporteApiService = retrofit.create(ReporteApiService.class);
-
-    }
 
     private void initGenerados(View root) {
         Random rd = new Random();
@@ -192,6 +197,7 @@ public class ColorFragment extends Fragment {
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
         //encuentra_numero_text.setText("Encuentra el número "+ this.numeroAleatorioPrincipal +":");
     }
+
     private void initSeleccionEmpty(View root) {
 
         mPrimeroR = root.findViewById(R.id.seleccion_primero);
@@ -277,13 +283,21 @@ public class ColorFragment extends Fragment {
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
                     if(valorSeleccionado == numeroAleatorioPrincipal){
-                        subirNota(valorSeleccionado, true);
-                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+                        //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                        //subirNota(valorSeleccionado, true);
+                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+
+
                     }else{
-                        subirNota(valorSeleccionado, false);
-                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+                        //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+                       // subirNota(valorSeleccionado, false);
+
                     }
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_d);
+
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_decenas);
+
+
                 }
             }
         });
@@ -322,6 +336,7 @@ public class ColorFragment extends Fragment {
 
 
     }
+
 
     public void showSnackBar(String msg) {
         Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();

@@ -1,11 +1,7 @@
-package com.daniel.appmatematicas.view.fragmentos;
+package com.daniel.appmatematicas.view.fragmentos.examen;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
@@ -34,17 +33,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.Context.MODE_PRIVATE;
 
-
-public class SumarConLlevadasFragment extends Fragment {
+public class DecenasHardFragment extends Fragment {
     private SharedPreferences prefs = null;
     private String resultadoList;
-
     private EditText mPrimero;
     private EditText mSegundo;
     private int valorUno;
     private int valorDos;
-
     ReporteApiService reporteApiService;
+
 
     private List<TemaResponse> temaList = new ArrayList<>();
     private String calificacionOk;
@@ -52,21 +49,25 @@ public class SumarConLlevadasFragment extends Fragment {
 
     private String preguntaPrincipal;
     private TextView txtPregunta;
-    public SumarConLlevadasFragment() {
-        // Required empty public constructor
+
+    public DecenasHardFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_sumar_con_llevadas, container, false);
+        View root = inflater.inflate(R.layout.fragment_decenas_hard, container, false);
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_5","");
 
+        resultadoList = prefs.getString("modulo_1","");
 
         initConnect();
+        mPrimero = root.findViewById(R.id.primero);
+        mSegundo = root.findViewById(R.id.segundo);
+        valorDos = 0;
+        valorDos = 0;
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +76,19 @@ public class SumarConLlevadasFragment extends Fragment {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
             }
         });
+
+        initTemas(root);
+
+
+
+
+        return root;
+    }
+
+
+    private void initTemas(View root) {
+
+
         Call<List<TemaResponse>> call = reporteApiService.listTema();
         call.enqueue(new Callback<List<TemaResponse>>() {
             @Override
@@ -87,7 +101,7 @@ public class SumarConLlevadasFragment extends Fragment {
                         if(i.getPosicion().equalsIgnoreCase("3")){
                             calificacionNoOk = i.getPreguntas_tema();
                         }
-                        if(i.getPosicion().equalsIgnoreCase("16")){
+                        if(i.getPosicion().equalsIgnoreCase("12")){
                             txtPregunta = root.findViewById(R.id.pregunta);
                             preguntaPrincipal = i.getPreguntas_tema();
                             txtPregunta.setText(preguntaPrincipal);
@@ -95,18 +109,44 @@ public class SumarConLlevadasFragment extends Fragment {
                         temaList.add(i);
                     }
 
+                    Button validar = root.findViewById(R.id.validar);
+                    validar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            valorUno = Integer.parseInt(mPrimero.getText().toString());
+                            valorDos = Integer.parseInt(mSegundo.getText().toString());
+                            if(valorUno != 0){
+                                if(valorUno != 0){
+                                    if(valorUno == 6 && valorDos == 2){
+
+                                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+
+                                    }else{
+                                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+
+                                    }
+
+
+                                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado);
+
+                                }else{
+                                    showSnackBar("Escriba una respuesta válida");
+                                }
+                            }else {
+                                showSnackBar("Escriba una respuesta válida");
+                            }
+                        }
+                    });
                 }
             }
             @Override
             public void onFailure(Call<List<TemaResponse>> call, Throwable throwable) {
+
                 System.out.println("ErrorPreguntaTema: " + throwable.toString());
 
             }
         });
-        mPrimero = root.findViewById(R.id.primero);
-        mSegundo = root.findViewById(R.id.segundo);
-        valorDos = 0;
-        valorDos = 0;
+
 
         Button validar = root.findViewById(R.id.validar);
         validar.setOnClickListener(new View.OnClickListener() {
@@ -115,24 +155,20 @@ public class SumarConLlevadasFragment extends Fragment {
                 valorUno = Integer.parseInt(mPrimero.getText().toString());
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
                 if(valorUno != 0){
-
                     if(valorUno != 0){
-                        if(valorUno == 4 && valorDos == 6){
-                            //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                            showSnackBar(calificacionOk);
-                            //   subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
-                            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
-                            //startActivity(new Intent(getActivity(), PerfilActivity.class));
-                            // listaCalificacion.add(true);
+                        if(valorUno == 6 && valorDos == 2){
+
+                            // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                            prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+
                         }else{
-                            //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                            showSnackBar(calificacionNoOk);
-                            // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
-                            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
-                            //listaCalificacion.add(false);
-                            // startActivity(new Intent(getActivity(), PerfilActivity.class));
+                            // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                            prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+
                         }
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultadoV);
+
+
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado1);
 
                     }else{
                         showSnackBar("Escriba una respuesta válida");
@@ -140,26 +176,11 @@ public class SumarConLlevadasFragment extends Fragment {
                 }else {
                     showSnackBar("Escriba una respuesta válida");
                 }
-
-
             }
         });
-
-
-        return root;
     }
-    private void initConnect() {
 
-        String ipConfig = Constante.ip_config_;
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig+":8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        reporteApiService = retrofit.create(ReporteApiService.class);
-
-    }
     private void subirNota(String valorSeleccionado, Boolean status) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         ReporteRequest obj;
@@ -191,8 +212,23 @@ public class SumarConLlevadasFragment extends Fragment {
         });
 
 
+
+
+
     }
 
+    private void initConnect() {
+
+        String ipConfig = Constante.ip_config_;
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ipConfig+":8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        reporteApiService = retrofit.create(ReporteApiService.class);
+
+    }
     public void showSnackBar(String msg) {
         Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }

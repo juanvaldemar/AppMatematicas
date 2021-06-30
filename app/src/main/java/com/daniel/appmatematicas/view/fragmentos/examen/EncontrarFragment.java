@@ -1,12 +1,8 @@
-package com.daniel.appmatematicas.view.fragmentos;
+package com.daniel.appmatematicas.view.fragmentos.examen;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
@@ -38,9 +38,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class ColorFragment extends Fragment {
-    private SharedPreferences prefs = null;
-    private String resultadoList;
+public class EncontrarFragment extends Fragment {
+
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
     private boolean seleccion;
@@ -60,31 +59,35 @@ public class ColorFragment extends Fragment {
     private TextView mSexto;
     private EditText contador;
 
+    private SharedPreferences prefs = null;
+    private String resultadoList;
+
     ReporteApiService reporteApiService;
+
+
+    static final String TAG = EncontrarFragment.class.getSimpleName();
 
     private List<TemaResponse> temaList = new ArrayList<>();
     private String calificacionOk;
     private String calificacionNoOk;
 
     private String preguntaPrincipal;
-    private TextView txtPregunta;
 
-
-    public ColorFragment() {
+    public EncontrarFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.numeros_colores, container, false);
+        View root = inflater.inflate(R.layout.fragment_encontrar, container, false);
         initConnect(root);
         initTemas(root);
-        ImageView btnCerrar;
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_5","");
-
+        resultadoList = prefs.getString("modulo_1","");
+        ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,38 +105,35 @@ public class ColorFragment extends Fragment {
             public void onResponse(Call<List<TemaResponse>> call, Response<List<TemaResponse>> response) {
                 if(response.body() != null){
                     for(TemaResponse i: response.body()){
-                        if(i.getPosicion().equalsIgnoreCase("2")){
-                            calificacionOk = i.getPreguntas_tema();
-                        }
-                        if(i.getPosicion().equalsIgnoreCase("3")){
-                            calificacionNoOk = i.getPreguntas_tema();
-                        }
-                        if(i.getPosicion().equalsIgnoreCase("15")){
-                            txtPregunta = root.findViewById(R.id.pregunta);
-                            preguntaPrincipal = i.getPreguntas_tema();
-                            txtPregunta.setText(preguntaPrincipal);
-                        }
-                        temaList.add(i);
+                            if(i.getPosicion().equalsIgnoreCase("2")){
+                               calificacionOk = i.getPreguntas_tema();
+                            }
+                            if(i.getPosicion().equalsIgnoreCase("3")){
+                                calificacionNoOk = i.getPreguntas_tema();
+                            }
+                            if(i.getPosicion().equalsIgnoreCase("10")){
+                                preguntaPrincipal = i.getPreguntas_tema();
+
+                            }
+                            temaList.add(i);
                     }
 
                     initGenerados(root);
+
+
                 }
             }
             @Override
             public void onFailure(Call<List<TemaResponse>> call, Throwable throwable) {
+                Log.e(TAG, throwable.toString());
                 System.out.println("ErrorPreguntaTema: " + throwable.toString());
+                showSnackBar("ErrorPreguntaTema");
 
             }
         });
-
-        initGenerados(root);
-
     }
 
-
-
     private void initConnect(View root) {
-
 
         String ipConfig = Constante.ip_config_;
 
@@ -141,7 +141,8 @@ public class ColorFragment extends Fragment {
                 .baseUrl(ipConfig)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        reporteApiService = retrofit.create(ReporteApiService.class);
+
+          reporteApiService = retrofit.create(ReporteApiService.class);
 
     }
 
@@ -154,13 +155,15 @@ public class ColorFragment extends Fragment {
             while (!generado) {
                 int posible = rd.nextInt(100);
                 if (!generados.contains(posible)) {
-                    generados.add(posible);
-                    aleatorio = posible;
-                    generado = true;
+                    if(posible % 2 == 0){
+                        generados.add(posible);
+                        aleatorio = posible;
+                        generado = true;
+                    }
                 }
             }
             if (i == 6) {
-                initFonts(generados, 15,root);
+                initFonts(generados, generados.get(2),root);
             }
             System.out.println("Aleatorio: " + aleatorio);
         }
@@ -170,24 +173,30 @@ public class ColorFragment extends Fragment {
 
 
     }
-    private void initFonts(List<Integer> generados, int principal, View root) {
+    private void initFonts(List<Integer> generados, int a, View root) {
 
 
-        numeroAleatorioPrincipal = principal;
+        numeroAleatorioPrincipal = a;
+        TextView encuentra_numero_text = root.findViewById(R.id.encuentra_numero_text);
+        int valorDividido = a/2;
+        System.out.println(valorDividido);
+        encuentra_numero_text.setText(preguntaPrincipal+ valorDividido +" + "+valorDividido);
 
         mPrimero = root.findViewById(R.id.primero);
         mSegundo = root.findViewById(R.id.segundo);
         mTercero = root.findViewById(R.id.tercero);
         mCuarto = root.findViewById(R.id.cuarto);
         mQuinto = root.findViewById(R.id.quinto);
+        mSexto = root.findViewById(R.id.sexto);
 
 
 
         mPrimero.setText(generados.get(0).toString());
-        mSegundo.setText("15");
+        mSegundo.setText(generados.get(1).toString());
         mTercero.setText(generados.get(2).toString());
         mCuarto.setText(generados.get(3).toString());
         mQuinto.setText(generados.get(4).toString());
+        mSexto.setText(generados.get(5).toString());
 
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);
         //encuentra_numero_text.setText("Encuentra el número "+ this.numeroAleatorioPrincipal +":");
@@ -200,6 +209,8 @@ public class ColorFragment extends Fragment {
         mSegundoR= root.findViewById(R.id.seleccion_segundo);
         mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
+
+
         mTerceroR= root.findViewById(R.id.seleccion_tercero);
         mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
@@ -211,10 +222,11 @@ public class ColorFragment extends Fragment {
 
         mQuintoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
+        mSextoR = root.findViewById(R.id.seleccion_sexto);
 
+        mSextoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
     }
-
     private void initClicks(View root) {
 
         mPrimeroR.setOnClickListener(new View.OnClickListener() {
@@ -277,54 +289,79 @@ public class ColorFragment extends Fragment {
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
                     if(valorSeleccionado == numeroAleatorioPrincipal){
-                        subirNota(valorSeleccionado, true);
-                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+                        //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                        showSnackBar(calificacionOk);
+                        //subirNota(valorSeleccionado, true);
+                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+                       // startActivity(new Intent(getActivity(), ColorActivity.class));
+                        // listaCalificacion.add(true);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_color_polos);
                     }else{
-                        subirNota(valorSeleccionado, false);
-                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+                        //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                        //subirNota(valorSeleccionado, false);
+                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+
+                        showSnackBar(calificacionNoOk);
+                        //listaCalificacion.add(false);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_color_polos);
                     }
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_d);
+
+                   /* contador = findViewById(R.id.contador);
+                    int contador_ = Integer.parseInt(contador.getText().toString());
+
+                    iniciarNuevamente();
+                    int contador2 = contador_+1;
+                    if(contador2 > 9){
+                        prefs.edit().putString("prefs_puntaje", listaCalificacion.toString()).commit();
+                        showSnackBar(listaCalificacion.toString());
+                        startActivity(new Intent(BuscarNumeroActivity.this, ResultadoFinal.class));
+                        finish();
+                    }
+                    contador.setText(contador2+ "");
+
+                    */
                 }
+            }
+
+            private void subirNota(int valorSeleccionado, Boolean status) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                ReporteRequest obj;
+
+                if(status){
+                    obj = new ReporteRequest(user.getEmail(),"Muy bien, nota 20, respuesta: "+valorSeleccionado);
+                }else{
+                    obj = new ReporteRequest(user.getEmail(),"Que pena, nota 10, respuesta: "+valorSeleccionado);
+
+                }
+                    reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
+                        @Override
+                        public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
+
+                            if(response.isSuccessful()) {
+                                showSnackBar(response.body().toString());
+                                Log.i(TAG, "---" + response.body().toString());
+
+                                System.out.println("--------------------" );
+                                System.out.println("---: " +  response.body().getNombre() );
+                                System.out.println("---: " +  response.body().getNota() );
+                                System.out.println("--------------------" );
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ReporteRequest> call, Throwable t) {
+                            Log.e(TAG, "------");
+                        }
+                    });
+
+
             }
         });
 
     }
-
-    private void subirNota(int valorSeleccionado, Boolean status) {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        ReporteRequest obj;
-
-        if(status){
-            obj = new ReporteRequest(user.getEmail(),"Muy bien, nota 20, respuesta: "+valorSeleccionado);
-        }else{
-            obj = new ReporteRequest(user.getEmail(),"Que pena, nota 10, respuesta: "+valorSeleccionado);
-
-        }
-        reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
-            @Override
-            public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
-
-                if(response.isSuccessful()) {
-                    showSnackBar(response.body().toString());
-
-                    System.out.println("--------------------" );
-                    System.out.println("---: " +  response.body().getNombre() );
-                    System.out.println("---: " +  response.body().getNota() );
-                    System.out.println("--------------------" );
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ReporteRequest> call, Throwable t) {
-            }
-        });
-
-
-    }
-
     public void showSnackBar(String msg) {
-        Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
+      Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }
 
 }

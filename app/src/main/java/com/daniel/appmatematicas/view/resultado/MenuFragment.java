@@ -82,7 +82,7 @@ public class MenuFragment extends Fragment {
         modulo5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultadoV);
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_examen);
             }
         });
         salirr.setOnClickListener(new View.OnClickListener() {

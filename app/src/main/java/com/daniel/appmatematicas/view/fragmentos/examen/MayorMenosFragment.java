@@ -1,13 +1,7 @@
-package com.daniel.appmatematicas.view.fragmentos;
+package com.daniel.appmatematicas.view.fragmentos.examen;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +12,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.daniel.appmatematicas.R;
-import com.daniel.appmatematicas.rest.ReporteRequest;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.daniel.appmatematicas.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -212,11 +203,11 @@ public class MayorMenosFragment extends Fragment {
                 }
                 showSnackBar("validador"+validador);
                 if(validador){
-                    prefs.edit().putString("modulo_5", "1").commit();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_o);
+                    prefs.edit().putString("modulo_1", "1").commit();
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_menor_mayor);
                 }else{
-                    prefs.edit().putString("modulo_5", "0").commit();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_o);
+                    prefs.edit().putString("modulo_1", "0").commit();
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_menor_mayor);
                 }
 
 

@@ -229,11 +229,11 @@ public class EstimacionFragment extends Fragment {
 
                 }else{
                     if(valorSeleccionado > 40){
-                        prefs.edit().putString("modulo_3", ",1").commit();
+                        prefs.edit().putString("modulo_5", ",1").commit();
                     }else{
-                        prefs.edit().putString("modulo_3", ",0").commit();
+                        prefs.edit().putString("modulo_5", ",0").commit();
                     }
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_libros);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_j);
                 }
             }
         });

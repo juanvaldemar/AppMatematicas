@@ -1,12 +1,7 @@
-package com.daniel.appmatematicas.view.fragmentos;
+package com.daniel.appmatematicas.view.fragmentos.examen;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
@@ -83,7 +82,7 @@ public class ColorFragment extends Fragment {
         initTemas(root);
         ImageView btnCerrar;
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_5","");
+        resultadoList = prefs.getString("modulo_1","");
 
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -138,7 +137,7 @@ public class ColorFragment extends Fragment {
         String ipConfig = Constante.ip_config_;
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig)
+                .baseUrl(ipConfig+":8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         reporteApiService = retrofit.create(ReporteApiService.class);
@@ -278,12 +277,12 @@ public class ColorFragment extends Fragment {
                 }else{
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         subirNota(valorSeleccionado, true);
-                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
                     }else{
                         subirNota(valorSeleccionado, false);
-                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
                     }
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_d);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_contar);
                 }
             }
         });

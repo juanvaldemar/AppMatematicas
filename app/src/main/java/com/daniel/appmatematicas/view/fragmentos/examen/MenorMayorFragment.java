@@ -1,13 +1,7 @@
-package com.daniel.appmatematicas.view.fragmentos;
+package com.daniel.appmatematicas.view.fragmentos.examen;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,20 +12,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.daniel.appmatematicas.R;
-import com.daniel.appmatematicas.rest.ReporteRequest;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.daniel.appmatematicas.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
+public class MenorMayorFragment extends Fragment {
 
-public class MayorMenosFragment extends Fragment {
     private SharedPreferences prefs = null;
+    private String resultadoList;
 
     private Button validar;
 
@@ -60,18 +52,15 @@ public class MayorMenosFragment extends Fragment {
     private EditText quinto_;
     private EditText sexto_;
 
-
-    public MayorMenosFragment() {
+    public MenorMayorFragment() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root =  inflater.inflate(R.layout.fragment_mayor_menos, container, false);
+        View root = inflater.inflate(R.layout.fragment_menor_mayor, container, false);
 
 
         primero_ = root.findViewById(R.id.primero_);
@@ -81,6 +70,7 @@ public class MayorMenosFragment extends Fragment {
         quinto_ = root.findViewById(R.id.quinto_);
         sexto_ = root.findViewById(R.id.sexto_);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+        resultadoList = prefs.getString("modulo_1","");
 
 
         initTemas(root);
@@ -107,17 +97,17 @@ public class MayorMenosFragment extends Fragment {
         initClicks(root);
 
     }
+
     private void initSeleccionEmpty(View root) {
 
         mPrimeroR = root.findViewById(R.id.seleccion_primero);
         mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
-        mSegundoR= root.findViewById(R.id.seleccion_segundo);
+        mSegundoR = root.findViewById(R.id.seleccion_segundo);
         mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
 
-
-        mTerceroR= root.findViewById(R.id.seleccion_tercero);
+        mTerceroR = root.findViewById(R.id.seleccion_tercero);
         mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
         mCuartoR = root.findViewById(R.id.seleccion_cuarto);
@@ -133,6 +123,7 @@ public class MayorMenosFragment extends Fragment {
         mSextoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
     }
+
     private void initClicks(View root) {
 
         mPrimeroR.setOnClickListener(new View.OnClickListener() {
@@ -192,17 +183,17 @@ public class MayorMenosFragment extends Fragment {
             public void onClick(View view) {
                 String a = primero_.getText().toString();
                 String b = segundo_.getText().toString();
-                String c =  tercero_.getText().toString();
+                String c = tercero_.getText().toString();
                 String d = cuarto_.getText().toString();
                 String e = quinto_.getText().toString();
-                String f =  sexto_.getText().toString();
+                String f = sexto_.getText().toString();
                 Boolean validador = false;
-                if(a.equalsIgnoreCase("87")){
-                    if(b.equalsIgnoreCase("65")){
-                        if(c.equalsIgnoreCase("50")){
-                            if(d.equalsIgnoreCase("41")){
-                                if(e.equalsIgnoreCase("40")){
-                                    if(f.equalsIgnoreCase("29")){
+                if (a.equalsIgnoreCase("29")) {
+                    if (b.equalsIgnoreCase("40")) {
+                        if (c.equalsIgnoreCase("41")) {
+                            if (d.equalsIgnoreCase("50")) {
+                                if (e.equalsIgnoreCase("65")) {
+                                    if (f.equalsIgnoreCase("87")) {
                                         validador = true;
                                     }
                                 }
@@ -210,13 +201,13 @@ public class MayorMenosFragment extends Fragment {
                         }
                     }
                 }
-                showSnackBar("validador"+validador);
-                if(validador){
-                    prefs.edit().putString("modulo_5", "1").commit();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_o);
-                }else{
-                    prefs.edit().putString("modulo_5", "0").commit();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_o);
+               // showSnackBar("validador" + validador);
+                if (validador) {
+                    prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_encontrar);
+                } else {
+                    prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_encontrar);
                 }
 
 
@@ -225,8 +216,9 @@ public class MayorMenosFragment extends Fragment {
         });
 
     }
+
     public void showSnackBar(String msg) {
-        Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "" + msg, Toast.LENGTH_SHORT).show();
     }
 
 }

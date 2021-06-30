@@ -89,7 +89,7 @@ public class ContarFragment extends Fragment {
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
 
-        resultadoList = prefs.getString("modulo_1","");
+        resultadoList = prefs.getString("modulo_5","");
 
 
         btnCerrar = root.findViewById(R.id.cerrar);
@@ -291,17 +291,17 @@ public class ContarFragment extends Fragment {
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         //subirNota(valorSeleccionado, true);
-                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
 
 
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                        // subirNota(valorSeleccionado, false);
 
                     }
 
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_decenas);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_f);
 
 
                 }
