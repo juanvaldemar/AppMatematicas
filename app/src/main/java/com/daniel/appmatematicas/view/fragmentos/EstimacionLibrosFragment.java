@@ -98,10 +98,9 @@ public class EstimacionLibrosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("40");
+                valorSeleccionado = Integer.parseInt("41");
                 seleccion = true;
                 mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
-                System.out.println("40");
 
             }
         });
@@ -118,14 +117,12 @@ public class EstimacionLibrosFragment extends Fragment {
                 }else{
                     if(valorSeleccionado < 40){
                         prefs.edit().putString("modulo_3", resultadoList+",1").commit();
-                        showSnackBar("resultadoList: "+resultadoList+valorSeleccionado);
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado3);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estrategia);
 
 
                     }else {
                         prefs.edit().putString("modulo_3", resultadoList + ",0").commit();
-                        showSnackBar("resultadoList: " + resultadoList + valorSeleccionado);
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado3);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estrategia);
                     }
                     }
             }

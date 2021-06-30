@@ -138,7 +138,7 @@ public class EstimacionFragment extends Fragment {
         String ipConfig = Constante.ip_config_;
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig+":8080/")
+                .baseUrl(ipConfig)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -229,25 +229,9 @@ public class EstimacionFragment extends Fragment {
 
                 }else{
                     if(valorSeleccionado > 40){
-                        //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                       showSnackBar(1+valorSeleccionado+"");
-                     //   System.out.println("valorSeleccionado" +valorSeleccionado);
-                       // subirNota(valorSeleccionado, true);
-                        //startActivity(new Intent(getActivity(), PerfilActivity.class));
-                        // listaCalificacion.add(true);
                         prefs.edit().putString("modulo_3", ",1").commit();
-
                     }else{
-                        //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        showSnackBar(0+valorSeleccionado+"");
-
-                        //listaCalificacion.add(false);
-                        // startActivity(new Intent(getActivity(), PerfilActivity.class));
-                     //   System.out.println("valorSeleccionado" +valorSeleccionado);
                         prefs.edit().putString("modulo_3", ",0").commit();
-
-                     //   subirNota(valorSeleccionado, false);
-
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_libros);
                 }

@@ -82,6 +82,7 @@ public class Resultado2Fragment extends Fragment {
         }
         resultado.setText(buenas.size()+"/"+cantidad);
 
+        prefs.edit().remove("modulo_2").commit();
 
 
 
