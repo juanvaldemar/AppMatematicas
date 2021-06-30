@@ -290,7 +290,6 @@ public class ContarFragment extends Fragment {
                 }else{
                     if(valorSeleccionado == numeroAleatorioPrincipal){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        showSnackBar(calificacionOk);
                         //subirNota(valorSeleccionado, true);
                         prefs.edit().putString("modulo_1", resultadoList+",1").commit();
 
@@ -298,8 +297,6 @@ public class ContarFragment extends Fragment {
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         prefs.edit().putString("modulo_1", resultadoList+",0").commit();
-
-                        showSnackBar(calificacionNoOk);
                        // subirNota(valorSeleccionado, false);
 
                     }

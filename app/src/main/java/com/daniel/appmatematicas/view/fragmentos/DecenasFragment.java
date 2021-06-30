@@ -118,17 +118,10 @@ public class DecenasFragment extends Fragment {
                             if(valorUno != 0){
                                 if(valorUno != 0){
                                     if(valorUno == 6 && valorDos == 2){
-
-                                        showSnackBar(calificacionOk);
-                                       // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
                                         prefs.edit().putString("modulo_1", resultadoList+",1").commit();
-
                                     }else{
-                                        showSnackBar(calificacionNoOk);
-                                        //subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", false);
                                         prefs.edit().putString("modulo_1", resultadoList+",0").commit();
                                     }
-
                                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_decenas_hard);
 
                                 }else{

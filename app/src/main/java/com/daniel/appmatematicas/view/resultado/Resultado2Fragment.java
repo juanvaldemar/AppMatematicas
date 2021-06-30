@@ -64,7 +64,7 @@ public class Resultado2Fragment extends Fragment {
         }
         resultado.setText(buenas.size()+"/"+cantidad);
 
-        SharedPreferences.Editor editor = getActivity().getSharedPreferences("modulo_3", MODE_PRIVATE).edit();
+        SharedPreferences.Editor editor = getActivity().getSharedPreferences("modulo_2", MODE_PRIVATE).edit();
         editor.clear().apply();
 
 

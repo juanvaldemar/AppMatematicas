@@ -120,13 +120,9 @@ public class DecenasHardFragment extends Fragment {
                                 if(valorUno != 0){
                                     if(valorUno == 6 && valorDos == 2){
 
-                                        showSnackBar(calificacionOk);
-                                       // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
                                         prefs.edit().putString("modulo_1", resultadoList+",1").commit();
 
                                     }else{
-                                        showSnackBar(calificacionNoOk);
-                                       // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
                                         prefs.edit().putString("modulo_1", resultadoList+",0").commit();
 
                                     }
@@ -163,12 +159,10 @@ public class DecenasHardFragment extends Fragment {
                     if(valorUno != 0){
                         if(valorUno == 6 && valorDos == 2){
 
-                            showSnackBar(calificacionOk);
                             // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
                             prefs.edit().putString("modulo_1", resultadoList+",1").commit();
 
                         }else{
-                            showSnackBar(calificacionNoOk);
                             // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
                             prefs.edit().putString("modulo_1", resultadoList+",0").commit();
 

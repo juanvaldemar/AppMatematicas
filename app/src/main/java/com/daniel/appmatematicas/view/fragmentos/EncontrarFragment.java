@@ -114,10 +114,12 @@ public class EncontrarFragment extends Fragment {
                             }
                             if(i.getPosicion().equalsIgnoreCase("10")){
                                 preguntaPrincipal = i.getPreguntas_tema();
+
                             }
                             temaList.add(i);
                     }
 
+                    initGenerados(root);
 
 
                 }
@@ -126,10 +128,10 @@ public class EncontrarFragment extends Fragment {
             public void onFailure(Call<List<TemaResponse>> call, Throwable throwable) {
                 Log.e(TAG, throwable.toString());
                 System.out.println("ErrorPreguntaTema: " + throwable.toString());
+                showSnackBar("ErrorPreguntaTema");
 
             }
         });
-        initGenerados(root);
     }
 
     private void initConnect(View root) {
@@ -137,7 +139,7 @@ public class EncontrarFragment extends Fragment {
         String ipConfig = Constante.ip_config_;
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig+":8080/")
+                .baseUrl(ipConfig)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

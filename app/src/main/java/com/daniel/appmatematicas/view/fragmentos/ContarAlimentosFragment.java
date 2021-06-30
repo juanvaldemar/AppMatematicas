@@ -128,7 +128,7 @@ public class ContarAlimentosFragment extends Fragment {
         String ipConfig = Constante.ip_config_;
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig+":8080/")
+                .baseUrl(ipConfig)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         reporteApiService = retrofit.create(ReporteApiService.class);

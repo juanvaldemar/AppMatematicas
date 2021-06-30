@@ -2,6 +2,7 @@ package com.daniel.appmatematicas.view.resultado;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,23 @@ public class Resultado1Fragment extends Fragment {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
             }
         });
+
+        //Back pressed Logic for fragment
+        root.setFocusableInTouchMode(true);
+        root.requestFocus();
+        root.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
         return root;
     }
 
@@ -64,10 +82,10 @@ public class Resultado1Fragment extends Fragment {
         }
         resultado.setText(buenas.size()+"/"+cantidad);
 
-        SharedPreferences.Editor editor = getActivity().getSharedPreferences("modulo_3", MODE_PRIVATE).edit();
-        editor.clear().apply();
+        prefs.edit().remove("modulo_1").commit();
 
 
         return "";
     }
+
 }

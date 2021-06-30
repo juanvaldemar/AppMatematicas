@@ -277,11 +277,9 @@ public class ColorFragment extends Fragment {
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
                     if(valorSeleccionado == numeroAleatorioPrincipal){
-                        showSnackBar(calificacionOk);
                         subirNota(valorSeleccionado, true);
                         prefs.edit().putString("modulo_1", resultadoList+",1").commit();
                     }else{
-                        showSnackBar(calificacionNoOk);
                         subirNota(valorSeleccionado, false);
                         prefs.edit().putString("modulo_1", resultadoList+",1").commit();
                     }
