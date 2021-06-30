@@ -121,7 +121,6 @@ public class LongitudLapizFragment extends Fragment {
                         temaList.add(i);
                     }
 
-                    initGenerados(root);
                 }
             }
             @Override
@@ -131,6 +130,10 @@ public class LongitudLapizFragment extends Fragment {
 
             }
         });
+
+        initGenerados(root);
+
+
     }
 
 
@@ -140,7 +143,7 @@ public class LongitudLapizFragment extends Fragment {
         String ipConfig = Constante.ip_config_;
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig+":8080/")
+                .baseUrl(ipConfig)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -252,14 +255,14 @@ public class LongitudLapizFragment extends Fragment {
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);
                       //  subirNota(valorSeleccionado, true);
-                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+                        prefs.edit().putString("modulo_2", resultadoList+",1").commit();
 
 
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionNoOk);
                       //  subirNota(valorSeleccionado, false);
-                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+                        prefs.edit().putString("modulo_2", resultadoList+",0").commit();
 
 
 

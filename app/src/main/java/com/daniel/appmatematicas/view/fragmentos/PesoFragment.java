@@ -107,7 +107,6 @@ public class PesoFragment extends Fragment {
                         temaList.add(i);
                     }
 
-                    initGenerados(root);
                 }
             }
             @Override
@@ -117,6 +116,8 @@ public class PesoFragment extends Fragment {
 
             }
         });
+        initGenerados(root);
+
     }
 
     private void initConnect(View root) {
@@ -124,7 +125,7 @@ public class PesoFragment extends Fragment {
         String ipConfig = Constante.ip_config_;
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig+":8080/")
+                .baseUrl(ipConfig)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         reporteApiService = retrofit.create(ReporteApiService.class);
@@ -194,7 +195,6 @@ public class PesoFragment extends Fragment {
                 valorSeleccionado = Integer.parseInt("100");
                 seleccion = true;
                 mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
-                System.out.println("80");
             }
         });
         mSegundoR.setOnClickListener(new View.OnClickListener() {
@@ -204,7 +204,6 @@ public class PesoFragment extends Fragment {
                 valorSeleccionado = Integer.parseInt("80");
                 seleccion = true;
                 mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
-                System.out.println("40");
 
             }
         });
@@ -215,7 +214,6 @@ public class PesoFragment extends Fragment {
                 initSeleccionEmpty(root);
                 seleccion = true;
                 valorSeleccionado = Integer.parseInt("10");
-
                 mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
             }
@@ -240,43 +238,26 @@ public class PesoFragment extends Fragment {
                 if(!seleccion){
                     //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
                     showSnackBar("¡Por favor seleccione una opcción valida!");
-                    System.out.println("seleccion");
-
                 }else{
                     if(valorSeleccionado == 1){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        showSnackBar(calificacionOk);
-                        System.out.println("valorSeleccionado" +valorSeleccionado);
-                        subirNota(valorSeleccionado, true);
+                       // subirNota(valorSeleccionado, true);
+                        prefs.edit().putString("modulo_2", resultadoList+",1").commit();
 
                         //startActivity(new Intent(getActivity(), PerfilActivity.class));
                         // listaCalificacion.add(true);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                        showSnackBar(calificacionNoOk);
-                        subirNota(valorSeleccionado, false);
+                        //subirNota(valorSeleccionado, false);
+                        prefs.edit().putString("modulo_2", resultadoList+",0").commit();
 
                         //listaCalificacion.add(false);
                         // startActivity(new Intent(getActivity(), PerfilActivity.class));
-                        System.out.println("valorSeleccionado" +valorSeleccionado);
 
 
                     }
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado2);
 
-                   /* contador = findViewById(R.id.contador);
-                    int contador_ = Integer.parseInt(contador.getText().toString());
-
-                    iniciarNuevamente();
-                    int contador2 = contador_+1;
-                    if(contador2 > 9){
-                        prefs.edit().putString("prefs_puntaje", listaCalificacion.toString()).commit();
-                        showSnackBar(listaCalificacion.toString());
-                        startActivity(new Intent(BuscarNumeroActivity.this, ResultadoFinal.class));
-                        finish();
-                    }
-                    contador.setText(contador2+ "");
-
-                    */
                 }
             }
         });
