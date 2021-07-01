@@ -59,7 +59,7 @@ public class ResultadoFragment extends Fragment {
 
 
 
-        Toast.makeText(getActivity(),resultadoList,Toast.LENGTH_LONG).show();
+       // Toast.makeText(getActivity(),resultadoList,Toast.LENGTH_LONG).show();
 
         btnCerrar = root.findViewById(R.id.cerrar);
 

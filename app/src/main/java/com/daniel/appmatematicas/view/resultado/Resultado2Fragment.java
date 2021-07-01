@@ -52,7 +52,7 @@ public class Resultado2Fragment extends Fragment {
 
         ImageView btnCerrar;
 
-        Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
+       // Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
         initNota(notas,8);
         btnCerrar = root.findViewById(R.id.cerrar);

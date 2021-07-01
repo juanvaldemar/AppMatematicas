@@ -8,7 +8,8 @@
         <item android:title="Ranking">
             <menu>
                 <item
-                    android:title="Ranking" />
+                    android:title="Ranking"
+                    android:id="@+id/nav_ranking"/>
 
             </menu>
         </item>

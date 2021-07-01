@@ -17,8 +17,11 @@ import com.daniel.appmatematicas.R;
 import com.daniel.appmatematicas.rest.ReporteApiService;
 import com.daniel.appmatematicas.rest.ReporteRequest;
 import com.daniel.appmatematicas.util.Constante;
+import com.daniel.appmatematicas.util.Usuario;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +104,12 @@ public class Resultado5Fragment extends Fragment {
 
         subirNota(buenas.size(), cantidad);
 
-        resultado.setText(buenas.size()+1+"/"+cantidad);
+        resultado.setText(buenas.size()+"/"+cantidad);
+
+
+
+
+
 
         prefs.edit().remove("modulo_5").commit();
 
@@ -111,6 +119,15 @@ public class Resultado5Fragment extends Fragment {
 
     private void subirNota(int i, int b) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        Usuario usuario = new Usuario(i+"-"+b,user.getDisplayName() );
+        DatabaseReference myRef = database.getReference("usuarios");
+
+        myRef.push().setValue(usuario);
+
 
         ReporteRequest obj = new ReporteRequest();
         obj.setNombre(user.getDisplayName());

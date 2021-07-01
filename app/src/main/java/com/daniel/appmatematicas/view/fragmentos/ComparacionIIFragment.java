@@ -88,7 +88,7 @@ public class ComparacionIIFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = mPrimero.getText().toString();
+                valorSeleccionado = "&gt;";
                 seleccion = true;
                 mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
@@ -98,7 +98,7 @@ public class ComparacionIIFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = mSegundo.getText().toString();
+                valorSeleccionado = "&lt;";
                 seleccion = true;
                 mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
@@ -108,7 +108,7 @@ public class ComparacionIIFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = mTercero.getText().toString();
+                valorSeleccionado = "=";
                 seleccion = true;
                 mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 

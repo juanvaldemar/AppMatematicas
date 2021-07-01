@@ -193,7 +193,7 @@ public class RestarFragment extends Fragment {
     }
 
     public void showSnackBar(String msg) {
-        Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }
 
 }
