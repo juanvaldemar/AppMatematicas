@@ -256,7 +256,7 @@ public class PesoFragment extends Fragment {
 
 
                     }
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado2);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.comparacionI);
 
                 }
             }

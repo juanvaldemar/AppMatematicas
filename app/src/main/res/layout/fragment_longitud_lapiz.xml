@@ -15,6 +15,7 @@
             android:layout_height="60dp"
             android:background="@drawable/com_facebook_close"/>
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

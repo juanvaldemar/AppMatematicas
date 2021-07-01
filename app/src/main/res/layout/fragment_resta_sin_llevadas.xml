@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
-                android:text="Sumar sin llevadas, vamos tu puedes."
+                android:text="Resta sin llevadas, vamos tu puedes."
                 android:textSize="17dp"
                 android:layout_gravity="center"
                 android:textColor="#849095"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
-                android:text="¿Cuál es el resultado de esta suma?"
+                android:text="¿Cuál es el resultado de esta resta?"
                 />
 
 

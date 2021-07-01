@@ -43,7 +43,7 @@ public class Resultado2Fragment extends Fragment {
 
         Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
-        //initNota(notas,6);
+        initNota(notas,8);
         btnCerrar = root.findViewById(R.id.cerrar);
 
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -76,9 +76,14 @@ public class Resultado2Fragment extends Fragment {
         List<String> buenas = new ArrayList<>();
 
         for (int i = 0; i < cantidad; i++){
+            try {
                 if(notas[i].equalsIgnoreCase("1")){
                     buenas.add("1");
                 }
+            }catch (Exception e){
+
+            }
+
         }
         resultado.setText(buenas.size()+"/"+cantidad);
 

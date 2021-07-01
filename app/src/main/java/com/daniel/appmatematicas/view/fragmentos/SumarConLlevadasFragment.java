@@ -132,7 +132,7 @@ public class SumarConLlevadasFragment extends Fragment {
                             //listaCalificacion.add(false);
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));
                         }
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultadoV);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resta);
 
                     }else{
                         showSnackBar("Escriba una respuesta válida");

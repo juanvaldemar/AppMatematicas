@@ -268,7 +268,7 @@ public class LongitudLapizFragment extends Fragment {
 
                     }
 
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado3);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_peso);
 
                 }
             }
@@ -285,7 +285,6 @@ public class LongitudLapizFragment extends Fragment {
             obj = new ReporteRequest(user.getEmail(),"Muy bien, nota 20, respuesta: "+valorSeleccionado);
         }else{
             obj = new ReporteRequest(user.getEmail(),"Que pena, nota 10, respuesta: "+valorSeleccionado);
-
         }
         reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
             @Override

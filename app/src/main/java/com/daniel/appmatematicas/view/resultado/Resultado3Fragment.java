@@ -42,7 +42,7 @@ public class Resultado3Fragment extends Fragment {
 
       //  Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
-        initNota(notas,3);
+        initNota(notas,7);
         btnCerrar = root.findViewById(R.id.cerrar);
 
         btnCerrar.setOnClickListener(new View.OnClickListener() {

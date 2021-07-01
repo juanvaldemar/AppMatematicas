@@ -96,6 +96,10 @@ public class EncontrarFragment extends Fragment {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
             }
         });
+
+        initSeleccionEmpty(root);
+
+        initClicks(root);
         return root;
     }
 
