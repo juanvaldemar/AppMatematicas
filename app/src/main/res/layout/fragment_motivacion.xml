@@ -28,10 +28,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="30dp"
         android:layout_marginTop="200dp"
         android:gravity="center"
-        android:weightSum="5">
+        android:weightSum="7">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Poco \nmotivado"/>
         <RelativeLayout
             android:id="@+id/seleccion_primero"
             android:layout_weight="1"
@@ -44,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:background="@drawable/circle"
-                android:text="01"
+                android:text="1"
                 android:textSize="25dp"/>
 
         </RelativeLayout>
@@ -60,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:text="02"
+                android:text="2"
                 android:background="@drawable/circle"
 
                 android:textSize="25dp"/>
@@ -79,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:background="@drawable/circle"
-                android:text="03"
+                android:text="3"
                 android:textSize="25dp"/>
 
         </RelativeLayout>
@@ -95,10 +99,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:text="04"
+                android:text="4"
                 android:background="@drawable/circle"
 
                 android:textSize="25dp"/>
+
+
+
 
         </RelativeLayout>
 
@@ -114,14 +121,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:text="05"
+                android:text="5"
                 android:background="@drawable/circle"
 
                 android:textSize="25dp"/>
 
         </RelativeLayout>
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Poco \nmotivado"/>
 
     </LinearLayout>
 
