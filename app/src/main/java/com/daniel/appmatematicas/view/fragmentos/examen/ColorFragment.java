@@ -276,10 +276,10 @@ public class ColorFragment extends Fragment {
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
                     if(valorSeleccionado == numeroAleatorioPrincipal){
-                        subirNota(valorSeleccionado, true);
+                        //subirNota(valorSeleccionado, true);
                         prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                     }else{
-                        subirNota(valorSeleccionado, false);
+                       // subirNota(valorSeleccionado, false);
                         prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_d);

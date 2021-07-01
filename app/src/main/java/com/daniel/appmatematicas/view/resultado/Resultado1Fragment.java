@@ -14,9 +14,20 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.daniel.appmatematicas.R;
+import com.daniel.appmatematicas.rest.ReporteApiService;
+import com.daniel.appmatematicas.rest.ReporteRequest;
+import com.daniel.appmatematicas.util.Constante;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -88,10 +99,55 @@ public class Resultado1Fragment extends Fragment {
         }
         resultado.setText(buenas.size()+"/"+cantidad);
 
+
+
+
+        subirNota(buenas.size(), cantidad);
+
         prefs.edit().remove("modulo_1").commit();
 
 
         return "";
     }
+
+    private void subirNota(int i, int b) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        ReporteRequest obj = new ReporteRequest();
+        obj.setNombre(user.getDisplayName());
+        obj.setNota(i + "-" + b);
+
+        ReporteApiService reporteApiService;
+
+        String ipConfig = Constante.ip_config_;
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ipConfig)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        reporteApiService = retrofit.create(ReporteApiService.class);
+
+        reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
+            @Override
+            public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
+
+                if(response.isSuccessful()) {
+
+                    System.out.println("--------------------" );
+                    System.out.println("---: " +  response.body().getNombre() );
+                    System.out.println("---: " +  response.body().getNota() );
+                    System.out.println("--------------------" );
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReporteRequest> call, Throwable t) {
+            }
+        });
+
+    }
+
 
 }

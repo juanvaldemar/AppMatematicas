@@ -251,7 +251,7 @@ public class PaletaMedidaFragment extends Fragment {
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);
                         System.out.println("valorSeleccionado" +valorSeleccionado);
-                        subirNota(valorSeleccionado, true);
+                      //  subirNota(valorSeleccionado, true);
 
                         //startActivity(new Intent(getActivity(), PerfilActivity.class));
                         // listaCalificacion.add(true);
@@ -260,7 +260,7 @@ public class PaletaMedidaFragment extends Fragment {
                         showSnackBar(calificacionNoOk);
                         //listaCalificacion.add(false);
                         // startActivity(new Intent(getActivity(), PerfilActivity.class));
-                        subirNota(valorSeleccionado, true);
+                      //  subirNota(valorSeleccionado, true);
 
                         System.out.println("valorSeleccionado" +valorSeleccionado);
 
