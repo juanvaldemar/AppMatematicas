@@ -35,6 +35,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class SumarFragment extends Fragment {
     private SharedPreferences prefs = null;
+    private String resultadoList;
 
     private EditText mPrimero;
     private EditText mSegundo;
@@ -63,6 +64,7 @@ public class SumarFragment extends Fragment {
         View root = inflater.inflate(R.layout.suma, container, false);
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+        resultadoList = prefs.getString("modulo_5","");
 
 
         initConnect();
@@ -120,7 +122,8 @@ public class SumarFragment extends Fragment {
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionOk);
                          //   subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
-                            prefs.edit().putString("modulo_5", "1").commit();
+                            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+
 
                             //startActivity(new Intent(getActivity(), PerfilActivity.class));
                             // listaCalificacion.add(true);
@@ -128,7 +131,8 @@ public class SumarFragment extends Fragment {
                             //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionNoOk);
                            // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
-                            prefs.edit().putString("modulo_5", "0").commit();
+                            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+
 
                             //listaCalificacion.add(false);
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));

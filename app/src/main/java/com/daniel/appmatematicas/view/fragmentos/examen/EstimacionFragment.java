@@ -35,6 +35,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class EstimacionFragment extends Fragment {
     private SharedPreferences prefs = null;
+    private String resultadoList;
 
     private int numeroAleatorioPrincipal;
     private int valorSeleccionado;
@@ -76,6 +77,9 @@ public class EstimacionFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_estimacion, container, false);
+        prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+        resultadoList = prefs.getString("modulo_5","");
+
             initGenerados(root);
         initConnect(root);
         initTemas(root);
@@ -88,7 +92,7 @@ public class EstimacionFragment extends Fragment {
             }
         });
 
-        prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+
 
         return root;
     }
@@ -224,9 +228,11 @@ public class EstimacionFragment extends Fragment {
 
                 }else{
                     if(valorSeleccionado > 40){
-                        prefs.edit().putString("modulo_5", ",1").commit();
+                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+
                     }else{
-                        prefs.edit().putString("modulo_5", ",0").commit();
+                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_m);
                 }

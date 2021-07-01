@@ -20,6 +20,7 @@ public class ComparacionesFragment extends Fragment {
     private SharedPreferences prefs = null;
 
     private Button validar;
+    private String resultadoList;
 
     private EditText primero;
     private EditText segundo;
@@ -36,6 +37,7 @@ public class ComparacionesFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_comparaciones, container, false);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
+        resultadoList = prefs.getString("modulo_5","");
 
         initView(root);
         ImageView  btnCerrar;
@@ -78,12 +80,10 @@ public class ComparacionesFragment extends Fragment {
                     }
                 }
                 if(validador == true){
-                    prefs.edit().putString("modulo_5", "1").commit();
-
+                    prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                    // Toast.makeText(getActivity(),"Buenazo"+primero_+segundo_+tercero_,Toast.LENGTH_LONG).show();
                 }else{
-                    prefs.edit().putString("modulo_5", "0").commit();
-
+                    prefs.edit().putString("modulo_5", resultadoList+",0").commit();
 
                 }
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_e);

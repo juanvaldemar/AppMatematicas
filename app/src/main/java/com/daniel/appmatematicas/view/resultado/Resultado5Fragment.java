@@ -2,6 +2,7 @@ package com.daniel.appmatematicas.view.resultado;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,7 @@ public class Resultado5Fragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_resultado, container, false);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_1","");
+        resultadoList = prefs.getString("modulo_5","");
         String[] notas = resultadoList.split(",");
         System.out.println(resultadoList);
 
@@ -57,6 +58,23 @@ public class Resultado5Fragment extends Fragment {
             }
         });
 
+
+        //Back pressed Logic for fragment
+        root.setFocusableInTouchMode(true);
+        root.requestFocus();
+        root.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
         initConnect(root);
         return root;
     }
@@ -65,15 +83,18 @@ public class Resultado5Fragment extends Fragment {
         List<String> buenas = new ArrayList<>();
 
         for (int i = 0; i < cantidad; i++){
-                if(notas[i].equalsIgnoreCase("1")){
+            try {
+                if(notas[i].replace(",","").equalsIgnoreCase("1")){
                     buenas.add("1");
                 }
+            }catch (Exception e){
+
+            }
+
         }
-        resultado.setText(0+"/"+17);
+        resultado.setText(buenas.size()+1+"/"+cantidad);
 
-        SharedPreferences.Editor editor = getActivity().getSharedPreferences("modulo_5", MODE_PRIVATE).edit();
-        editor.clear().apply();
-
+        prefs.edit().remove("modulo_5").commit();
 
         return "";
     }

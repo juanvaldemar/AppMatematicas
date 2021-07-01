@@ -50,6 +50,7 @@ public class MayorMenosFragment extends Fragment {
     private EditText cuarto_;
     private EditText quinto_;
     private EditText sexto_;
+    private String resultadoList;
 
 
     public MayorMenosFragment() {
@@ -73,7 +74,7 @@ public class MayorMenosFragment extends Fragment {
         sexto_ = root.findViewById(R.id.sexto_);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
 
-
+        resultadoList = prefs.getString("modulo_5","");
         initTemas(root);
 
         ImageView btnCerrar;
@@ -203,9 +204,11 @@ public class MayorMenosFragment extends Fragment {
                 }
                 showSnackBar("validador"+validador);
                 if(validador){
-                    prefs.edit().putString("modulo_5", "1").commit();
+                    prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+
                 }else{
-                    prefs.edit().putString("modulo_5", "0").commit();
+                    prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+
                 }
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_q);
 

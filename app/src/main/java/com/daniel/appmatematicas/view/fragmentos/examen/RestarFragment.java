@@ -124,7 +124,7 @@ public class RestarFragment extends Fragment {
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionOk);
                           //  subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
-                            prefs.edit().putString("modulo_2", resultadoList+",1").commit();
+                            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
 
                             //startActivity(new Intent(getActivity(), PerfilActivity.class));
                             // listaCalificacion.add(true);
@@ -133,7 +133,7 @@ public class RestarFragment extends Fragment {
                             showSnackBar(calificacionNoOk);
                            // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
 
-                            prefs.edit().putString("modulo_2", resultadoList+",0").commit();
+                            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
 
                             //listaCalificacion.add(false);
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));
