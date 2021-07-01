@@ -27,20 +27,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Estimación"
+                android:text="Estrategia de cálculo"
                 android:textSize="28dp"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:justificationMode="inter_word"
-                android:text="Estrategia de cálculo"
-                android:textSize="17dp"
-                android:layout_gravity="center"
-                android:textColor="#849095"
-                />
+
             <TextView
                 android:id="@+id/pregunta"
                 android:layout_width="match_parent"
