@@ -63,7 +63,7 @@ public class DecenasFragment extends Fragment {
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
 
-        resultadoList = prefs.getString("modulo_5","");
+        resultadoList = prefs.getString("modulo_1","");
         initConnect(root);
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
@@ -122,7 +122,7 @@ public class DecenasFragment extends Fragment {
                                     }else{
                                         prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                                     }
-                                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_f);
+                                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_decenas_hard);
 
                                 }else{
                                     showSnackBar("Escriba una respuesta válida");

@@ -62,7 +62,7 @@ public class DecenasHardFragment extends Fragment {
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
 
-        resultadoList = prefs.getString("modulo_5","");
+        resultadoList = prefs.getString("modulo_1","");
 
         initConnect();
         mPrimero = root.findViewById(R.id.primero);
@@ -169,7 +169,7 @@ public class DecenasHardFragment extends Fragment {
                         }
 
 
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_g);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado1);
 
                     }else{
                         showSnackBar("Escriba una respuesta válida");

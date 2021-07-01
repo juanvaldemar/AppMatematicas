@@ -63,7 +63,7 @@ public class SumarConLlevadasFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_sumar_con_llevadas, container, false);
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_5","");
+        resultadoList = prefs.getString("modulo_2","");
 
 
         initConnect();
@@ -121,14 +121,14 @@ public class SumarConLlevadasFragment extends Fragment {
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionOk);
                             //   subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
-                            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+                            prefs.edit().putString("modulo_2", resultadoList+",1").commit();
                             //startActivity(new Intent(getActivity(), PerfilActivity.class));
                             // listaCalificacion.add(true);
                         }else{
                             //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionNoOk);
                             // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
-                            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+                            prefs.edit().putString("modulo_2", resultadoList+",0").commit();
                             //listaCalificacion.add(false);
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));
                         }

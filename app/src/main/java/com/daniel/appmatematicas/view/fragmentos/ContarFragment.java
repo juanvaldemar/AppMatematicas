@@ -89,7 +89,7 @@ public class ContarFragment extends Fragment {
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
 
-        resultadoList = prefs.getString("modulo_5","");
+        resultadoList = prefs.getString("modulo_1","");
 
 
         btnCerrar = root.findViewById(R.id.cerrar);
@@ -301,7 +301,7 @@ public class ContarFragment extends Fragment {
 
                     }
 
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_f);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_decenas);
 
 
                 }

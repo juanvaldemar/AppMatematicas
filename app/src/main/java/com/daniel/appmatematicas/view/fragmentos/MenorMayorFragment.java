@@ -71,7 +71,7 @@ public class MenorMayorFragment extends Fragment {
         quinto_ = root.findViewById(R.id.quinto_);
         sexto_ = root.findViewById(R.id.sexto_);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_5","");
+        resultadoList = prefs.getString("modulo_1","");
 
 
         initTemas(root);

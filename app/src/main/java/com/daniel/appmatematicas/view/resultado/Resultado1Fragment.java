@@ -76,9 +76,15 @@ public class Resultado1Fragment extends Fragment {
         List<String> buenas = new ArrayList<>();
 
         for (int i = 0; i < cantidad; i++){
+            try {
                 if(notas[i].equalsIgnoreCase("1")){
                     buenas.add("1");
                 }
+            }catch (Exception e){
+
+            }
+
+
         }
         resultado.setText(buenas.size()+"/"+cantidad);
 
