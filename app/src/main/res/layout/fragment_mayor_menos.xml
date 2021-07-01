@@ -105,7 +105,7 @@
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
 
-                        android:text="87"
+                        android:text="90"
                         android:textSize="25dp"/>
 
                 </RelativeLayout>

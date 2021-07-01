@@ -62,7 +62,7 @@ public class CalcularIFragment extends Fragment {
             public void onClick(View view) {
                 Boolean validador = false;
                 String primero_ = primero.getText().toString();
-                if(primero_.equalsIgnoreCase("50")){
+                if(primero_.equalsIgnoreCase("120")){
                     validador = true;
                 }
 

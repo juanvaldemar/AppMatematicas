@@ -58,7 +58,7 @@ public class EstrategiaFragment extends Fragment {
 
     private void init() {
         String resultado_= resultado.getText().toString();
-        if(resultado_.equalsIgnoreCase("96")){
+        if(resultado_.equalsIgnoreCase("100")){
             prefs.edit().putString("modulo_5", resultadoList+",1").commit();
         }else{
             prefs.edit().putString("modulo_5", resultadoList+",0").commit();

@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
-                android:text="David ha pescado 44 peces anchovechas y 52 peces pejerrey. ¿Cuantos peces ha pescado en total?"
+                android:text="David ha pescado 60 peces anchovechas y 40 peces pejerrey. ¿Cuantos peces ha pescado en total?"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,7 +63,7 @@
             <EditText
                 android:layout_weight="1"
                 android:id="@+id/primero"
-                android:text="44"
+                android:text="60"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
@@ -121,7 +121,7 @@
             android:weightSum="5"
             >
             <EditText
-                android:text="52"
+                android:text="40"
                 android:layout_weight="1"
                 android:id="@+id/tercero"
                 android:layout_width="wrap_content"

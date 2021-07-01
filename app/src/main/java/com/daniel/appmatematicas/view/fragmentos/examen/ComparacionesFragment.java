@@ -72,9 +72,9 @@ public class ComparacionesFragment extends Fragment {
 
 
                 Boolean validador = false;
-                if(primero_.equalsIgnoreCase("5")){
-                    if(segundo_.equalsIgnoreCase("4")){
-                        if(tercero_.equalsIgnoreCase("2")){
+                if(primero_.equalsIgnoreCase("12")){
+                    if(segundo_.equalsIgnoreCase("10")){
+                        if(tercero_.equalsIgnoreCase("9")){
                             validador = true;
                         }
                     }

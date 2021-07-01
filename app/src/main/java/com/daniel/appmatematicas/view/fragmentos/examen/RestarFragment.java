@@ -120,7 +120,7 @@ public class RestarFragment extends Fragment {
             public void onClick(View view) {
                 valorUno = Integer.parseInt(mPrimero.getText().toString());
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
-                        if(valorUno == 0 && valorDos == 5){
+                        if(valorUno == 1 && valorDos == 5){
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionOk);
                           //  subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);

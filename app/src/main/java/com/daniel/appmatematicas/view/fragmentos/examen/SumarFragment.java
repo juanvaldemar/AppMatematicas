@@ -118,7 +118,7 @@ public class SumarFragment extends Fragment {
                 if(valorUno != 0){
 
                     if(valorUno != 0){
-                        if(valorUno == 5 && valorDos == 5){
+                        if(valorUno == 8 && valorDos == 7){
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionOk);
                          //   subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);

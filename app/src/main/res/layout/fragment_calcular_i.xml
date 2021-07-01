@@ -60,7 +60,7 @@
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
                 android:textColor="#DA2222"
-                android:text="Nicolas tenía un billete de S/. 100 y compró una camisa en S/. 20 y un pantalón en S/. 30."
+                android:text="Piero tenía un billete de S/. 200 y compró una zapatilla en S/. 60 y un short en S/. 20."
                 />
 
             <TextView

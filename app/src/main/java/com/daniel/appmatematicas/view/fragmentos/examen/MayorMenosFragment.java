@@ -189,7 +189,7 @@ public class MayorMenosFragment extends Fragment {
                 String e = quinto_.getText().toString();
                 String f =  sexto_.getText().toString();
                 Boolean validador = false;
-                if(a.equalsIgnoreCase("87")){
+                if(a.equalsIgnoreCase("90")){
                     if(b.equalsIgnoreCase("65")){
                         if(c.equalsIgnoreCase("50")){
                             if(d.equalsIgnoreCase("41")){

@@ -60,7 +60,7 @@
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
                 android:textColor="#2241DA"
-                android:text="Valentina tiene 50 manzanas, le regala 30 manzanas a Nicolas y Nina le regala 10 manzanas a Valentina."
+                android:text="Nicolas tiene 60 peras, le regala 30 peras a Valentina y Nina le regala 10 manzanas a Nicolas."
                 />
 
             <TextView

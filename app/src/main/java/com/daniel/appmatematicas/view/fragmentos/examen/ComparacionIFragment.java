@@ -62,7 +62,7 @@ public class ComparacionIFragment extends Fragment {
                 String primero_ = primero.getText().toString();
                 String segundo_ = segundo.getText().toString();
 
-                    if(primero_.equalsIgnoreCase("83") && segundo_.equalsIgnoreCase("73")){
+                    if(primero_.equalsIgnoreCase("97") && segundo_.equalsIgnoreCase("83")){
                         prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                     }else{
                         prefs.edit().putString("modulo_5", resultadoList+",0").commit();

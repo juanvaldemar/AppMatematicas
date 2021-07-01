@@ -116,7 +116,7 @@ public class SumarConLlevadasFragment extends Fragment {
                 if(valorUno != 0){
 
                     if(valorUno != 0){
-                        if(valorUno == 4 && valorDos == 6){
+                        if(valorUno == 8 && valorDos == 1){
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                             showSnackBar(calificacionOk);
                             //   subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);

@@ -193,7 +193,7 @@ public class MenorMayorFragment extends Fragment {
                         if (c.equalsIgnoreCase("41")) {
                             if (d.equalsIgnoreCase("50")) {
                                 if (e.equalsIgnoreCase("65")) {
-                                    if (f.equalsIgnoreCase("87")) {
+                                    if (f.equalsIgnoreCase("93")) {
                                         validador = true;
                                     }
                                 }
