@@ -21,7 +21,6 @@ public class CuentosViewHolder extends RecyclerView.ViewHolder{
         mViewStructure = itemView ;
         nota_resultado =itemView.findViewById(R.id.nota_resultado);
         nombre_resultado =itemView.findViewById(R.id.nombre_resultado);
-        fecha_resultado =itemView.findViewById(R.id.fecha_resultado);
     }
 
     public void setNota(String title){
