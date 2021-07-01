@@ -5,11 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container">
-    <ImageView
-        android:id="@+id/cerrar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/com_facebook_close"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="right"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/cerrar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/com_facebook_close"/>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
