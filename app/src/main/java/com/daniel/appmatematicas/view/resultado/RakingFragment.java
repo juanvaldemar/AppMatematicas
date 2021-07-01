@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daniel.appmatematicas.R;
@@ -17,12 +18,14 @@ import com.daniel.appmatematicas.rest.ReporteApiService;
 import com.daniel.appmatematicas.rest.ReporteRequest;
 import com.daniel.appmatematicas.util.Constante;
 import com.daniel.appmatematicas.util.CuentosViewHolder;
+import com.daniel.appmatematicas.util.RecyclerAdapter;
 import com.daniel.appmatematicas.util.Reporte;
 import com.daniel.appmatematicas.util.Usuario;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -35,6 +38,7 @@ public class RakingFragment extends Fragment {
 
     private RecyclerView mRecyclerPrincipal;
     private DatabaseReference mDatabase;
+    private TextView txt;
     public RakingFragment() {
         // Required empty public constructor
     }
@@ -44,15 +48,15 @@ public class RakingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_raking, container, false);
-
-        initRecicler(root);
-
-       list(root);
-
+        list(root);
         return root;
     }
 
     private void list(View root) {
+
+        List<Reporte> movieList =  new ArrayList<>();
+        RecyclerView recyclerView;
+        RecyclerAdapter recyclerAdapter;
         String ipConfig = Constante.ip_config_;
 
         ReporteApiService reporteApiService;
@@ -64,15 +68,22 @@ public class RakingFragment extends Fragment {
 
         reporteApiService = retrofit.create(ReporteApiService.class);
 
+
+        mRecyclerPrincipal = root.findViewById(R.id.resultados_recycler);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerPrincipal.setLayoutManager(layoutManager);
+        recyclerAdapter = new RecyclerAdapter(getActivity(),movieList);
+        mRecyclerPrincipal.setAdapter(recyclerAdapter);
+
         Call<List<Reporte>> call = reporteApiService.getMovie();
+
 
         call.enqueue(new Callback<List<Reporte>>() {
             @Override
             public void onResponse(Call<List<Reporte>> call, Response<List<Reporte>> response) {
                 List<Reporte> myList = response.body();
                 showResponse(myList.toString());
-                System.out.println("ca: "+response.body());
-                System.out.println("ca: "+response.body());
+                recyclerAdapter.setMovieList(myList);
 
             }
 
@@ -87,44 +98,7 @@ public class RakingFragment extends Fragment {
     }
 
     public void showResponse(String response) {
-       //Toast.makeText(getActivity(),""+response,Toast.LENGTH_LONG).show();
-    }
-    private void initRecicler(View root) {
-        mRecyclerPrincipal = root.findViewById(R.id.resultados_recycler);
-        mRecyclerPrincipal.setHasFixedSize(true);
-
-        mRecyclerPrincipal.setLayoutManager(new GridLayoutManager(getActivity(),
-                1, LinearLayoutManager.VERTICAL, false));
-
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("usuarios");
-        mDatabase.keepSynced(true);
-        FirebaseRecyclerAdapter<Usuario, CuentosViewHolder> firebaseRecyclerAdapterPrincipal =
-                new FirebaseRecyclerAdapter<Usuario, CuentosViewHolder>(
-                        Usuario.class,
-                        R.layout.album_card,
-                        CuentosViewHolder.class,
-                        mDatabase
-
-                ) {
-                    @Override
-                    protected void populateViewHolder(final CuentosViewHolder viewHolder, Usuario model, final int position) {
-                        final String post_key = getRef(position).getKey();
-                        viewHolder.setNombre("Usuario: "+ model.getNombre());
-                        viewHolder.setNota("Resultado: " + model.getNota());
-                        viewHolder.setHora(model.getFecha());
-
-                        viewHolder.mViewStructure.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                // viewDetails(post_key,model.getTitulo(),model.getImagen(),model.getDescripcion());
-                            }
-                        });
-
-                    }
-                };
-
-        mRecyclerPrincipal.setAdapter(firebaseRecyclerAdapterPrincipal);
-
+       Toast.makeText(getActivity(),""+response,Toast.LENGTH_LONG).show();
     }
 
 }

@@ -6,6 +6,11 @@
     android:gravity="center"
     tools:context=".view.resultado.RakingFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/txt"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/resultados_recycler"
         android:layout_width="match_parent"
