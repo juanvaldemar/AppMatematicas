@@ -44,13 +44,11 @@ public class CalculadoraIIFragment extends Fragment {
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean validador = false;
                 primero = root.findViewById(R.id.primero);
                 String primero_ = primero.getText().toString();
+
+
                 if(primero_.equalsIgnoreCase("30")){
-                    validador = true;
-                }
-                if(validador == true){
                     prefs.edit().putString("modulo_4", resultadoList+",1").commit();
                     //    Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado);
