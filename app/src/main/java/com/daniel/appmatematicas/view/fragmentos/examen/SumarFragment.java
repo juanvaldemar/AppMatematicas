@@ -138,7 +138,7 @@ public class SumarFragment extends Fragment {
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));
 
                         }
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultadoV);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_motivacion);
 
                     }else{
                         showSnackBar("Escriba una respuesta válida");
