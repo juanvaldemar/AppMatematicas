@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Aprendiendo números"
+                android:text="Unidades y decenas"
                 android:textSize="28dp"
                 android:layout_gravity="left"
                 android:textColor="@color/black"
@@ -49,17 +49,6 @@
                 android:textColor="#849095"
                 />
 
-
-
-            <TextView
-                android:id="@+id/pregunta"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="17dp"
-                android:layout_marginTop="15dp"
-                android:textColor="#C51D1D"
-                android:text="Decenas y centenas"
-                />
 
 
 

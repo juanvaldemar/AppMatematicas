@@ -45,7 +45,7 @@ public class ComparacionIFragment extends Fragment {
         });
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_2","");
+        resultadoList = prefs.getString("modulo_5","");
 
         initValidar(root);
         return root;
@@ -63,11 +63,11 @@ public class ComparacionIFragment extends Fragment {
                 String segundo_ = segundo.getText().toString();
 
                     if(primero_.equalsIgnoreCase("83") && segundo_.equalsIgnoreCase("73")){
-                        prefs.edit().putString("modulo_2", resultadoList+",1").commit();
+                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                     }else{
-                        prefs.edit().putString("modulo_2", resultadoList+",0").commit();
+                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                     }
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.comparacionII);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_f);
             }
         });
     }

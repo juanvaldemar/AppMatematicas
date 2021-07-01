@@ -41,7 +41,7 @@ public class EstimacionLibrosFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_estimacion_libros, container, false);
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_3","");
+        resultadoList = prefs.getString("modulo_5","");
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -103,13 +103,14 @@ public class EstimacionLibrosFragment extends Fragment {
                 }else{
                     if(valorSeleccionado < 40){
                         prefs.edit().putString("modulo_5", resultadoList+",1").commit();
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_estrategia);
                     }else {
                         prefs.edit().putString("modulo_5", resultadoList + ",0").commit();
-                       Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_estrategia);
 
                     }
-                    }
+
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_n);
+
+                }
             }
         });
     }

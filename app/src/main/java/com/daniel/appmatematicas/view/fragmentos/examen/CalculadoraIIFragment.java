@@ -37,7 +37,7 @@ public class CalculadoraIIFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_calculadora_i_i, container, false);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_4","");
+        resultadoList = prefs.getString("modulo_5","");
         validar = root.findViewById(R.id.validar);
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,14 +47,14 @@ public class CalculadoraIIFragment extends Fragment {
 
 
                 if(primero_.equalsIgnoreCase("30")){
-                    prefs.edit().putString("modulo_4", resultadoList+",1").commit();
+                    prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                     //    Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado);
                 }else{
-                    prefs.edit().putString("modulo_4", resultadoList+",0").commit();
+                    prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                     //     Toast.makeText(getActivity(),"Malo"+primero_,Toast.LENGTH_LONG).show();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado);
                 }
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_b);
+
             }
         });
 

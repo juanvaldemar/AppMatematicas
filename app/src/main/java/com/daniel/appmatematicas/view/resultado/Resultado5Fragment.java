@@ -47,7 +47,7 @@ public class Resultado5Fragment extends Fragment {
 
         Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
-        initNota(notas,1);
+        initNota(notas,20);
         btnCerrar = root.findViewById(R.id.cerrar);
 
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +71,7 @@ public class Resultado5Fragment extends Fragment {
         }
         resultado.setText(0+"/"+17);
 
-        SharedPreferences.Editor editor = getActivity().getSharedPreferences("modulo_3", MODE_PRIVATE).edit();
+        SharedPreferences.Editor editor = getActivity().getSharedPreferences("modulo_5", MODE_PRIVATE).edit();
         editor.clear().apply();
 
 
@@ -84,7 +84,7 @@ public class Resultado5Fragment extends Fragment {
         String ipConfig = Constante.ip_config_;
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig+":8080/")
+                .baseUrl(ipConfig)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

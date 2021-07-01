@@ -82,7 +82,7 @@ public class ColorFragment extends Fragment {
         initTemas(root);
         ImageView btnCerrar;
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_4","");
+        resultadoList = prefs.getString("modulo_5","");
 
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -282,7 +282,7 @@ public class ColorFragment extends Fragment {
                         subirNota(valorSeleccionado, false);
                         prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                     }
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_contar);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_d);
                 }
             }
         });

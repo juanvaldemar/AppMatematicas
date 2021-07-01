@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
-                android:text="Aprendiendo números y colores"
+                android:text="Aprendiendo números"
                 android:textSize="17dp"
                 android:layout_gravity="center"
                 android:textColor="#849095"

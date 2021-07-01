@@ -70,7 +70,7 @@ public class MenorMayorFragment extends Fragment {
         quinto_ = root.findViewById(R.id.quinto_);
         sexto_ = root.findViewById(R.id.sexto_);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_1","");
+        resultadoList = prefs.getString("modulo_5","");
 
 
         initTemas(root);
@@ -203,14 +203,11 @@ public class MenorMayorFragment extends Fragment {
                 }
                // showSnackBar("validador" + validador);
                 if (validador) {
-                    prefs.edit().putString("modulo_1", resultadoList+",1").commit();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_encontrar);
+                    prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                 } else {
-                    prefs.edit().putString("modulo_1", resultadoList+",0").commit();
-                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_encontrar);
+                    prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                 }
-
-
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_s);
             }
 
         });

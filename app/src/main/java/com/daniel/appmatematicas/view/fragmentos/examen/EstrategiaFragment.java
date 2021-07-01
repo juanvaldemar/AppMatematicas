@@ -34,7 +34,7 @@ public class EstrategiaFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_estrategia, container, false);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_3","");
+        resultadoList = prefs.getString("modulo_5","");
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -59,10 +59,10 @@ public class EstrategiaFragment extends Fragment {
     private void init() {
         String resultado_= resultado.getText().toString();
         if(resultado_.equalsIgnoreCase("96")){
-            prefs.edit().putString("modulo_3", resultadoList+",1").commit();
+            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
         }else{
-            prefs.edit().putString("modulo_3", resultadoList+",0").commit();
+            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
         }
-        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado3);
+        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_o);
     }
 }

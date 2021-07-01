@@ -86,7 +86,7 @@ public class EncontrarFragment extends Fragment {
         initConnect(root);
         initTemas(root);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_1","");
+        resultadoList = prefs.getString("modulo_5","");
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -296,19 +296,20 @@ public class EncontrarFragment extends Fragment {
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);
                         //subirNota(valorSeleccionado, true);
-                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                        // startActivity(new Intent(getActivity(), ColorActivity.class));
                         // listaCalificacion.add(true);
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_color_polos);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         //subirNota(valorSeleccionado, false);
-                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
 
                         showSnackBar(calificacionNoOk);
                         //listaCalificacion.add(false);
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_color_polos);
                     }
+
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_l);
+
 
                    /* contador = findViewById(R.id.contador);
                     int contador_ = Integer.parseInt(contador.getText().toString());

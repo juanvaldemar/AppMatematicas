@@ -62,7 +62,7 @@ public class DecenasFragment extends Fragment {
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
 
-        resultadoList = prefs.getString("modulo_1","");
+        resultadoList = prefs.getString("modulo_5","");
         initConnect(root);
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
@@ -108,29 +108,7 @@ public class DecenasFragment extends Fragment {
                         temaList.add(i);
                     }
 
-                    Button validar = root.findViewById(R.id.validar);
-                    validar.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            valorUno = Integer.parseInt(mPrimero.getText().toString());
-                            valorDos = Integer.parseInt(mSegundo.getText().toString());
-                            if(valorUno != 0){
-                                if(valorUno != 0){
-                                    if(valorUno == 6 && valorDos == 2){
-                                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
-                                    }else{
-                                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
-                                    }
-                                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_decenas_hard);
 
-                                }else{
-                                    showSnackBar("Escriba una respuesta válida");
-                                }
-                            }else {
-                                showSnackBar("Escriba una respuesta válida");
-                            }
-                        }
-                    });
                 }
             }
             @Override
@@ -140,7 +118,6 @@ public class DecenasFragment extends Fragment {
 
             }
         });
-
         Button validar = root.findViewById(R.id.validar);
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,18 +127,11 @@ public class DecenasFragment extends Fragment {
                 if(valorUno != 0){
                     if(valorUno != 0){
                         if(valorUno == 6 && valorDos == 2){
-
-                            showSnackBar(calificacionOk);
-                            // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
-                            prefs.edit().putString("modulo_1", resultadoList+",1").commit();
-
+                            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                         }else{
-                            showSnackBar(calificacionNoOk);
-                            //subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", false);
-                            prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+                            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                         }
-
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_g);
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_i);
 
                     }else{
                         showSnackBar("Escriba una respuesta válida");

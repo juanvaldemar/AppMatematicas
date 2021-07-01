@@ -307,11 +307,6 @@ Iniciando menu 5
         android:label="@string/app_name"
         tools:layout="@layout/fragment_encontrar" />
 
-    <fragment
-        android:id="@+id/nav_k"
-        android:name="com.daniel.appmatematicas.view.fragmentos.examen.EncontrarFragment"
-        android:label="@string/app_name"
-        tools:layout="@layout/fragment_encontrar" />
 
     <fragment
         android:id="@+id/nav_l"
@@ -352,11 +347,7 @@ Iniciando menu 5
         tools:layout="@layout/fragment_menor_mayor" />
 
 
-    <fragment
-        android:id="@+id/nav_r"
-        android:name="com.daniel.appmatematicas.view.fragmentos.examen.PaletaMedidaFragment"
-        android:label="@string/app_name"
-        tools:layout="@layout/fragment_paleta_medida" />
+
 
 
     <fragment

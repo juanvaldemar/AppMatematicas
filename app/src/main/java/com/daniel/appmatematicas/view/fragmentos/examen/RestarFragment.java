@@ -67,7 +67,7 @@ public class RestarFragment extends Fragment {
         initConnect();
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_2","");
+        resultadoList = prefs.getString("modulo_5","");
 
         ImageView btnCerrar;
         btnCerrar = root.findViewById(R.id.cerrar);
@@ -138,7 +138,7 @@ public class RestarFragment extends Fragment {
                             //listaCalificacion.add(false);
                             // startActivity(new Intent(getActivity(), PerfilActivity.class));
                         }
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resta_sin_llevadas);
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_u);
 
             }
         });
