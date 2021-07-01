@@ -28,8 +28,7 @@ import retrofit2.Response;
 
 import static android.content.Context.MODE_PRIVATE;
 
-
-public class MotivacionFragment extends Fragment {
+public class SatisfaccionFragment extends Fragment {
 
     private int valorSeleccionado;
     private boolean seleccion;
@@ -52,8 +51,7 @@ public class MotivacionFragment extends Fragment {
 
     ReporteApiService reporteApiService;
 
-
-    public MotivacionFragment() {
+    public SatisfaccionFragment() {
         // Required empty public constructor
     }
 
@@ -62,7 +60,7 @@ public class MotivacionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_motivacion, container, false);
+        View root = inflater.inflate(R.layout.fragment_satisfaccion, container, false);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
         resultadoList = prefs.getString("modulo_5","");
         ImageView btnCerrar;
@@ -88,8 +86,6 @@ public class MotivacionFragment extends Fragment {
 
         mSegundoR= root.findViewById(R.id.seleccion_segundo);
         mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
-
-
 
         mTerceroR= root.findViewById(R.id.seleccion_tercero);
         mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
@@ -171,9 +167,9 @@ public class MotivacionFragment extends Fragment {
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
 
-                        prefs.edit().putString("modulo_5", resultadoList+",-"+valorSeleccionado).commit();
+                    prefs.edit().putString("modulo_5", resultadoList+",-"+valorSeleccionado).commit();
 
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_satisfaccion);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultadoV);
 
 
                 }

@@ -393,6 +393,10 @@
         android:name="com.daniel.appmatematicas.view.fragmentos.examen.MotivacionFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_motivacion" />
-
+    <fragment
+        android:id="@+id/nav_satisfaccion"
+        android:name="com.daniel.appmatematicas.view.fragmentos.examen.SatisfaccionFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_satisfaccion" />
 
 </navigation>
