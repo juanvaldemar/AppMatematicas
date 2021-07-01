@@ -51,13 +51,14 @@ public class Resultado5Fragment extends Fragment {
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
         resultadoList = prefs.getString("modulo_5","");
         String[] notas = resultadoList.split(",");
+        String[] notas_ = resultadoList.split(",-");
         System.out.println(resultadoList);
 
         ImageView btnCerrar;
 
         Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
-        initNota(notas,20);
+        initNota(notas,20, notas_);
         btnCerrar = root.findViewById(R.id.cerrar);
 
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +89,7 @@ public class Resultado5Fragment extends Fragment {
         return root;
     }
 
-    private String initNota(String[] notas, int cantidad) {
+    private String initNota(String[] notas, int cantidad, String[] notas_) {
         List<String> buenas = new ArrayList<>();
 
         for (int i = 0; i < cantidad; i++){
@@ -102,7 +103,9 @@ public class Resultado5Fragment extends Fragment {
 
         }
 
-        subirNota(buenas.size(), cantidad);
+        String motivacion = notas_[1];
+        String satisfaccion = notas_[2];
+        subirNota(buenas.size(), cantidad+" Motivacion: "+motivacion + " " +"Satisfacción: "+satisfaccion);
 
         resultado.setText(buenas.size()+"/"+cantidad);
 
@@ -117,7 +120,7 @@ public class Resultado5Fragment extends Fragment {
     }
 
 
-    private void subirNota(int i, int b) {
+    private void subirNota(int i, String b) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
