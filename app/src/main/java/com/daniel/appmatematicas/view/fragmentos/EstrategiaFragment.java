@@ -59,16 +59,11 @@ public class EstrategiaFragment extends Fragment {
 
     private void init() {
         String resultado_= resultado.getText().toString();
-
         if(resultado_.equalsIgnoreCase("96")){
-            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+            prefs.edit().putString("modulo_3", resultadoList+",1").commit();
         }else{
-            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+            prefs.edit().putString("modulo_3", resultadoList+",0").commit();
         }
         Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado3);
-
-
-
-
     }
 }
