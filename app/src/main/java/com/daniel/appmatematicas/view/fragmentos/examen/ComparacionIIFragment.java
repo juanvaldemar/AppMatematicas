@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -18,31 +20,43 @@ import com.daniel.appmatematicas.R;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class EstimacionLibrosFragment extends Fragment {
-
-    private Button validar;
-    private int valorSeleccionado;
-    private boolean seleccion;
-
-    private RelativeLayout mPrimeroR;
-    private RelativeLayout mSegundoR;
+public class ComparacionIIFragment extends Fragment {
     private SharedPreferences prefs = null;
     private String resultadoList;
 
+    private TextView mPrimero;
+    private TextView mSegundo;
+    private TextView mTercero;
 
-    public EstimacionLibrosFragment() {
+    private RelativeLayout mPrimeroR;
+    private RelativeLayout mSegundoR;
+    private RelativeLayout mTerceroR;
+
+    private String valorSeleccionado;
+    private boolean seleccion;
+
+    public ComparacionIIFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_estimacion_libros, container, false);
+        View root = inflater.inflate(R.layout.fragment_comparacion_i_i, container, false);
+        ImageView btnCerrar;
+
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_3","");
-        ImageView btnCerrar;
+        resultadoList = prefs.getString("modulo_2","");
+
+
+        mPrimero = root.findViewById(R.id.primero);
+        mSegundo = root.findViewById(R.id.segundo);
+        mTercero = root.findViewById(R.id.tercero);
+        initSeleccionEmpty(root);
+        initClicks(root);
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,8 +64,6 @@ public class EstimacionLibrosFragment extends Fragment {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_home);
             }
         });
-        initSeleccionEmpty(root);
-        initClicks(root);
         return root;
     }
 
@@ -64,11 +76,10 @@ public class EstimacionLibrosFragment extends Fragment {
         mSegundoR= root.findViewById(R.id.seleccion_segundo);
         mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
-
+        mTerceroR= root.findViewById(R.id.seleccion_tercero);
+        mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
 
     }
-
-
 
     private void initClicks(View root) {
 
@@ -76,19 +87,29 @@ public class EstimacionLibrosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("30");
+                valorSeleccionado = mPrimero.getText().toString();
                 seleccion = true;
                 mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
-                System.out.println("30");
+
             }
         });
         mSegundoR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("41");
+                valorSeleccionado = mSegundo.getText().toString();
                 seleccion = true;
                 mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
+
+            }
+        });
+        mTerceroR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initSeleccionEmpty(root);
+                valorSeleccionado = mTercero.getText().toString();
+                seleccion = true;
+                mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
             }
         });
@@ -101,21 +122,20 @@ public class EstimacionLibrosFragment extends Fragment {
                     //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
-                    if(valorSeleccionado < 40){
-                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_estrategia);
-                    }else {
-                        prefs.edit().putString("modulo_5", resultadoList + ",0").commit();
-                       Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_estrategia);
-
+                    if(valorSeleccionado.equalsIgnoreCase(">")){
+                        prefs.edit().putString("modulo_2", resultadoList+",1").commit();
+                    }else{
+                        prefs.edit().putString("modulo_2", resultadoList+",0").commit();
                     }
-                    }
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado2);
+                }
             }
         });
+
     }
 
     public void showSnackBar(String msg) {
-        //Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }
 
 }

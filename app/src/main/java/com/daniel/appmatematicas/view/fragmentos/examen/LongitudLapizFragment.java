@@ -84,7 +84,7 @@ public class LongitudLapizFragment extends Fragment {
         ImageView btnCerrar;
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
-        resultadoList = prefs.getString("modulo_2","");
+        resultadoList = prefs.getString("modulo_3","");
 
         btnCerrar = root.findViewById(R.id.cerrar);
         btnCerrar.setOnClickListener(new View.OnClickListener() {
@@ -254,14 +254,14 @@ public class LongitudLapizFragment extends Fragment {
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);
                       //  subirNota(valorSeleccionado, true);
-                        prefs.edit().putString("modulo_2", resultadoList+",1").commit();
+                        prefs.edit().putString("modulo_3", resultadoList+",1").commit();
 
 
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionNoOk);
                       //  subirNota(valorSeleccionado, false);
-                        prefs.edit().putString("modulo_2", resultadoList+",0").commit();
+                        prefs.edit().putString("modulo_3", resultadoList+",0").commit();
 
 
 
@@ -284,7 +284,6 @@ public class LongitudLapizFragment extends Fragment {
             obj = new ReporteRequest(user.getEmail(),"Muy bien, nota 20, respuesta: "+valorSeleccionado);
         }else{
             obj = new ReporteRequest(user.getEmail(),"Que pena, nota 10, respuesta: "+valorSeleccionado);
-
         }
         reporteApiService.saveNota(obj).enqueue(new Callback<ReporteRequest>() {
             @Override
