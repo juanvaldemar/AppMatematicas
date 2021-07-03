@@ -300,7 +300,6 @@ public class EncontrarFragment extends Fragment {
                         prefs.edit().putString("modulo_1", resultadoList+",1").commit();
                        // startActivity(new Intent(getActivity(), ColorActivity.class));
                         // listaCalificacion.add(true);
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_color_polos);
                     }else{
                         //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         //subirNota(valorSeleccionado, false);
@@ -308,8 +307,9 @@ public class EncontrarFragment extends Fragment {
 
                         showSnackBar(calificacionNoOk);
                         //listaCalificacion.add(false);
-                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_color_polos);
                     }
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_color_polos);
+
 
                    /* contador = findViewById(R.id.contador);
                     int contador_ = Integer.parseInt(contador.getText().toString());
@@ -343,7 +343,6 @@ public class EncontrarFragment extends Fragment {
                         public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
 
                             if(response.isSuccessful()) {
-                                showSnackBar(response.body().toString());
                                 Log.i(TAG, "---" + response.body().toString());
 
                                 System.out.println("--------------------" );

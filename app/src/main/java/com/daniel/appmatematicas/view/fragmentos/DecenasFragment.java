@@ -118,9 +118,9 @@ public class DecenasFragment extends Fragment {
                             if(valorUno != 0){
                                 if(valorUno != 0){
                                     if(valorUno == 6 && valorDos == 2){
-                                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+                                        prefs.edit().putString("modulo_1", resultadoList+",1").commit();
                                     }else{
-                                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+                                        prefs.edit().putString("modulo_1", resultadoList+",0").commit();
                                     }
                                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_decenas_hard);
 
@@ -201,7 +201,6 @@ public class DecenasFragment extends Fragment {
             public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
 
                 if(response.isSuccessful()) {
-                    showSnackBar(response.body().toString());
 
                     System.out.println("--------------------" );
                     System.out.println("---: " +  response.body().getNombre() );
@@ -221,7 +220,7 @@ public class DecenasFragment extends Fragment {
 
 
     public void showSnackBar(String msg) {
-        Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(getActivity(),""+msg,Toast.LENGTH_SHORT).show();
     }
 
 }

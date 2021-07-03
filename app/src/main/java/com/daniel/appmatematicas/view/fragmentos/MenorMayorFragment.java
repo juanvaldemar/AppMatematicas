@@ -81,7 +81,7 @@ public class MenorMayorFragment extends Fragment {
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_p);
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_encontrar);
             }
         });
         return root;
