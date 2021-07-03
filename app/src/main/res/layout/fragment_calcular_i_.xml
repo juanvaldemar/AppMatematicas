@@ -59,8 +59,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
-                android:textColor="#2241DA"
-                android:text="Nicolás tiene 60 peras, le regala 30 peras a Valentina y Nina le regala 10 manzanas a Nicolá  s."
+                android:textColor="#DA2222"
+                android:text="Piero tenía un billete de S/. 100 y compró una zapatilla en S/. 30 y un short en S/. 20."
                 />
 
             <TextView
@@ -69,8 +69,9 @@
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
                 android:textColor="#DA2222"
-                android:text="¿Con cuántas manzanas se quedó Valentina?"
+                android:text="¿Cuánto dinero le dieron de vuelto?"
                 />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -101,7 +102,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="30dp"
-                    android:text="+"/>
+                    android:text="-"/>
                 <EditText
                     android:layout_weight="1"
                     android:text=""
@@ -122,6 +123,14 @@
                     />
 
             </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:visibility="gone"
+                android:background="@drawable/calculadora"
+                />
+
 
 
         </LinearLayout>

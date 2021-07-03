@@ -22,11 +22,22 @@
         android:orientation="vertical">
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="Completa la expresión númerica"
+            android:textSize="17dp"
+            android:layout_gravity="center"
+            android:textColor="#849095"
+            />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
+            android:layout_marginTop="20dp"
             android:paddingRight="20dp"
             android:orientation="vertical">
 
@@ -41,27 +52,90 @@
                 android:textColor="@color/black"
                 />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:justificationMode="inter_word"
-                android:text="Completa la expresión númerica"
-                android:textSize="17dp"
-                android:layout_gravity="center"
-                android:textColor="#849095"
-                />
-
 
 
 
             <TextView
+                android:id="@+id/pregunta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
-                android:textColor="#2241DA"
-                android:text="Nicolás tiene 60 peras, le regala 30 peras a Valentina y Nina le regala 10 manzanas a Nicolá  s."
+                android:textColor="#DA2222"
+                android:text="¿Nicolás, Valentina y Nina cuentan su propina en el recreo?"
                 />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:weightSum="3"
+                >
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:text="Nicolas"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:text="S./5.00"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:text="Valentina"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:text="S./2.00"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:text="Nina"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:text="S./4.00"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -69,51 +143,22 @@
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
                 android:textColor="#DA2222"
-                android:text="¿Con cuántas manzanas se quedó Valentina?"
+                android:text="Ayudanos a ordenar las cantidades mayor a menor"
                 />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="156dp"
+                android:visibility="gone"
+                android:background="@drawable/modulo_4" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="7"
+                android:weightSum="3"
                 >
 
-                <EditText
-                    android:layout_weight="1"
-                    android:text=""
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="30dp"
-                    android:text="-"/>
-                <EditText
-                    android:layout_weight="1"
-                    android:text=""
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="30dp"
-                    android:text="+"/>
-                <EditText
-                    android:layout_weight="1"
-                    android:text=""
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="30dp"
-                    android:text="="/>
                 <EditText
                     android:layout_weight="1"
                     android:id="@+id/primero"
@@ -121,7 +166,22 @@
                     android:layout_height="wrap_content"
                     />
 
+                <EditText
+                    android:layout_weight="1"
+                    android:id="@+id/segundo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <EditText
+                    android:layout_weight="1"
+                    android:id="@+id/tercero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
             </LinearLayout>
+
 
 
         </LinearLayout>
