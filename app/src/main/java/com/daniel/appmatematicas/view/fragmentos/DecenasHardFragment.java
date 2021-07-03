@@ -158,7 +158,7 @@ public class DecenasHardFragment extends Fragment {
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
                 if(valorUno != 0){
                     if(valorUno != 0){
-                        if(valorUno == 6 && valorDos == 2){
+                        if(valorUno == 2 && valorDos == 7){
 
                             // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
                             prefs.edit().putString("modulo_1", resultadoList+",1").commit();
