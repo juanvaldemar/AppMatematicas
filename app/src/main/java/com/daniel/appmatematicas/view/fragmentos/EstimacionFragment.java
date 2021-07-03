@@ -228,7 +228,7 @@ public class EstimacionFragment extends Fragment {
                     System.out.println("seleccion");
 
                 }else{
-                    if(valorSeleccionado > 40){
+                    if(valorSeleccionado > 41){
                         prefs.edit().putString("modulo_3", ",1").commit();
                     }else{
                         prefs.edit().putString("modulo_3", ",0").commit();
