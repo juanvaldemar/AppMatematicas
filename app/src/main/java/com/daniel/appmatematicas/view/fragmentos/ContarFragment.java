@@ -325,7 +325,6 @@ public class ContarFragment extends Fragment {
             public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
 
                 if(response.isSuccessful()) {
-                    showSnackBar(response.body().toString());
 
                     System.out.println("--------------------" );
                     System.out.println("---: " +  response.body().getNombre() );

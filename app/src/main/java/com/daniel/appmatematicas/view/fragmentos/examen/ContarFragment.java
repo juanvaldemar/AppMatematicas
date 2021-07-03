@@ -104,7 +104,7 @@ public class ContarFragment extends Fragment {
         String ipConfig = Constante.ip_config_;
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig+":8080/")
+                .baseUrl(ipConfig)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -319,7 +319,6 @@ public class ContarFragment extends Fragment {
             public void onResponse(Call<ReporteRequest> call, Response<ReporteRequest> response) {
 
                 if(response.isSuccessful()) {
-                    showSnackBar(response.body().toString());
 
                     System.out.println("--------------------" );
                     System.out.println("---: " +  response.body().getNombre() );
