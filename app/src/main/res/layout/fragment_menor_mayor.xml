@@ -105,7 +105,7 @@
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
 
-                        android:text="93"
+                        android:text="10"
                         android:textSize="25dp"/>
 
                 </RelativeLayout>
@@ -188,7 +188,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:text="41"
+                        android:text="12"
                         android:background="@drawable/circle"
 
                         android:textSize="25dp"/>
@@ -222,7 +222,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
-                        android:text="29"
+                        android:text="14"
                         android:textSize="25dp"/>
 
                 </RelativeLayout>
@@ -290,7 +290,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:text="40"
+                        android:text="20"
                         android:background="@drawable/circle"
 
                         android:textSize="25dp"/>
@@ -323,7 +323,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:text="50"
+                        android:text="22"
                         android:background="@drawable/circle"
 
                         android:textSize="25dp"/>
@@ -407,7 +407,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         style="@style/Widget.MaterialComponents.CircularProgressIndicator"
-                        android:text="65"
+                        android:text="35"
                         android:textSize="25dp"/>
 
                 </RelativeLayout>

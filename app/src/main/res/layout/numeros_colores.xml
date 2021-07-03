@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:layout_marginTop="15dp"
-                android:text="¿Cuántos polos tiene Nicolas?"
+                android:text="¿Cuántos polos tiene Nicolás?"
                 />
 
 
@@ -365,7 +365,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="¿Cuantos polos hay?"
+                        android:text="¿Cuántos polos hay?"
                         android:textColor="@color/black"
                         android:textSize="17dp" />
 
