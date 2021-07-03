@@ -10,6 +10,7 @@
         android:gravity="right"
         android:layout_height="wrap_content">
         <ImageView
+            android:layout_marginTop="30dp"
             android:id="@+id/cerrar"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:textColor="#D81313"
         android:textSize="18dp"
-        android:text="Eligue el signo de comparación correcto"/>
+        android:text="Elige el signo de comparación correcto"/>
 
 
 
