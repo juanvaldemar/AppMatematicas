@@ -47,10 +47,10 @@ public class CalculadoraIIFragment extends Fragment {
 
 
                 if(primero_.equalsIgnoreCase("50")){
-                    prefs.edit().putString("modulo_5", resultadoList+"1").commit();
+                    prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                     //    Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
                 }else{
-                    prefs.edit().putString("modulo_5", resultadoList+"0").commit();
+                    prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                     //     Toast.makeText(getActivity(),"Malo"+primero_,Toast.LENGTH_LONG).show();
                 }
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_b);

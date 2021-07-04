@@ -57,7 +57,7 @@ public class DecenasHardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_decenas_hard, container, false);
+        View root = inflater.inflate(R.layout.fragment_decenas_hard_i, container, false);
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
 

@@ -78,13 +78,13 @@
                     <TextView
                         android:id="@+id/primero"
                         android:layout_width="300dp"
-                        android:layout_height="60dp"
+                        android:layout_height="80dp"
                         android:textColor="@color/black"
                         android:text="Hay menos de 21 libretas"
                         android:padding="10dp"
                         android:gravity="center"
                         android:background="@drawable/circle_transparente"
-                        android:textSize="15dp"/>
+                        android:textSize="18dp"/>
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -96,13 +96,13 @@
                     <TextView
                         android:id="@+id/segundo"
                         android:layout_width="300dp"
-                        android:layout_height="60dp"
+                        android:layout_height="80dp"
                         android:textColor="@color/black"
-                        android:text="Hay más de 21 libretas"
+                        android:text="Hay más de 21 \nlibretas"
                         android:gravity="center"
                         android:padding="10dp"
                         android:background="@drawable/circle_transparente"
-                        android:textSize="15dp"/>
+                        android:textSize="18dp"/>
 
                 </RelativeLayout>
 

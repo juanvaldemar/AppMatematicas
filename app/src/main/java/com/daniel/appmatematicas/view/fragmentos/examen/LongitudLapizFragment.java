@@ -80,7 +80,7 @@ public class LongitudLapizFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_longitud_lapiz, container, false);
+        View root = inflater.inflate(R.layout.fragment_longitud_lapiz_i, container, false);
         ImageView btnCerrar;
 
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
