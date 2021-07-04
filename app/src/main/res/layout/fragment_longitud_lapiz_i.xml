@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="17dp"
-            android:text="¿Cúal es el tren menor longitud?"
+            android:text="¿Cúal es el tren de menor longitud?"
 
             android:gravity="center"
             android:layout_marginTop="10dp"
