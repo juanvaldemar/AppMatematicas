@@ -275,7 +275,7 @@ public class ColorFragment extends Fragment {
                     //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
-                    if(valorSeleccionado == numeroAleatorioPrincipal){
+                    if(valorSeleccionado == 14){
                         //subirNota(valorSeleccionado, true);
                         prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                     }else{

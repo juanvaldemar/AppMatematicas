@@ -115,7 +115,7 @@ public class LongitudLapizFragment extends Fragment {
                         if(i.getPosicion().equalsIgnoreCase("18")){
                             txtPregunta = root.findViewById(R.id.pregunta);
                             preguntaPrincipal = i.getPreguntas_tema();
-                            txtPregunta.setText(preguntaPrincipal);
+                          //  txtPregunta.setText(preguntaPrincipal);
                         }
                         temaList.add(i);
                     }
@@ -214,7 +214,7 @@ public class LongitudLapizFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("1");
+                valorSeleccionado = Integer.parseInt("3");
                 seleccion = true;
                 mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
@@ -234,7 +234,7 @@ public class LongitudLapizFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("3");
+                valorSeleccionado = Integer.parseInt("1");
                 seleccion = true;
                 mTerceroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
 
@@ -249,7 +249,7 @@ public class LongitudLapizFragment extends Fragment {
                     //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
                     showSnackBar("¡Por favor seleccione una opcción valida!");
                 }else{
-                    if(valorSeleccionado == numeroAleatorioPrincipal){
+                    if(valorSeleccionado == 1){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);
                       //  subirNota(valorSeleccionado, true);
