@@ -229,9 +229,9 @@ public class EstimacionFragment extends Fragment {
 
                 }else{
                     if(valorSeleccionado > 41){
-                        prefs.edit().putString("modulo_3", ",1").commit();
+                        prefs.edit().putString("modulo_3", "1").commit();
                     }else{
-                        prefs.edit().putString("modulo_3", ",0").commit();
+                        prefs.edit().putString("modulo_3", "0").commit();
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_estimacion_libros);
                 }

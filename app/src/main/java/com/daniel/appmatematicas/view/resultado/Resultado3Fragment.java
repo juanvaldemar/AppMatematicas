@@ -52,7 +52,7 @@ public class Resultado3Fragment extends Fragment {
         String[] notas = resultadoList.split(",");
 
         ImageView btnCerrar;
-
+        System.out.println("respuesta csmr:" +resultadoList);
       //  Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
         resultado_textual = root.findViewById(R.id.resultado_textual);
