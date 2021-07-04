@@ -19,10 +19,14 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:textColor="#D81313"
         android:textSize="18dp"
+
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textColor="#255CE6"
+        android:textStyle="bold"
+
         android:text="Elige el signo de comparación correcto"/>
 
 
@@ -107,14 +111,14 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="300"
+            android:text="71"
             android:textSize="30dp"
             android:gravity="center"
             android:layout_weight="1"/>
 
 
         <EditText
-            android:text="250"
+            android:text="69"
             android:gravity="center"
             android:textSize="30dp"
             android:layout_width="wrap_content"

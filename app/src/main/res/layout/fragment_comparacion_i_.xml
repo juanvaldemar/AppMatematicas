@@ -19,26 +19,39 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:textColor="#D81313"
         android:textSize="18dp"
-        android:text="Coloca  los números sobre el recuadro de acuerdo al signo de comparación."/>
+        android:text="Coloca  los números sobre el recuadro de acuerdo al signo de comparación."
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="#255CE6"
+        android:textStyle="bold"
+
+        />
 
 
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:textSize="20dp"
-        android:text="83 -------------------- 73"/>
+        android:text="83 -------------------- 73"
+
+
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+
+
+
+        />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="120dp"
         android:weightSum="3"
         android:padding="30dp"
         android:orientation="horizontal">
@@ -55,6 +68,7 @@
             android:layout_weight="1"
             android:text=">"
             android:gravity="center"
+            android:textStyle="bold"
             android:textSize="50dp"/>
 
         <EditText
