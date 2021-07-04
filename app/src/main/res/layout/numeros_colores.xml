@@ -32,26 +32,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Números"
+                android:text="Aprendiendo números"
                 android:textSize="28dp"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
-                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:justificationMode="inter_word"
-                android:text="Aprendiendo números"
-
-                android:layout_gravity="center"
-
-
-
-                android:textSize="20dp"
-                android:layout_marginTop="10dp"
-                android:textColor="#255CE6"
-                android:textStyle="bold"
                 />
 
 
@@ -62,9 +47,13 @@
                 android:id="@+id/pregunta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17dp"
+
                 android:layout_marginTop="15dp"
                 android:text="¿Cuántos polos tiene Nicolás?"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
+                android:textSize="20dp"
+
                 />
 
 
@@ -373,6 +362,7 @@
                         android:layout_height="wrap_content"
                         android:text="¿Cuántos polos hay?"
                         android:textColor="@color/black"
+                        android:visibility="gone"
                         android:textSize="17dp" />
 
                 </RelativeLayout>

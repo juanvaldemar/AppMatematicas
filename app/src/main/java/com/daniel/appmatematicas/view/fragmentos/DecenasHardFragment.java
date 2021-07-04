@@ -64,7 +64,7 @@ public class DecenasHardFragment extends Fragment {
 
         resultadoList = prefs.getString("modulo_1","");
 
-        initConnect();
+       // initConnect();
         mPrimero = root.findViewById(R.id.primero);
         mSegundo = root.findViewById(R.id.segundo);
         valorDos = 0;
@@ -78,11 +78,40 @@ public class DecenasHardFragment extends Fragment {
             }
         });
 
-        initTemas(root);
+      //  initTemas(root);
 
 
 
+        Button validar = root.findViewById(R.id.validar);
+        validar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valorUno = Integer.parseInt(mPrimero.getText().toString());
+                valorDos = Integer.parseInt(mSegundo.getText().toString());
+                if(valorUno != 0){
+                    if(valorUno != 0){
+                        if(valorUno == 2 && valorDos == 9){
 
+                            // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                            prefs.edit().putString("modulo_1", resultadoList+",1").commit();
+
+                        }else{
+                            // subirNota("Decenas: "+valorUno+ " y " + valorDos +" unidades", true);
+                            prefs.edit().putString("modulo_1", resultadoList+",0").commit();
+
+                        }
+
+
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado1);
+
+                    }else{
+                        showSnackBar("Escriba una respuesta válida");
+                    }
+                }else {
+                    showSnackBar("Escriba una respuesta válida");
+                }
+            }
+        });
         return root;
     }
 

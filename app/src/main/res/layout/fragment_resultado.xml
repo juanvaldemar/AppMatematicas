@@ -17,8 +17,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="#35B342"
-        android:textSize="25dp"
-        android:text="ERES INCREÍBLE, LOGRASTE" />
+        android:textSize="35dp"
+        android:text="Eres increíble.\n¡Lo lograste!" />
 
 
     <TextView

@@ -101,7 +101,9 @@ public class ContarFragment extends Fragment {
         });
 
         initConnect(root);
-        initTemas(root);
+       initTemas(root);
+
+
         return root;
     }
 

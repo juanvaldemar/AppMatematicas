@@ -95,10 +95,12 @@ public class Resultado3Fragment extends Fragment {
         }
 
         if(cantidad/2 < buenas.size()){
-            resultado_textual.setText("ERES INCREÍBLE, LOGRASTE");
+            resultado_textual.setText("Eres increíble.\n¡Lo lograste!");
+
 
         }else{
-            resultado_textual.setText("Vamos tú puedes, intenta una vez más");
+            resultado_textual.setText("Vamos tú puedes,\nintenta una vez más");
+
 
         }
 

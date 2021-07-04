@@ -79,9 +79,8 @@ public class ColorFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.numeros_colores, container, false);
-       // initConnect(root);
-      //  initTemas(root);
-        initGenerados(root);
+        initConnect(root);
+        initTemas(root);
 
         ImageView btnCerrar;
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
