@@ -58,7 +58,6 @@ public class Resultado5Fragment extends Fragment {
 
         ImageView btnCerrar;
 
-        Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
         resultado_textual = root.findViewById(R.id.resultado_textual);
 

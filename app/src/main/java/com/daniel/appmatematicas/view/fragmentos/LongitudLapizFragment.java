@@ -116,7 +116,7 @@ public class LongitudLapizFragment extends Fragment {
                         if(i.getPosicion().equalsIgnoreCase("18")){
                             txtPregunta = root.findViewById(R.id.pregunta);
                             preguntaPrincipal = i.getPreguntas_tema();
-                            txtPregunta.setText(preguntaPrincipal);
+                        //    txtPregunta.setText(preguntaPrincipal);
                         }
                         temaList.add(i);
                     }
