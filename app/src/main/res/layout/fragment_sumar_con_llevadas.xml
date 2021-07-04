@@ -45,12 +45,10 @@
                 android:justificationMode="inter_word"
                 android:text="Sumar con llevadas, vamos tu puedes."
 
-                android:layout_gravity="center"
-
-
                 android:textSize="20dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:textColor="#255CE6"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 />
 
@@ -63,8 +61,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
-                android:layout_marginTop="15dp"
                 android:text="¿Cuál es el resultado de esta suma?"
+
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
                 />
 
 
