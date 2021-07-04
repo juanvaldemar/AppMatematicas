@@ -84,8 +84,10 @@ public class EncontrarFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_encontrar, container, false);
-        initConnect(root);
-        initTemas(root);
+        //initConnect(root);
+        //initTemas(root);
+
+        initGenerados(root);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
         resultadoList = prefs.getString("modulo_1","");
         ImageView btnCerrar;
@@ -136,6 +138,7 @@ public class EncontrarFragment extends Fragment {
 
             }
         });
+
     }
 
     private void initConnect(View root) {

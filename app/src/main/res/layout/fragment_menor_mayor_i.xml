@@ -11,8 +11,8 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/cerrar"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/com_facebook_close"/>
     </RelativeLayout>
     <LinearLayout
@@ -107,7 +107,7 @@
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
 
-                        android:text="29"
+                        android:text="30"
                         android:textSize="25dp"/>
 
                 </RelativeLayout>
@@ -190,7 +190,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:text="40"
+                        android:text="42"
                         android:background="@drawable/circle"
 
                         android:textSize="25dp"/>
@@ -224,7 +224,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
-                        android:text="41"
+                        android:text="47"
                         android:textSize="25dp"/>
 
                 </RelativeLayout>
@@ -292,7 +292,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:text="50"
+                        android:text="53"
                         android:background="@drawable/circle"
 
                         android:textSize="25dp"/>
@@ -325,7 +325,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:text="65"
+                        android:text="62"
                         android:background="@drawable/circle"
 
                         android:textSize="25dp"/>
@@ -409,7 +409,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         style="@style/Widget.MaterialComponents.CircularProgressIndicator"
-                        android:text="87"
+                        android:text="93"
                         android:textSize="25dp"/>
 
                 </RelativeLayout>

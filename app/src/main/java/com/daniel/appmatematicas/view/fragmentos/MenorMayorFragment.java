@@ -189,12 +189,12 @@ public class MenorMayorFragment extends Fragment {
                 String e = quinto_.getText().toString();
                 String f = sexto_.getText().toString();
                 Boolean validador = false;
-                if (a.equalsIgnoreCase("29")) {
-                    if (b.equalsIgnoreCase("40")) {
-                        if (c.equalsIgnoreCase("41")) {
-                            if (d.equalsIgnoreCase("50")) {
-                                if (e.equalsIgnoreCase("65")) {
-                                    if (f.equalsIgnoreCase("87")) {
+                if (a.equalsIgnoreCase("30")) {
+                    if (b.equalsIgnoreCase("42")) {
+                        if (c.equalsIgnoreCase("47")) {
+                            if (d.equalsIgnoreCase("53")) {
+                                if (e.equalsIgnoreCase("62")) {
+                                    if (f.equalsIgnoreCase("93")) {
                                         validador = true;
                                     }
                                 }
