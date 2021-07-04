@@ -43,15 +43,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
-                android:text="Sumar sin llevadas, vamos tu puedes."
-
-                android:layout_gravity="center"
-
-
+                android:text="Sumar sin llevadas, vamos tú puedes."
                 android:textSize="20dp"
-                android:layout_marginTop="10dp"
-                android:textColor="#255CE6"
-                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+
                 />
 
 
@@ -63,8 +59,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
-                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:text="¿Cuál es el resultado de esta suma?"
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
                 />
 
 

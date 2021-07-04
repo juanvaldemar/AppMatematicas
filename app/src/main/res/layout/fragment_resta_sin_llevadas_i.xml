@@ -43,15 +43,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
-                android:text="Resta sin llevadas, vamos tu puedes."
-
-                android:layout_gravity="center"
-
-
-
+                android:text="Resta sin llevadas, vamos tú puedes."
                 android:textSize="20dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:textColor="#255CE6"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 />
 
@@ -64,8 +60,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
-                android:layout_marginTop="15dp"
                 android:text="¿Cuál es el resultado de esta resta?"
+
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
                 />
 
 
