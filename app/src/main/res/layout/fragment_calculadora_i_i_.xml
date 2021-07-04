@@ -46,9 +46,13 @@
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
                 android:text="Completa la expresión númerica"
+
                 android:textSize="17dp"
                 android:layout_gravity="center"
-                android:textColor="#849095"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+
                 />
 
 
@@ -58,8 +62,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
-                android:layout_marginTop="15dp"
-                android:textColor="#2241DA"
+
+
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
                 android:text="Nicolás tiene 60 peras, le regala 40 peras a Valentina y Nina le regala 10 manzanas a Nicolá  s."
                 />
 
@@ -67,8 +74,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
-                android:layout_marginTop="15dp"
-                android:textColor="#DA2222"
+
+
+
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
+
+
+
                 android:text="¿Con cuántas manzanas se quedó Valentina?"
                 />
 
