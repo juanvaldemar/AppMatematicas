@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -199,7 +200,7 @@ public class EstimacionFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("80");
+                valorSeleccionado = 80;
                 seleccion = true;
                 mPrimeroR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
                 System.out.println("80");
@@ -209,8 +210,8 @@ public class EstimacionFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 initSeleccionEmpty(root);
-                valorSeleccionado = Integer.parseInt("40");
-                seleccion = true;
+                valorSeleccionado = 80;
+                seleccion = false;
                 mSegundoR.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.gray));
                 System.out.println("40");
 
@@ -222,19 +223,13 @@ public class EstimacionFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(!seleccion){
-                    //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
-                    showSnackBar("¡Por favor seleccione una opcción valida!");
-                    System.out.println("seleccion");
+                    prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_m);
 
                 }else{
-                    if(valorSeleccionado > 40){
-                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
-
-                    }else{
-                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
-
-                    }
+                    prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_m);
+
                 }
             }
         });
