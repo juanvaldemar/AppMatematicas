@@ -104,7 +104,7 @@ public class Resultado3Fragment extends Fragment {
 
         }
 
-        resultado.setText(buenas.size()+1+"/"+cantidad);
+        resultado.setText(buenas.size()+"/"+cantidad);
         subirNota(buenas.size(), cantidad);
 
         prefs.edit().remove("modulo_3").commit();
