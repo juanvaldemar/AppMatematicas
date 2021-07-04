@@ -43,9 +43,14 @@
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
                 android:text="Estimando cantidades"
-                android:textSize="17dp"
+
                 android:layout_gravity="center"
-                android:textColor="#849095"
+
+
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
                 />
 
 

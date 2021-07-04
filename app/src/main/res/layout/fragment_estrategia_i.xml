@@ -37,9 +37,13 @@
                 android:id="@+id/pregunta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17dp"
-                android:layout_marginTop="15dp"
+
                 android:text="David ha pescado 43 peces anchovechas y 53 peces pejerrey. ¿Cuántos peces ha pescado en total?"
+
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
                 />
             <LinearLayout
                 android:layout_width="match_parent"

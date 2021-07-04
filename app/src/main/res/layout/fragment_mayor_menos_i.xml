@@ -32,8 +32,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Aprendiendo Número"
-                android:textSize="28dp"
+                android:text="Aprendiendo Números"
+                android:textSize="26dp"
+
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 />
@@ -43,16 +44,18 @@
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
                 android:text="Ordena los números de mayor a menor"
-                android:textSize="17dp"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
                 android:layout_gravity="center"
-                android:textColor="#849095"
                 />
 
             <TextView
                 android:id="@+id/encuentra_numero_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17dp"
+                android:textSize="19dp"
                 android:layout_marginTop="15dp"
                 android:text=""
                 />

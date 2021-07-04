@@ -39,6 +39,8 @@ public class Resultado5Fragment extends Fragment {
     private SharedPreferences prefs = null;
     private String resultadoList;
     private TextView resultado;
+    TextView resultado_textual;
+
     public Resultado5Fragment() {
         // Required empty public constructor
     }
@@ -58,6 +60,8 @@ public class Resultado5Fragment extends Fragment {
 
         Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
+        resultado_textual = root.findViewById(R.id.resultado_textual);
+
         initNota(notas,20, notas_);
         btnCerrar = root.findViewById(R.id.cerrar);
 
@@ -107,11 +111,15 @@ public class Resultado5Fragment extends Fragment {
         String satisfaccion = notas_[2];
         subirNota(buenas.size(), cantidad+" Motivacion: "+motivacion + " " +"Satisfacción: "+satisfaccion);
 
+
+        if(cantidad/2 < buenas.size()){
+            resultado_textual.setText("ERES INCREÍBLE, LOGRASTE");
+
+        }else{
+            resultado_textual.setText("Vamos tú puedes, intenta una vez más");
+
+        }
         resultado.setText(buenas.size()+"/"+cantidad);
-
-
-
-
 
 
         prefs.edit().remove("modulo_5").commit();

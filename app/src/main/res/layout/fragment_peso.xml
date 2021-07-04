@@ -57,9 +57,13 @@
                 android:id="@+id/encuentra_numero_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17dp"
-                android:layout_marginTop="15dp"
+
                 android:text="De los objetos que ves. Marca un objeto que crees que puedas cargar."
+
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
                 />
 
             <LinearLayout

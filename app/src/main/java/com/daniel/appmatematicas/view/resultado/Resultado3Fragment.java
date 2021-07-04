@@ -36,6 +36,8 @@ public class Resultado3Fragment extends Fragment {
     private SharedPreferences prefs = null;
     private String resultadoList;
     private TextView resultado;
+    TextView resultado_textual;
+
     public Resultado3Fragment() {
         // Required empty public constructor
     }
@@ -53,6 +55,8 @@ public class Resultado3Fragment extends Fragment {
 
       //  Toast.makeText(getActivity(),"----"+resultadoList,Toast.LENGTH_LONG).show();
         resultado = root.findViewById(R.id.resultado);
+        resultado_textual = root.findViewById(R.id.resultado_textual);
+
         initNota(notas,3);
         btnCerrar = root.findViewById(R.id.cerrar);
 
@@ -89,6 +93,15 @@ public class Resultado3Fragment extends Fragment {
                     buenas.add("1");
                 }
         }
+
+        if(cantidad/2 < buenas.size()){
+            resultado_textual.setText("ERES INCREÍBLE, LOGRASTE");
+
+        }else{
+            resultado_textual.setText("Vamos tú puedes, intenta una vez más");
+
+        }
+
         resultado.setText(buenas.size()+1+"/"+cantidad);
         subirNota(buenas.size(), cantidad);
 
