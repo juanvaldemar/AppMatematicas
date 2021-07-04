@@ -104,7 +104,7 @@ public class ContarAlimentosFragment extends Fragment {
                         if(i.getPosicion().equalsIgnoreCase("14")){
                             txtPregunta = root.findViewById(R.id.pregunta);
                             preguntaPrincipal = i.getPreguntas_tema();
-                            txtPregunta.setText(preguntaPrincipal);
+                            //txtPregunta.setText(preguntaPrincipal);
                         }
 
                         temaList.add(i);

@@ -128,7 +128,7 @@ public class ContarFragment extends Fragment {
                     if(i.getPosicion().equalsIgnoreCase("13")){
                         txtPregunta = root.findViewById(R.id.pregunta);
                         preguntaPrincipal = i.getPreguntas_tema();
-                        txtPregunta.setText(preguntaPrincipal);
+                       // txtPregunta.setText(preguntaPrincipal);
                     }
 
 
