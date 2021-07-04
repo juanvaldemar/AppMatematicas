@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="17dp"
-            android:text="¿Qué lápiz es más largo?"
+            android:text="¿Cúal es el tren menor longitud?"
 
             android:gravity="center"
             android:layout_marginTop="10dp"
@@ -79,7 +79,7 @@
                 android:layout_weight=".1"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:background="@drawable/lapiz"
+                android:background="@drawable/tren"
                 />
         </LinearLayout>
 
@@ -100,7 +100,7 @@
                 android:layout_weight=".4"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:background="@drawable/lapiz"
+                android:background="@drawable/tren"
                 />
         </LinearLayout>
 
@@ -121,7 +121,7 @@
                 android:layout_weight=".9"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:background="@drawable/lapiz"
+                android:background="@drawable/tren"
                 />
         </LinearLayout>
 
@@ -142,7 +142,23 @@
             android:layout_height="wrap_content"
             android:weightSum="3"
             android:orientation="horizontal">
+            <RelativeLayout
+                android:id="@+id/seleccion_tercero"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tercero"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:textColor="@color/black"
+                    android:text="3"
+                    android:padding="10dp"
+                    android:background="@drawable/circle_transparente"
+                    android:textSize="25dp"/>
 
+            </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/seleccion_primero"
                 android:layout_width="match_parent"
@@ -179,23 +195,7 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/seleccion_tercero"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-                <TextView
-                    android:id="@+id/tercero"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:textColor="@color/black"
-                    android:text="3"
-                    android:padding="10dp"
-                    android:background="@drawable/circle_transparente"
-                    android:textSize="25dp"/>
 
-            </RelativeLayout>
 
 
         </LinearLayout>

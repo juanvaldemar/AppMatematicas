@@ -185,17 +185,18 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center">
+
                     <TextView
                         android:id="@+id/primero"
 
                         android:layout_width="300dp"
                         android:layout_height="50dp"
-                        android:textColor="@color/black"
-                        android:text="Más de 40"
-                        android:padding="10dp"
-                        android:gravity="center"
                         android:background="@drawable/circle_transparente"
-                        android:textSize="25dp"/>
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Más de 48"
+                        android:textColor="@color/black"
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -210,7 +211,7 @@
                         android:layout_width="300dp"
                         android:layout_height="50dp"
                         android:textColor="@color/black"
-                        android:text="Menos de 40"
+                        android:text="Menos de 48"
                         android:gravity="center"
                         android:padding="10dp"
                         android:background="@drawable/circle_transparente"

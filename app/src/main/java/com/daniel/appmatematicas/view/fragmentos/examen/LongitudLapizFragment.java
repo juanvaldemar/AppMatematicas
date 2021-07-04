@@ -185,10 +185,9 @@ public class LongitudLapizFragment extends Fragment {
         mTercero = root.findViewById(R.id.tercero);
 
 
-
-        mPrimero.setText("A");
-        mSegundo.setText("B");
-        mTercero.setText("C");
+        mTercero.setText("A");
+        mPrimero.setText("B");
+        mSegundo.setText("C");
 
 
         //encuentra_numero_text = findViewById(R.id.encuentra_numero_text);

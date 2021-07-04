@@ -76,7 +76,7 @@ public class EstimacionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_estimacion, container, false);
+        View root = inflater.inflate(R.layout.fragment_estimacion_i, container, false);
         prefs = getActivity().getSharedPreferences("com.valdemar.appcognitivo", MODE_PRIVATE);
         resultadoList = prefs.getString("modulo_5","");
 

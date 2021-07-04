@@ -46,7 +46,7 @@ public class CalculadoraIIFragment extends Fragment {
                 String primero_ = primero.getText().toString();
 
 
-                if(primero_.equalsIgnoreCase("40")){
+                if(primero_.equalsIgnoreCase("50")){
                     prefs.edit().putString("modulo_5", resultadoList+"1").commit();
                     //    Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
                 }else{

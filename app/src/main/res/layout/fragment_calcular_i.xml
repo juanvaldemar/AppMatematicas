@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
 
-                android:text="Piero tenía un billete de S/. 200 y compró una zapatilla en S/. 60 y un short en S/. 20."
+                android:text="Martín tenía 85 canicas y le regaló 5 canicas a su primo y 20 canicas a su hermano."
 
 
                 android:layout_marginTop="10dp"
@@ -84,7 +84,7 @@
                 android:textStyle="bold"
 
 
-                android:text="¿Cuánto dinero le dieron de vuelto?"
+                android:text="¿Cuántas canicas le quedaron a Martín?"
                 />
 
 

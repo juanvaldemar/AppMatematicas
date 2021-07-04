@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/container">
+    android:id="@+id/container"
+    tools:context=".view.ColorActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:gravity="right"
@@ -21,6 +22,7 @@
         android:orientation="vertical">
 
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Estimando cantidades"
+                android:text="Aprendiendo números"
                 android:textSize="28dp"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
@@ -43,12 +45,10 @@
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
                 android:text=""
-                android:visibility="gone"
                 android:layout_gravity="center"
-                android:textSize="20dp"
                 android:layout_marginTop="10dp"
-                android:textColor="#255CE6"
-                android:textStyle="bold"
+             android:visibility="gone"
+
                 />
 
 
@@ -59,31 +59,28 @@
                 android:id="@+id/pregunta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estima la cantidad de huevos que hay y completa:"
-
-                android:textSize="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
+                android:text="¿Cuántos dulces tiene Nicolás?"
                 android:textColor="#255CE6"
                 android:textStyle="bold"
+                android:textSize="20dp"
+
                 />
 
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:weightSum="6"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_marginTop="35dp"
-                android:layout_gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/estimacion"/>
-
+                    android:layout_height="200dp"
+                    android:background="@drawable/polist"/>
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -96,19 +93,14 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center">
-
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Yo estimo que hay..."
-
-                        android:textSize="20dp"
-                        android:layout_marginTop="10dp"
-                        android:textColor="#255CE6"
-                        android:textStyle="bold"
-
-                     />
+                        android:textColor="@color/black"
+                        android:text=""
+                        android:textSize="25dp"/>
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -175,9 +167,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="2"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
+                android:weightSum="5"
+                android:orientation="horizontal">
 
                 <RelativeLayout
                     android:id="@+id/seleccion_primero"
@@ -187,31 +178,82 @@
                     android:gravity="center">
                     <TextView
                         android:id="@+id/primero"
-
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Más de 40"
+                        android:text="10"
                         android:padding="10dp"
-                        android:gravity="center"
                         android:background="@drawable/circle_transparente"
                         android:textSize="25dp"/>
 
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/seleccion_segundo"
+
                     android:layout_weight="1"
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <TextView
                         android:id="@+id/segundo"
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
+
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Menos de 40"
-                        android:gravity="center"
+                        android:text="16"
+                        android:padding="10dp"
+                        android:background="@drawable/circle_transparente"
+                        android:textSize="25dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/seleccion_tercero"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tercero"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="06"
+                        android:padding="10dp"
+                        android:background="@drawable/circle_transparente"
+                        android:textSize="25dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/seleccion_cuarto"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/cuarto"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="22"
+                        android:padding="10dp"
+                        android:background="@drawable/circle_transparente"
+                        android:textSize="25dp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/seleccion_quinto"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/quinto"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="44"
                         android:padding="10dp"
                         android:background="@drawable/circle_transparente"
                         android:textSize="25dp"/>
@@ -220,18 +262,16 @@
 
             </LinearLayout>
 
-
-
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
+        android:visibility="gone"
         android:layout_marginBottom="100dp"
         android:padding="5dp"
         android:orientation="horizontal">
@@ -252,7 +292,6 @@
             android:justificationMode="inter_word"
             android:text="/10"
             android:textSize="30dp"
-            android:visibility="gone"
             android:layout_gravity="center"
             android:textColor="#849095"
             />

@@ -70,7 +70,7 @@
 
 
 
-                android:text="Nicolás tiene 60 peras, le regala 30 peras a Valentina y Nina le regala 10 manzanas a Nicolá  s."
+                android:text="Daniel tiene 70 fresas, le regala 25 fresas a Alexia y Sofia le regala 5 fresas a Daniel."
                 />
 
             <TextView
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
 
-                android:text="¿Con cuántas manzanas se quedó Valentina?"
+                android:text="¿Con cuántas fresas se quedó Daniel?"
 
 
 

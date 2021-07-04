@@ -28,8 +28,15 @@
             android:justificationMode="inter_word"
             android:text="Completa la expresión númerica"
             android:textSize="17dp"
+
+
             android:layout_gravity="center"
-            android:textColor="#849095"
+
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+
+
             />
 
 
@@ -65,7 +72,7 @@
                 android:textColor="#255CE6"
                 android:textStyle="bold"
 
-                android:text="¿Nicolás, Valentina y Nina cuentan su propina en el recreo?"
+                android:text="¿Vanessa, Lucia y María cuentan su propina en el recreo?"
                 />
 
 
@@ -88,7 +95,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
-                        android:text="Nicolas"/>
+                        android:text="Vanessa"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -108,7 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
-                        android:text="Valentina"/>
+                        android:text="Lucia"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -128,7 +135,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
-                        android:text="Nina"/>
+                        android:text="María"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
