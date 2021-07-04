@@ -78,6 +78,7 @@ public class RakingFragment extends Fragment {
         Call<List<Reporte>> call = reporteApiService.getMovie();
 
 
+
         call.enqueue(new Callback<List<Reporte>>() {
             @Override
             public void onResponse(Call<List<Reporte>> call, Response<List<Reporte>> response) {
