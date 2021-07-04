@@ -19,10 +19,19 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:gravity="center"
+
         android:layout_height="wrap_content"
-        android:textColor="#D81313"
+
+
+
+
         android:textSize="18dp"
+
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:textColor="#255CE6"
+        android:textStyle="bold"
+
         android:text="Elige el signo de comparación correcto"/>
 
 

@@ -32,9 +32,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Logitudes"
+                android:text="Longitudes"
                 android:textSize="28dp"
-                android:layout_gravity="left"
+                android:layout_gravity="center"
+
                 android:textColor="@color/black"
                 />
 
@@ -46,7 +47,7 @@
 
                 android:layout_gravity="center"
 
-
+android:visibility="gone"
                 android:textSize="20dp"
                 android:layout_marginTop="10dp"
                 android:textColor="#255CE6"
@@ -61,9 +62,15 @@
                 android:id="@+id/pregunta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17dp"
-                android:layout_marginTop="15dp"
+
                 android:text="¿Cuánto crees que mida una paleta de chocolate?"
+
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
+
+
                 />
 
 

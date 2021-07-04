@@ -48,7 +48,10 @@
                 android:text="Completa la expresión númerica"
                 android:textSize="17dp"
                 android:layout_gravity="center"
-                android:textColor="#849095"
+
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 />
 
 
@@ -58,17 +61,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
-                android:layout_marginTop="15dp"
-                android:textColor="#DA2222"
+
                 android:text="Piero tenía un billete de S/. 200 y compró una zapatilla en S/. 60 y un short en S/. 20."
+
+
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
+
+
+
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
-                android:layout_marginTop="15dp"
-                android:textColor="#DA2222"
+
+
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
+
+
                 android:text="¿Cuánto dinero le dieron de vuelto?"
                 />
 

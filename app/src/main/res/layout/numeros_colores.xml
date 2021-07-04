@@ -48,11 +48,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="15dp"
                 android:text="¿Cuántos polos tiene Nicolás?"
+
+                android:textSize="20dp"
+
+
+                android:layout_marginTop="10dp"
                 android:textColor="#255CE6"
                 android:textStyle="bold"
-                android:textSize="20dp"
+
 
                 />
 
