@@ -102,7 +102,7 @@ public class ResultadoFragment extends Fragment {
                     buenas.add("1");
                 }
         }
-        subirNota(buenas.size(), cantidad);
+        //subirNota(buenas.size(), cantidad);
         if(cantidad/2 < buenas.size()){
             resultado_textual.setText("Eres increíble.\n¡Lo lograste!");
 

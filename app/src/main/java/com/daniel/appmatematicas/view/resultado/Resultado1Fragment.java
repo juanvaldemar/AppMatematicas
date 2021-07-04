@@ -113,7 +113,7 @@ public class Resultado1Fragment extends Fragment {
 
 
 
-        subirNota(buenas.size(), cantidad);
+        //subirNota(buenas.size(), cantidad);
 
         prefs.edit().remove("modulo_1").commit();
 
