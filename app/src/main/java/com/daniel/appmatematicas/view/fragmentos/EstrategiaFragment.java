@@ -23,6 +23,7 @@ public class EstrategiaFragment extends Fragment {
     private String resultadoList;
     private Button validar;
     private EditText resultado;
+    private EditText resultado2;
 
     public EstrategiaFragment() {
         // Required empty public constructor
@@ -53,13 +54,15 @@ public class EstrategiaFragment extends Fragment {
             }
         });
         resultado = root.findViewById(R.id.resultado);
+        resultado2 = root.findViewById(R.id.resultado2);
 
         return root;
     }
 
     private void init() {
         String resultado_= resultado.getText().toString();
-        if(resultado_.equalsIgnoreCase("96")){
+        String resultado2_= resultado2.getText().toString();
+        if(resultado_.equalsIgnoreCase("9") && resultado2_.equalsIgnoreCase("6")){
             prefs.edit().putString("modulo_3", resultadoList+",1").commit();
         }else{
             prefs.edit().putString("modulo_3", resultadoList+",0").commit();

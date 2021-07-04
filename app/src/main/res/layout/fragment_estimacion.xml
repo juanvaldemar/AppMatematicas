@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Estimación"
+                android:text="Estimando cantidades"
                 android:textSize="28dp"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
@@ -42,8 +42,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
-                android:text="Estimando cantidades"
-
+                android:text=""
+                android:visibility="gone"
                 android:layout_gravity="center"
                 android:textSize="20dp"
                 android:layout_marginTop="10dp"
@@ -59,9 +59,12 @@
                 android:id="@+id/pregunta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17dp"
-                android:layout_marginTop="15dp"
                 android:text="Estima la cantidad de huevos que hay y completa:"
+
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#255CE6"
+                android:textStyle="bold"
                 />
 
 
@@ -99,8 +102,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Yo estimo que hay..."
-                        android:textColor="@color/black"
-                        android:textSize="17dp" />
+
+                        android:textSize="20dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#255CE6"
+                        android:textStyle="bold"
+
+                     />
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -168,6 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="2"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <RelativeLayout

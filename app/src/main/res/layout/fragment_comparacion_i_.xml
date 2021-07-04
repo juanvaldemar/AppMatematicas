@@ -23,7 +23,7 @@
         android:textSize="18dp"
         android:text="Coloca  los números sobre el recuadro de acuerdo al signo de comparación."
         android:gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:textColor="#255CE6"
         android:textStyle="bold"
 
