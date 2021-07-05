@@ -108,8 +108,8 @@ public class Resultado5Fragment extends Fragment {
 
         String motivacion = notas_[1];
         String satisfaccion = notas_[2];
-        subirNota(buenas.size(), cantidad+" Motivacion: "+motivacion + " " +"Satisfacción: "+satisfaccion);
 
+        subirNota(buenas.size(), cantidad+"", motivacion,satisfaccion);
 
         if(cantidad/2 < buenas.size()){
             resultado_textual.setText("Eres increíble.\n¡Lo lograste!");
@@ -129,21 +129,22 @@ public class Resultado5Fragment extends Fragment {
     }
 
 
-    private void subirNota(int i, String b) {
+    private void subirNota(int buenas, String cantidad, String motivacion, String satisfaccion) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        Usuario usuario = new Usuario(i+"-"+b,user.getDisplayName() );
-        DatabaseReference myRef = database.getReference("usuarios");
-
-        myRef.push().setValue(usuario);
-
+       // Usuario usuario = new Usuario(buenas+"-"+cantidad,user.getDisplayName() );
+        //  DatabaseReference myRef = database.getReference("usuarios");
+        //  myRef.push().setValue(usuario);
 
         ReporteRequest obj = new ReporteRequest();
         obj.setNombre(user.getDisplayName());
-        obj.setNota(i + "-" + b);
+        obj.setNota(buenas+"");
+        obj.setCantidad(cantidad);
+        obj.setMotivacion(motivacion);
+        obj.setSatisfaccion(satisfaccion);
 
         ReporteApiService reporteApiService;
 

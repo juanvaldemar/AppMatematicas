@@ -62,7 +62,7 @@ public class EstrategiaFragment extends Fragment {
         String resultado_= resultado.getText().toString();
         String resultado2_= resultado2.getText().toString();
 
-        if((!resultado_.isEmpty() || resultado_ != null) && (!resultado2_.isEmpty() || resultado2_ != null) ) {
+        if(!resultado_.isEmpty()  && !resultado2_.isEmpty()  ) {
 
             if(resultado_.equalsIgnoreCase("9") && resultado2_.equalsIgnoreCase("0")){
                 prefs.edit().putString("modulo_5", resultadoList+",1").commit();

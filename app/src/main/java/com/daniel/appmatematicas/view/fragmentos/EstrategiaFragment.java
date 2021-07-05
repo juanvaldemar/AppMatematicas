@@ -64,7 +64,7 @@ public class EstrategiaFragment extends Fragment {
         String resultado2_= resultado2.getText().toString();
 
 
-        if((!resultado_.isEmpty() || resultado_ != null) && (!resultado2_.isEmpty() || resultado2_ != null) ) {
+        if(!resultado_.isEmpty() && !resultado2_.isEmpty()) {
             if(resultado_.equalsIgnoreCase("9") && resultado2_.equalsIgnoreCase("6")){
                 prefs.edit().putString("modulo_3", resultadoList+",1").commit();
             }else{
@@ -73,6 +73,5 @@ public class EstrategiaFragment extends Fragment {
             Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado3);
 
         }
-
              }
 }
