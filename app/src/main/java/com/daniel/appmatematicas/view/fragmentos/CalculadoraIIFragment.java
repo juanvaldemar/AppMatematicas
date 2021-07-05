@@ -26,6 +26,7 @@ public class CalculadoraIIFragment extends Fragment {
     private Button validar;
     private String resultadoList;
     private EditText primero;
+    private boolean seleccion;
 
     public CalculadoraIIFragment() {
         // Required empty public constructor
@@ -47,16 +48,20 @@ public class CalculadoraIIFragment extends Fragment {
                 primero = root.findViewById(R.id.primero);
                 String primero_ = primero.getText().toString();
 
+                if(!primero_.isEmpty() || primero_ != null){
 
-                if(primero_.equalsIgnoreCase("30")){
-                    prefs.edit().putString("modulo_4", resultadoList+",1").commit();
-                    //    Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado);
-                }else{
-                    prefs.edit().putString("modulo_4", resultadoList+",0").commit();
-                    //     Toast.makeText(getActivity(),"Malo"+primero_,Toast.LENGTH_LONG).show();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado);
+                    if(primero_.equalsIgnoreCase("30")){
+                        prefs.edit().putString("modulo_4", resultadoList+",1").commit();
+                        //    Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado);
+                    }else{
+                        prefs.edit().putString("modulo_4", resultadoList+",0").commit();
+                        //     Toast.makeText(getActivity(),"Malo"+primero_,Toast.LENGTH_LONG).show();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_resultado);
+                    }
                 }
+
+
             }
         });
 

@@ -120,25 +120,30 @@ public class RestarFragment extends Fragment {
             public void onClick(View view) {
                 valorUno = Integer.parseInt(mPrimero.getText().toString());
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
-                        if(valorUno == 1 && valorDos == 5){
-                            //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                            showSnackBar(calificacionOk);
-                          //  subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
-                            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
 
-                            //startActivity(new Intent(getActivity(), PerfilActivity.class));
-                            // listaCalificacion.add(true);
-                        }else{
-                            //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
-                            showSnackBar(calificacionNoOk);
-                           // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
 
-                            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+                if(valorUno != 0 && valorDos != 0) {
+                    if(valorUno == 1 && valorDos == 5){
+                        //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                        showSnackBar(calificacionOk);
+                        //  subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", true);
+                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
 
-                            //listaCalificacion.add(false);
-                            // startActivity(new Intent(getActivity(), PerfilActivity.class));
-                        }
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_u);
+                        //startActivity(new Intent(getActivity(), PerfilActivity.class));
+                        // listaCalificacion.add(true);
+                    }else{
+                        //Toast.makeText(BuscarNumeroActivity.this,"Incorrecto "+valorSeleccionado,Toast.LENGTH_SHORT).show();
+                        showSnackBar(calificacionNoOk);
+                        // subirNota("Número uno: "+valorUno+ " Número dos: " + valorDos +" unidades", false);
+
+                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+
+                        //listaCalificacion.add(false);
+                        // startActivity(new Intent(getActivity(), PerfilActivity.class));
+                    }
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_u);
+
+                }
 
             }
         });

@@ -43,15 +43,17 @@ public class CalculadoraIIFragment extends Fragment {
                 primero = root.findViewById(R.id.primero);
                 String primero_ = primero.getText().toString();
 
+                if(!primero_.isEmpty() || primero_ != null) {
+                    if(primero_.equalsIgnoreCase("50")){
+                        prefs.edit().putString("modulo_5", "1").commit();
+                        //    Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
+                    }else{
+                        prefs.edit().putString("modulo_5", "0").commit();
+                        //     Toast.makeText(getActivity(),"Malo"+primero_,Toast.LENGTH_LONG).show();
+                    }
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_b);
 
-                if(primero_.equalsIgnoreCase("50")){
-                    prefs.edit().putString("modulo_5", "1").commit();
-                    //    Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
-                }else{
-                    prefs.edit().putString("modulo_5", "0").commit();
-                    //     Toast.makeText(getActivity(),"Malo"+primero_,Toast.LENGTH_LONG).show();
                 }
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_b);
 
             }
         });

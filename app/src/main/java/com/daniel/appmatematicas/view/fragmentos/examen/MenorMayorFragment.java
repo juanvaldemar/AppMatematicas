@@ -202,13 +202,17 @@ public class MenorMayorFragment extends Fragment {
                     }
                 }
                // showSnackBar("validador" + validador);
-                if (validador) {
-                    prefs.edit().putString("modulo_5", resultadoList+",1").commit();
-                } else {
-                    prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+
+                if(seleccion) {
+                    if (validador) {
+                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+                    } else {
+                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+                    }
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_s);
+
                 }
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_s);
-            }
+                          }
 
         });
 

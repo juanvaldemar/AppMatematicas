@@ -66,15 +66,20 @@ public class CalcularIFragment extends Fragment {
                     validador = true;
                 }
 
-                if(validador == true){
-                    prefs.edit().putString("modulo_5", resultadoList+",1").commit();
-                    // Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_c);
-                }else{
-                    prefs.edit().putString("modulo_5", resultadoList+",0").commit();
-                    //  Toast.makeText(getActivity(),"Malo"+primero_,Toast.LENGTH_LONG).show();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_c);
+
+                if(!primero_.isEmpty() || primero_ != null) {
+                    if(validador == true){
+                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+                        // Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_c);
+                    }else{
+                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+                        //  Toast.makeText(getActivity(),"Malo"+primero_,Toast.LENGTH_LONG).show();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_c);
+                    }
                 }
+
+
             }
         });
     }

@@ -62,13 +62,21 @@ public class ComparacionIFragment extends Fragment {
                 String primero_ = primero.getText().toString();
                 String segundo_ = segundo.getText().toString();
 
+
+                if(!primero_.isEmpty() || primero_ != null) {
+
                     if(primero_.equalsIgnoreCase("98") && segundo_.equalsIgnoreCase("72")){
                         prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                     }else{
                         prefs.edit().putString("modulo_5", resultadoList+",0").commit();
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_f);
-            }
+
+                }
+
+
+
+                              }
         });
     }
 

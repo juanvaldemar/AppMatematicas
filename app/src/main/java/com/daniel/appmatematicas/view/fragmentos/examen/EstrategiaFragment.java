@@ -62,11 +62,15 @@ public class EstrategiaFragment extends Fragment {
         String resultado_= resultado.getText().toString();
         String resultado2_= resultado2.getText().toString();
 
-        if(resultado_.equalsIgnoreCase("9") && resultado2_.equalsIgnoreCase("0")){
-            prefs.edit().putString("modulo_5", resultadoList+",1").commit();
-        }else{
-            prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+        if((!resultado_.isEmpty() || resultado_ != null) && (!resultado2_.isEmpty() || resultado2_ != null) ) {
+
+            if(resultado_.equalsIgnoreCase("9") && resultado2_.equalsIgnoreCase("0")){
+                prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+            }else{
+                prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+            }
+            Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_o);
         }
-        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_o);
+
     }
 }

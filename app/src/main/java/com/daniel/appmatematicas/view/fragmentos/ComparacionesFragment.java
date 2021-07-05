@@ -79,17 +79,22 @@ public class ComparacionesFragment extends Fragment {
                         }
                     }
                 }
-                if(validador == true){
-                    prefs.edit().putString("modulo_4", "1").commit();
 
-                   // Toast.makeText(getActivity(),"Buenazo"+primero_+segundo_+tercero_,Toast.LENGTH_LONG).show();
-                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_calculadoraI);
-                }else{
-                    prefs.edit().putString("modulo_4", "0").commit();
+                if(!primero_.isEmpty() || primero_ != null) {
+                    if(validador == true){
+                        prefs.edit().putString("modulo_4", "1").commit();
 
-                    // Toast.makeText(getActivity(),"Malo"+primero_+segundo_+tercero_,Toast.LENGTH_LONG).show();
-                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_calculadoraI);
+                        // Toast.makeText(getActivity(),"Buenazo"+primero_+segundo_+tercero_,Toast.LENGTH_LONG).show();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_calculadoraI);
+                    }else{
+                        prefs.edit().putString("modulo_4", "0").commit();
+
+                        // Toast.makeText(getActivity(),"Malo"+primero_+segundo_+tercero_,Toast.LENGTH_LONG).show();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_calculadoraI);
+                    }
                 }
+
+
             }
         });
     }

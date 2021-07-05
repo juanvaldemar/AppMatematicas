@@ -210,14 +210,18 @@ public class MayorMenosFragment extends Fragment {
                         }
                     }
                 }
-                showSnackBar("validador"+validador);
-                if(validador){
-                    prefs.edit().putString("modulo_1", "1").commit();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_menor_mayor);
-                }else{
-                    prefs.edit().putString("modulo_1", "0").commit();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_menor_mayor);
+
+                if(seleccion){
+                    showSnackBar("validador"+validador);
+                    if(validador){
+                        prefs.edit().putString("modulo_1", "1").commit();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_menor_mayor);
+                    }else{
+                        prefs.edit().putString("modulo_1", "0").commit();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_menor_mayor);
+                    }
                 }
+
 
 
             }

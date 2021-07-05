@@ -222,15 +222,18 @@ public class EstimacionFragment extends Fragment {
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!seleccion){
-                    prefs.edit().putString("modulo_5", resultadoList+",1").commit();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_m);
+                if(valorSeleccionado != 0){
+                    if(!seleccion){
+                        prefs.edit().putString("modulo_5", resultadoList+",1").commit();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_m);
 
-                }else{
-                    prefs.edit().putString("modulo_5", resultadoList+",0").commit();
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_m);
+                    }else{
+                        prefs.edit().putString("modulo_5", resultadoList+",0").commit();
+                        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_m);
 
+                    }
                 }
+
             }
         });
 
