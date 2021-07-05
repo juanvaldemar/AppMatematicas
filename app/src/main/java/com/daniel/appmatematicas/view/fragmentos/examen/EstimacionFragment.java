@@ -232,6 +232,8 @@ public class EstimacionFragment extends Fragment {
                         Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_m);
 
                     }
+                }else{
+                    Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                 }
 
             }

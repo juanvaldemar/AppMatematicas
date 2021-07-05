@@ -212,7 +212,7 @@ public class MayorMenosFragment extends Fragment {
                 }
 
                 if(!f.isEmpty() && !e.isEmpty() && !d.isEmpty() && !c.isEmpty()  && !b.isEmpty() && !a.isEmpty()){
-                    showSnackBar("validador"+validador);
+
                     if(validador){
                         prefs.edit().putString("modulo_1", "1").commit();
                         Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_menor_mayor);
@@ -220,6 +220,8 @@ public class MayorMenosFragment extends Fragment {
                         prefs.edit().putString("modulo_1", "0").commit();
                         Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_menor_mayor);
                     }
+                }else{
+                    Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                 }
 
 

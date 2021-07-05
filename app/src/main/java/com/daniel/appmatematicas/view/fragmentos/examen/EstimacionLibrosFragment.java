@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -98,8 +99,9 @@ public class EstimacionLibrosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(!seleccion){
-                    //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
-                    showSnackBar("¡Por favor seleccione una opcción valida!");
+
+                        Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
+
                 }else{
                     if(valorSeleccionado > 20){
                         prefs.edit().putString("modulo_5", resultadoList+",1").commit();

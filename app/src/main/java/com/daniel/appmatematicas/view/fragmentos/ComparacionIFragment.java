@@ -70,6 +70,8 @@ public class ComparacionIFragment extends Fragment {
                         prefs.edit().putString("modulo_2", resultadoList+",0").commit();
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.comparacionII);
+                }else{
+                    Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                 }
 
                              }

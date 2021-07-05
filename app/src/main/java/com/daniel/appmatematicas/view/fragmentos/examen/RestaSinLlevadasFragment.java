@@ -141,6 +141,8 @@ public class RestaSinLlevadasFragment extends Fragment {
                         }
                         Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_v);
 
+                    }else{
+                        Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                     }
 
 

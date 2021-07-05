@@ -7,6 +7,12 @@
 
     tools:context=".view.resultado.RakingFragment">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha=".3"
+        android:background="@drawable/icons"
+        />
 
     <FrameLayout
         android:layout_width="match_parent"

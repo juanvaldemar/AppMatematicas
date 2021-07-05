@@ -120,7 +120,9 @@ public class ComparacionIIFragment extends Fragment {
             public void onClick(View view) {
                 if(!seleccion){
                     //Toast.makeText(BuscarNumeroActivity.this,"Por favor seleccione una opcción.",Toast.LENGTH_LONG).show();
-                    showSnackBar("¡Por favor seleccione una opcción valida!");
+
+                        Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
+
                 }else{
                     if(valorSeleccionado.equalsIgnoreCase("105 es mayor que 92")){
                         prefs.edit().putString("modulo_5", resultadoList+",1").commit();

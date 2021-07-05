@@ -12,6 +12,14 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha=".3"
+        android:background="@drawable/icons"
+        />
+
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/menu_profile_image"
         android:layout_width="80dp"

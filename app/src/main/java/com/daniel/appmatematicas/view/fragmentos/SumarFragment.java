@@ -138,10 +138,10 @@ public class SumarFragment extends Fragment {
                         Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_suma_conllevadas);
 
                     }else{
-                        showSnackBar("Escriba una respuesta válida");
+                        Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                     }
-                }else {
-                    showSnackBar("Escriba una respuesta válida");
+                }else{
+                    Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                 }
 
 

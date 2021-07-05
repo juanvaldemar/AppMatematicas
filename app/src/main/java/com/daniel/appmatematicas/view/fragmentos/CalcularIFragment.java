@@ -78,6 +78,8 @@ public class CalcularIFragment extends Fragment {
                         //  Toast.makeText(getActivity(),"Malo"+primero_,Toast.LENGTH_LONG).show();
                         Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_calculadorII);
                     }
+                }else{
+                    Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                 }
 
             }

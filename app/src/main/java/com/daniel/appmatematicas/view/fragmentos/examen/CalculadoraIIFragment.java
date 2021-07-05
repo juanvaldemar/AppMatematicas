@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -49,10 +50,12 @@ public class CalculadoraIIFragment extends Fragment {
                         //    Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();
                     }else{
                         prefs.edit().putString("modulo_5", "0").commit();
-                        //     Toast.makeText(getActivity(),"Malo"+primero_,Toast.LENGTH_LONG).show();
+
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_b);
 
+                }else{
+                    Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                 }
 
             }

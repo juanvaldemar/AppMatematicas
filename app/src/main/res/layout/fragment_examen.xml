@@ -7,12 +7,21 @@
     android:layout_gravity="center"
     tools:context=".view.resultado.ExamenFragment">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha=".3"
+        android:background="@drawable/icons"
+        />
+
+
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/iniciarExamen"
         android:layout_width="match_parent"
         android:gravity="center"
-        android:textSize="30dp"
+        android:textSize="40dp"
+        android:textStyle="bold"
         android:layout_height="match_parent"
         android:text="Iniciar examen" />
 
