@@ -204,7 +204,8 @@ public class MayorMenosFragment extends Fragment {
                 }
                 showSnackBar("validador"+validador);
 
-                if(seleccion) {
+                if(!f.isEmpty() && !e.isEmpty() && !d.isEmpty() && !c.isEmpty()  && !b.isEmpty() && !a.isEmpty()){
+
 
                     if (validador) {
                         prefs.edit().putString("modulo_5", resultadoList + ",1").commit();

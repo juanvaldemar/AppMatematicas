@@ -120,7 +120,7 @@ public class RestaSinLlevadasFragment extends Fragment {
             public void onClick(View view) {
                 valorUno = Integer.parseInt(mPrimero.getText().toString());
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
-                if(valorUno != 0 && valorDos != 0) {
+                if(valorUno != 0) {
 
                     if(valorUno == 3 && valorDos == 0){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();

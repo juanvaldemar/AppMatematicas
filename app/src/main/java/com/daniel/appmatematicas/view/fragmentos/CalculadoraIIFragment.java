@@ -48,7 +48,7 @@ public class CalculadoraIIFragment extends Fragment {
                 primero = root.findViewById(R.id.primero);
                 String primero_ = primero.getText().toString();
 
-                if(!primero_.isEmpty() || primero_ != null){
+                if(!primero_.isEmpty()){
 
                     if(primero_.equalsIgnoreCase("30")){
                         prefs.edit().putString("modulo_4", resultadoList+",1").commit();

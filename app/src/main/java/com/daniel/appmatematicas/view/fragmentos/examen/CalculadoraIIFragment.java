@@ -43,7 +43,7 @@ public class CalculadoraIIFragment extends Fragment {
                 primero = root.findViewById(R.id.primero);
                 String primero_ = primero.getText().toString();
 
-                if(!primero_.isEmpty() || primero_ != null) {
+                if(!primero_.isEmpty()) {
                     if(primero_.equalsIgnoreCase("50")){
                         prefs.edit().putString("modulo_5", "1").commit();
                         //    Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();

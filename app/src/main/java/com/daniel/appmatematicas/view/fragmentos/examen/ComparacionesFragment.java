@@ -79,7 +79,7 @@ public class ComparacionesFragment extends Fragment {
                         }
                     }
                 }
-                if(!primero_.isEmpty() || primero_ != null) {
+                if(!primero_.isEmpty() && !segundo_.isEmpty() && !tercero_.isEmpty()) {
                     if(validador == true){
                         prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                         // Toast.makeText(getActivity(),"Buenazo"+primero_+segundo_+tercero_,Toast.LENGTH_LONG).show();
@@ -88,7 +88,6 @@ public class ComparacionesFragment extends Fragment {
 
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_e);
-
                 }
 
             }

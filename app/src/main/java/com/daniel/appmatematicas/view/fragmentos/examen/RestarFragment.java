@@ -122,7 +122,6 @@ public class RestarFragment extends Fragment {
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
 
 
-                if(valorUno != 0 && valorDos != 0) {
                     if(valorUno == 1 && valorDos == 5){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);
@@ -143,7 +142,6 @@ public class RestarFragment extends Fragment {
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_u);
 
-                }
 
             }
         });

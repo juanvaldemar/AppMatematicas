@@ -120,7 +120,6 @@ public class RestaSinLlevadasFragment extends Fragment {
                 valorUno = Integer.parseInt(mPrimero.getText().toString());
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
 
-                if(valorUno != 0 && valorDos != 0) {
                     if(valorUno == 3 && valorDos == 0){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);
@@ -141,7 +140,6 @@ public class RestaSinLlevadasFragment extends Fragment {
                     }
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_v);
 
-                }
 
             }
         });

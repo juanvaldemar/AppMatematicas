@@ -104,7 +104,7 @@ public class DecenasHardFragment extends Fragment {
                         if(i.getPosicion().equalsIgnoreCase("12")){
                             txtPregunta = root.findViewById(R.id.pregunta);
                             preguntaPrincipal = i.getPreguntas_tema();
-                            txtPregunta.setText(preguntaPrincipal);
+                           // txtPregunta.setText(preguntaPrincipal);
                         }
                         temaList.add(i);
                     }

@@ -203,7 +203,8 @@ public class MenorMayorFragment extends Fragment {
                     }
                 }
 
-                if(seleccion){
+                if(!f.isEmpty() && !e.isEmpty() && !d.isEmpty() && !c.isEmpty()  && !b.isEmpty() && !a.isEmpty()){
+
                     // showSnackBar("validador" + validador);
                     if (validador) {
                         prefs.edit().putString("modulo_1", resultadoList+",1").commit();

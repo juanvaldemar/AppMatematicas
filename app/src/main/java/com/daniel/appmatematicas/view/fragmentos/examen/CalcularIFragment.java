@@ -67,7 +67,7 @@ public class CalcularIFragment extends Fragment {
                 }
 
 
-                if(!primero_.isEmpty() || primero_ != null) {
+                if(!primero_.isEmpty()) {
                     if(validador == true){
                         prefs.edit().putString("modulo_5", resultadoList+",1").commit();
                         // Toast.makeText(getActivity(),"Buenazo"+primero_,Toast.LENGTH_LONG).show();

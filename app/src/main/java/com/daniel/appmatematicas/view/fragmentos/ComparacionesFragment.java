@@ -80,7 +80,7 @@ public class ComparacionesFragment extends Fragment {
                     }
                 }
 
-                if(!primero_.isEmpty() || primero_ != null) {
+                if(!primero_.isEmpty() && !segundo_.isEmpty() && !tercero_.isEmpty()) {
                     if(validador == true){
                         prefs.edit().putString("modulo_4", "1").commit();
 

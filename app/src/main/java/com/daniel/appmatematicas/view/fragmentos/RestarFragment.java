@@ -125,7 +125,7 @@ public class RestarFragment extends Fragment {
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
 
 
-                if(valorUno != 0 && valorDos != 0) {
+                if(valorDos != 0) {
                     if(valorUno == 0 && valorDos == 5){
                         //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
                         showSnackBar(calificacionOk);

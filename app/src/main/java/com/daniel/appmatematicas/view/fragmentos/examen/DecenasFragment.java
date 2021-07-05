@@ -103,7 +103,7 @@ public class DecenasFragment extends Fragment {
                         if(i.getPosicion().equalsIgnoreCase("11")){
                             txtPregunta = root.findViewById(R.id.pregunta);
                             preguntaPrincipal = i.getPreguntas_tema();
-                            txtPregunta.setText(preguntaPrincipal);
+                           // txtPregunta.setText(preguntaPrincipal);
                         }
                         temaList.add(i);
                     }
@@ -147,7 +147,7 @@ public class DecenasFragment extends Fragment {
         String ipConfig = Constante.ip_config_;
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ipConfig+":8080/")
+                .baseUrl(ipConfig)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
