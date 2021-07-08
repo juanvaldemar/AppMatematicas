@@ -52,6 +52,8 @@
             android:paddingLeft="20dp"
             android:layout_marginTop="20dp"
             android:paddingRight="20dp"
+            android:background="#EEEEED"
+
             android:orientation="vertical">
 
             <TextView
@@ -79,9 +81,6 @@
                 android:layout_marginTop="10dp"
                 android:textColor="#255CE6"
                 android:textStyle="bold"
-
-
-
                 android:text="¿Nicolás, Valentina y Nina cuentan su propina en el recreo?"
                 />
 

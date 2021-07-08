@@ -115,7 +115,6 @@ public class DecenasHardFragment extends Fragment {
                         public void onClick(View view) {
                             valorUno = Integer.parseInt(mPrimero.getText().toString());
                             valorDos = Integer.parseInt(mSegundo.getText().toString());
-                            if(valorUno != 0){
                                 if(valorUno != 0){
                                     if(valorUno == 6 && valorDos == 2){
 
@@ -132,9 +131,7 @@ public class DecenasHardFragment extends Fragment {
                                 }else{
                                     Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                                 }
-                            }else{
-                                Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
-                            }
+
                         }
                     });
                 }
@@ -154,7 +151,6 @@ public class DecenasHardFragment extends Fragment {
             public void onClick(View view) {
                 valorUno = Integer.parseInt(mPrimero.getText().toString());
                 valorDos = Integer.parseInt(mSegundo.getText().toString());
-                if(valorUno != 0){
                     if(valorUno != 0){
                         if(valorUno == 2 && valorDos == 9){
 
@@ -171,11 +167,9 @@ public class DecenasHardFragment extends Fragment {
                         Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_j);
 
                     }else{
-                        showSnackBar("Escriba una respuesta válida");
+                        Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                     }
-                }else {
-                    showSnackBar("Escriba una respuesta válida");
-                }
+
             }
         });
     }

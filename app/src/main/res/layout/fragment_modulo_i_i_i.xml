@@ -28,6 +28,8 @@
             android:layout_height="wrap_content"
             android:text="Hola, en este módulo veremos los siguientes ejercicios."
             android:textColor="#DA1919"
+            android:textStyle="bold"
+
             android:textSize="20dp"
             />
 
@@ -38,6 +40,8 @@
             android:gravity="center"
             android:text="Ejercicios de estimación."
             android:textColor="#255CE6"
+            android:textStyle="bold"
+
             android:textSize="20dp"
             />
 
@@ -48,6 +52,8 @@
             android:text="Ejericicios de estrategia de cálculo."
             android:textColor="#255CE6"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             />
 
         <TextView
@@ -58,6 +64,8 @@
             android:text="¡Vamos, tú puedes!"
             android:textColor="#5DA118"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             />
 
         <TextView
@@ -68,6 +76,8 @@
             android:gravity="center"
             android:text="Iniciar."
             android:textColor="#255CE6"
+            android:textStyle="bold"
+
             android:textSize="30dp"
             />
 
@@ -88,6 +98,8 @@
             android:layout_height="wrap_content"
             android:textSize="30dp"
             android:gravity="center"
+            android:textStyle="bold"
+
             android:text="Salir" />
 
 

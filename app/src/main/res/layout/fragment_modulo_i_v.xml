@@ -21,13 +21,13 @@
         >
 
 
-
         <TextView
             android:layout_width="wrap_content"
             android:gravity="center"
             android:layout_height="wrap_content"
             android:text="Hola, en este módulo veremos los siguientes ejercicios."
             android:textColor="#DA1919"
+            android:textStyle="bold"
             android:textSize="20dp"
             />
 
@@ -38,6 +38,8 @@
             android:gravity="center"
             android:text="Ejercicios con operaciones."
             android:textColor="#255CE6"
+            android:textStyle="bold"
+
             android:textSize="20dp"
             />
 
@@ -48,6 +50,8 @@
             android:text="Ejercicios de expresiones númericas."
             android:textColor="#255CE6"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             />
 
         <TextView
@@ -58,6 +62,8 @@
             android:text="¡Vamos, tú puedes!"
             android:textColor="#5DA118"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             />
 
         <TextView
@@ -69,6 +75,8 @@
             android:text="Iniciar."
             android:textColor="#255CE6"
             android:textSize="30dp"
+            android:textStyle="bold"
+
             />
 
 
@@ -87,6 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30dp"
+            android:textStyle="bold"
             android:gravity="center"
             android:text="Salir" />
 

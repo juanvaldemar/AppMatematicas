@@ -28,6 +28,8 @@
             android:text="Hola, en este módulo veremos los siguientes ejercicios."
             android:textColor="#DA1919"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             />
 
         <TextView
@@ -37,6 +39,8 @@
             android:gravity="center"
             android:text="Sumar con llevados."
             android:textColor="#255CE6"
+            android:textStyle="bold"
+
             android:textSize="20dp"
             />
 
@@ -47,6 +51,8 @@
             android:text="Sumar sin llevadas."
             android:textColor="#255CE6"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             />
         <TextView
             android:layout_width="match_parent"
@@ -55,6 +61,8 @@
             android:text="Resta con llevadas."
             android:textColor="#255CE6"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             />
         <TextView
             android:layout_width="match_parent"
@@ -63,6 +71,8 @@
             android:text="Resta sin llevadas."
             android:textColor="#255CE6"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             />
 
         <TextView
@@ -72,6 +82,8 @@
             android:text="Logintudes."
             android:textColor="#255CE6"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             />
         <TextView
             android:layout_width="match_parent"
@@ -79,6 +91,8 @@
             android:gravity="center"
             android:text="Pesos."
             android:textColor="#255CE6"
+            android:textStyle="bold"
+
             android:textSize="20dp"
             />
 
@@ -88,6 +102,8 @@
             android:gravity="center"
             android:text="Comparamos"
             android:textColor="#255CE6"
+            android:textStyle="bold"
+
             android:textSize="20dp"
             />
 
@@ -99,6 +115,8 @@
             android:text="¡Vamos, tú puedes!"
             android:textColor="#5DA118"
             android:textSize="20dp"
+            android:textStyle="bold"
+
             />
 
         <TextView
@@ -110,6 +128,8 @@
             android:text="Iniciar."
             android:textColor="#255CE6"
             android:textSize="30dp"
+            android:textStyle="bold"
+
             />
 
 
@@ -128,6 +148,8 @@
             android:layout_height="wrap_content"
             android:textSize="30dp"
             android:gravity="center"
+            android:textStyle="bold"
+
             android:text="Salir" />
 
 

@@ -113,10 +113,18 @@ public class SumarFragment extends Fragment {
         validar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                valorUno = Integer.parseInt(mPrimero.getText().toString());
-                valorDos = Integer.parseInt(mSegundo.getText().toString());
-                if(valorUno != 0){
 
+                    if(!mPrimero.getText().toString().isEmpty()){
+                        valorUno = Integer.parseInt(mPrimero.getText().toString());
+                    }else{
+                        valorUno = Integer.parseInt("0");
+                    }
+
+                    if(!mPrimero.getText().toString().isEmpty()){
+                        valorDos = Integer.parseInt(mSegundo.getText().toString());
+                    }else{
+                        valorDos = Integer.parseInt("0");
+                    }
                     if(valorUno != 0){
                         if(valorUno == 8 && valorDos == 7){
                             //Toast.makeText(BuscarNumeroActivity.this,"Seleccionó "+valorSeleccionado,Toast.LENGTH_SHORT).show();
@@ -143,12 +151,8 @@ public class SumarFragment extends Fragment {
                     }else{
                         Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                     }
-                }else{
-                    Toast.makeText(getActivity(),"Por favor,  brinde una respuesta.",Toast.LENGTH_LONG).show();
                 }
 
-
-            }
         });
 
 

@@ -59,11 +59,13 @@ public class ComparacionIFragment extends Fragment {
                 primero = root.findViewById(R.id.primero);
                 segundo = root.findViewById(R.id.segundo);
 
-                String primero_ = primero.getText().toString();
-                String segundo_ = segundo.getText().toString();
+                String primero_ = "0";
+                String segundo_ = "0";
+                segundo_ = segundo.getText().toString().trim();
+                primero_ = primero.getText().toString().trim();
 
 
-                if(!primero_.isEmpty() || primero_ != null) {
+                if(!primero_.isEmpty()) {
 
                     if(primero_.equalsIgnoreCase("98") && segundo_.equalsIgnoreCase("72")){
                         prefs.edit().putString("modulo_5", resultadoList+",1").commit();

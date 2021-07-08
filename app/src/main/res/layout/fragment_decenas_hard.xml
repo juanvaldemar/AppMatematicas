@@ -98,7 +98,7 @@
                         android:textSize="20dp"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:text="22 tiene"
+                        android:text="29 tiene"
                         />
                     <EditText
                         android:id="@+id/primero"
@@ -135,7 +135,7 @@
                         android:textSize="20dp"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:text="96 tiene"
+                        android:text="92 tiene"
                         />
                     <EditText
                           android:id="@+id/segundo"

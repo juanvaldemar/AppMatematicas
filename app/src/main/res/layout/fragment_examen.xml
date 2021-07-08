@@ -23,6 +23,6 @@
         android:textSize="40dp"
         android:textStyle="bold"
         android:layout_height="match_parent"
-        android:text="Iniciar examen" />
+        android:text="Iniciar exámen" />
 
 </RelativeLayout>
